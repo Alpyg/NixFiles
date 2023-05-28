@@ -16,7 +16,7 @@ bspc config borderless_monocle  true
 bspc config gapless_monocle     true
 
 killall -q polybar
-polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
+polybar bar 2>&1 | tee -a /tmp/polybar.log & disown
 
 killall -q Discord
 discord & disown
