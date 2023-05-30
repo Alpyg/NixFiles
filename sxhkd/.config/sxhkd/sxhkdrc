@@ -123,3 +123,8 @@ super + {Left,Down,Up,Right}
 # flameshot
 super + shift + s
   flameshot gui -c -s
+
+# media
+XF86Audio{Play,Prev,Next}
+  playerctl {play-pause,previous,next}
+
