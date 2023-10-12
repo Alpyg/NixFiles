@@ -1,5 +1,8 @@
 return {
   {
+    "ziglang/zig.vim",
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
