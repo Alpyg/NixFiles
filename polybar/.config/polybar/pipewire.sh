@@ -4,7 +4,7 @@ function main() {
   SINK=$(wpctl status | grep -A1 'Sinks' | grep '*')
   SOURCE=$(echo "$SINK" | grep -oP '\K\d+' | head -n 1)
   VOLUME=$(echo "$SINK" | grep -oP '\[vol: \K[0-9.]+' | tr -d '.' | sed 's/^0*//')
-  MUTED=$(echo "$SINK" | grep -oP '\MUTED' | tr -d '.')
+  MUTED=$(echo "$SINK" | grep -oP 'MUTED' | tr -d '.')
 
   case $1 in
     "+")
