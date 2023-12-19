@@ -12,7 +12,7 @@ return {
     optional = true,
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "intelephense", "phpstan", "pint" })
+        vim.list_extend(opts.ensure_installed, { "intelephense", "phpstan", "pint", "blade-formatter" })
       end
     end,
   },
@@ -20,12 +20,13 @@ return {
     "nvimtools/none-ls.nvim",
     opts = function(_, opts)
       if type(opts.sources) == "table" then
-        local nls = require("null-ls")
+        local nls = require("none-ls")
         vim.list_extend(opts.sources, {
           nls.builtins.formatting.pint,
+          nls.builtins.formatting.blade_formatter,
           nls.builtins.diagnostics.phpstan,
         })
       end
     end,
-  },
+  }
 }
