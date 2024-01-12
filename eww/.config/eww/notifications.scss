@@ -1,0 +1,30 @@
+.notifications {
+  min-height: 0px;
+  background-color: transparent;
+}
+
+.notification {
+  background-color: #222436;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  border-width: 2px;
+  border-color: #3c3e4f;
+}
+
+// catppuccin mocha colors
+.notification_app {
+  color: #f8f8f2;
+  font-weight: bold;
+}
+
+.notification_summary {
+  color: #f8f8f2;
+}
+
+.notification_body {
+  color: #f8f8f2;
+}
+
+.notification_icon {
+  padding-right: 10px;
+}

@@ -16,13 +16,13 @@ bspc config gapless_monocle true
 
 bspc rule -a Steam monitor=HDMI-0 desktop=^4
 
-pkill -q picom
-pkill -q polybar
-pkill -q flameshot
-pkill Discord
-pkill -q steam
-pkill -q kdeconnect-cli
-pkill -q eww
+pkill -q picom &
+pkill -q polybar &
+pkill -q flameshot &
+pkill Discord &
+pkill -q steam &
+pkill -q kdeconnect-cli &
+eww kill
 
 /nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &
 picom -b --config ~/.config/picom/picom.conf &
@@ -31,4 +31,5 @@ flameshot &
 discord &
 steam &
 kdeconnect-cli &
-eww -c ~/.config/eww/bar daemon &
+eww daemon
+eww open notifications
