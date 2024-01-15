@@ -57,7 +57,6 @@
   };
 
   home.packages = with pkgs; [
-    kitty
     xclip
     playerctl
     p7zip
@@ -68,11 +67,9 @@
     thunderbird
     brave
     vlc
-    syncplay
     polybar
     eww
     flameshot
-    unityhub
     vrc-get
     mangohud
     goverlay
@@ -96,19 +93,12 @@
     gtk2
     filezilla
     xorriso
-    qemu
     gnumake
     gh
-    blender
-    dbeaver
-    webex
-    osu-lazer
-    obs-studio
     vscode
     cargo
     unzip
     zig
-    prusa-slicer
   ];
 
   # Nicely reload system units when changing configs

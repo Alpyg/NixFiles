@@ -28,12 +28,17 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        # > Our main nixos configuration file <
         modules = [
-          ./nixos/configuration.nix
+          ./nixos/nixos/configuration.nix
+          ./nixos/pipewire.nix
+        ];
+      };
+      t470 = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/t470/configuration.nix
           ./nixos/pipewire.nix
         ];
       };
@@ -46,7 +51,13 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
-        modules = [./nixos/alpyg.nix];
+        modules = [./nixos/nixos/alpyg.nix];
+      };
+      "alpyg@t470" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        # > Our main home-manager configuration file <
+        modules = [./nixos/t470/alpyg.nix];
       };
     };
   };

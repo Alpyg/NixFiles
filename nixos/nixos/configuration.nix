@@ -102,6 +102,7 @@
 
   environment.systemPackages = with pkgs; [
     fishPlugins.done
+    kitty
     nix-index
     htop
     neovim
