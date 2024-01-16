@@ -1,0 +1,24 @@
+$base: red;
+$primary: blue;
+$secondary: green;
+$accent: cyan;
+$neutral: white;
+$info: yellow;
+$warning: orange;
+$error: red;
+
+.container {
+  background-color: transparent;
+  color: $accent;
+}
+
+.bar {
+  margin: 4px 4px 4px 0px;
+  padding: 4px;
+  border-radius: 32px;
+
+  .clock {
+    font-size: 2rem;
+    font-weight: 900;
+  }
+}

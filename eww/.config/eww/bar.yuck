@@ -1,0 +1,27 @@
+;; Variables
+(defpoll clock_h :interval "1s" "date +%H")
+(defpoll clock_m :interval "1s" "date +%M")
+(defvar calendar false)
+
+(defwidget bar []
+  (centerbox :class "container" :orientation "v"
+    (label :text "")
+    (label :text "")
+    (status)))
+
+(defwidget status []
+  (box :class "bar" :orientation "v" :space-evenly false :valign "end"
+    (label :class "clock" :justify "center" :wrap true :text "${clock_h}")
+    (label :class "clock" :justify "center" :wrap true :text "${clock_m}")))
+
+(defwindow taskbar
+  :monitor 0
+  :geometry (geometry :x "0px"
+                      :y "0px"
+                      :width "48px"
+                      :height "100%"
+                      :anchor "center right")
+  :stacking "bg"
+  :windowtype "desktop"
+  :reserve (struts :distance "48px" :side "right")
+  (bar))
