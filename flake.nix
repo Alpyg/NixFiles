@@ -39,6 +39,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/t470/configuration.nix
+          ./nixos/t470/printer.nix
           ./nixos/pipewire.nix
         ];
       };
