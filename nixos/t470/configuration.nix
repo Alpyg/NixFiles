@@ -102,6 +102,10 @@
     gtk3
     dmenu
     killall
+
+    android-studio
+    android-tools
+    openjdk
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = rec {

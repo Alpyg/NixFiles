@@ -24,16 +24,16 @@
   networking.firewall = {
     enable = true;
     trustedInterfaces = [ "eno1" ];
-    allowedTCPPorts = [ 25565 9942 9943 9944 ];
+    allowedTCPPorts = [ 9942 9943 9944 25565 ];
     allowedUDPPorts = [ 9942 9943 9944 ];
+    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
   };
 
   services.zerotierone = {
     enable = true;
     joinNetworks = [ "ebe7fbd445ae1d09" ];
   };
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "${pkgs.icewm}/bin/icewm";
 
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";
@@ -92,7 +92,6 @@
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
 
-  programs.kdeconnect.enable = true;
   programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
@@ -120,6 +119,10 @@
     killall
     wineWowPackages.stable
     vulkan-loader
+
+    android-studio
+    android-tools
+    openjdk
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = rec {

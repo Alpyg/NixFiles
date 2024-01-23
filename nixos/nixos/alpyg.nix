@@ -55,9 +55,19 @@
     userName = "Alpyg";
     userEmail = "alpyg@pm.me";
   };
+  programs.gh.enable = true;
+  programs.lazygit.enable = true;
+
+  programs.mangohud.enable = true;
+  programs.obs-studio.enable = true;
+
+  services.kdeconnect.enable = true;
+  services.flameshot.enable = true;
 
   home.packages = with pkgs; [
     kitty
+    tmux
+    tmuxinator
     xclip
     playerctl
     p7zip
@@ -67,24 +77,19 @@
     filelight
     thunderbird
     brave
+    eww
+    polybar
     vlc
     syncplay
-    polybar
-    eww
-    flameshot
     unityhub
     vrc-get
-    mangohud
     goverlay
     prismlauncher
     (pkgs.discord.override {
       withVencord = true;
     })
 
-    lazygit
     lazydocker
-    tmux
-    tmuxinator
     php82
     php82Packages.composer
     nodejs
@@ -93,23 +98,17 @@
     python311Packages.stdenv
     python311Packages.langchain
     gcc
-    gtk2
-    filezilla
-    xorriso
     qemu
     gnumake
-    gh
     blender
     dbeaver
-    webex
     osu-lazer
-    obs-studio
-    vscode
     cargo
     unzip
     zig
     prusa-slicer
     protontricks
+    kicad
   ];
 
   # Nicely reload system units when changing configs
