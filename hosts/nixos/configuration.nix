@@ -103,7 +103,6 @@
     fishPlugins.done
     kitty
     nix-index
-    htop
     neovim
     stow
     libsForQt5.qt5ct

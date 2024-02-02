@@ -13,7 +13,13 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
+    ../config/bspwm.nix
+    ../config/sxhkd.nix
+    ../config/polybar.nix
+    ../config/dunst.nix
+    ../config/btop.nix
+    ../config/kitty.nix
+    ../config/tmux.nix
   ];
 
   nixpkgs = {
@@ -55,8 +61,17 @@
     userName = "Alpyg";
     userEmail = "alpyg@pm.me";
   };
+  programs.gh.enable = true;
+  programs.lazygit.enable = true;
+
+  programs.mangohud.enable = true;
+  programs.obs-studio.enable = true;
+
+  services.kdeconnect.enable = true;
+  services.flameshot.enable = true;
 
   home.packages = with pkgs; [
+    tmuxinator
     xclip
     playerctl
     p7zip
@@ -67,21 +82,16 @@
     thunderbird
     brave
     vlc
-    polybar
-    eww
-    flameshot
+    syncplay
+    unityhub
     vrc-get
-    mangohud
     goverlay
     prismlauncher
     (pkgs.discord.override {
       withVencord = true;
     })
 
-    lazygit
     lazydocker
-    tmux
-    tmuxinator
     php82
     php82Packages.composer
     nodejs
@@ -90,15 +100,17 @@
     python311Packages.stdenv
     python311Packages.langchain
     gcc
-    gtk2
-    filezilla
-    xorriso
+    qemu
     gnumake
-    gh
-    vscode
+    blender
+    dbeaver
+    osu-lazer
     cargo
     unzip
     zig
+    prusa-slicer
+    protontricks
+    kicad
   ];
 
   # Nicely reload system units when changing configs

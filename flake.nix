@@ -28,16 +28,16 @@
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/nixos/configuration.nix
-          ./nixos/pipewire.nix
+          ./hosts/nixos/configuration.nix
+          ./hosts/pipewire.nix
         ];
       };
       t470 = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/t470/configuration.nix
-          ./nixos/t470/printer.nix
-          ./nixos/pipewire.nix
+          ./hosts/t470/configuration.nix
+          ./hosts/t470/printer.nix
+          ./hosts/pipewire.nix
         ];
       };
     };
@@ -49,13 +49,13 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
-        modules = [./nixos/nixos/alpyg.nix];
+        modules = [./hosts/nixos/alpyg.nix];
       };
       "alpyg@t470" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
-        modules = [./nixos/t470/alpyg.nix];
+        modules = [./hosts/t470/alpyg.nix];
       };
     };
   };
