@@ -2,7 +2,7 @@
 
 {
   programs.btop.enable = true;
-  programs.settings = {
+  programs.btop.settings = {
 
   };
 }

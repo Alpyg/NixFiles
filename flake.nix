@@ -40,6 +40,13 @@
           ./hosts/pipewire.nix
         ];
       };
+      kuyin = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/kuyin/configuration.nix
+          ./hosts/pipewire.nix
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
@@ -56,6 +63,12 @@
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
         modules = [./hosts/t470/alpyg.nix];
+      };
+      "kuyin@kuyin" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        # > Our main home-manager configuration file <
+        modules = [./hosts/kuyin/kuyin.nix];
       };
     };
   };

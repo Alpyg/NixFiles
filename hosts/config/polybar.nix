@@ -3,6 +3,7 @@
 {
   services.polybar.enable = true;
   services.polybar.package = pkgs.polybar.override { alsaSupport = true;  iwSupport = true;  githubSupport = true; };
+  services.polybar.script = "polybar bar 2>&1 | tee -a /tmp/polybar.log";
   services.polybar.settings = {
     "colors" = {
       background = "#282a2e";

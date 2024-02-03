@@ -9,6 +9,7 @@
   xsession.windowManager.bspwm.monitors = {
     HDMI-0 = [ "I" "II" "III" "IV" ];
     DP-1 = [ "I" "II" "III" "IV" ];
+    eDP-1 = [ "I" "II" "III" "IV" ];
   };
   xsession.windowManager.bspwm.settings = {
     border_width = 2;
@@ -19,10 +20,7 @@
   };
   xsession.windowManager.bspwm.startupPrograms = [
     "picom -b --config ~/.config/picom/picom.conf"
-    "polybar bar 2>&1 | tee -a /tmp/polybar.log"
-    "eww daemon"
     "kdeconnect-cli"
-    "eww open notifications"
     "flameshot"
     "discord"
     "steam"

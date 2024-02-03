@@ -121,7 +121,7 @@
 
     android-studio
     android-tools
-    openjdk
+    jdk17
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = rec {
@@ -152,5 +152,5 @@
     };
   };
   
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }
