@@ -7,7 +7,9 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./hardware.nix
+
+      ./printer.nix
     ];
 
   nix.settings = {
@@ -20,14 +22,20 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
-  networking.hostName = "nixos";
+  networking.hostName = "t470";
+  networking.networkmanager.enable = true;
+  networking.firewall = {
+    enable = true;
+    trustedInterfaces = [ "enp0s31f6" ];
+    allowedTCPPorts = [ 80 443 7125 25565 ];
+  };
 
   services.zerotierone = {
     enable = true;
     joinNetworks = [ "ebe7fbd445ae1d09" ];
   };
 
-  time.timeZone = "Asia/Jakarta";
+  time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";
 
   hardware.opengl = {
@@ -37,6 +45,11 @@
     extraPackages = with pkgs; [ intel-media-driver vaapiIntel vaapiVdpau libvdpau-va-gl ];
   };
   hardware.bluetooth.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    enableNvidia = true;
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -51,8 +64,8 @@
 
   users.users.alpyg = {
     isNormalUser = true;
-    description = "Kuyin";
-    extraGroups = [ "networkmanager" "wheel" "storage" ];
+    description = "Alpyg";
+    extraGroups = [ "networkmanager" "wheel" "storage" "docker" ];
   };
   users.defaultUserShell = pkgs.fish;
 
@@ -60,27 +73,26 @@
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.lightdm.greeters.gtk.enable = true;
   services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "kuyin";
+  services.xserver.displayManager.autoLogin.user = "alpyg";
   services.xserver.windowManager.bspwm.enable = true;
   services.picom.enable = true;
   services.devmon.enable = true;
   security.polkit.enable = true;
 
+  services.openssh.enable = true;
+
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
 
-  programs.gamemode.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
+  programs.kdeconnect.enable = true;
 
   environment.systemPackages = with pkgs; [
     fishPlugins.done
     kitty
     nix-index
+    htop
     neovim
+    stow
     libsForQt5.qt5ct
     libsForQt5.polkit-kde-agent
     libsForQt5.breeze-icons
@@ -92,7 +104,10 @@
     gtk3
     dmenu
     killall
-    wineWowPackages.stable
+
+    android-studio
+    android-tools
+    openjdk
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = rec {

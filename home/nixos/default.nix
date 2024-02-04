@@ -13,13 +13,14 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    ../config/bspwm.nix
-    ../config/sxhkd.nix
-    ../config/polybar.nix
-    ../config/dunst.nix
-    ../config/btop.nix
-    ../config/kitty.nix
-    ../config/tmux.nix
+    ../.modules/bspwm.nix
+    ../.modules/sxhkd.nix
+    ../.modules/polybar.nix
+    ../.modules/dunst.nix
+    ../.modules/btop.nix
+    ../.modules/kitty.nix
+    ../.modules/tmux.nix
+    ../.modules/nixvim
   ];
 
   nixpkgs = {
@@ -97,19 +98,15 @@
     nodejs
     bun
     python311
-    python311Packages.stdenv
-    python311Packages.langchain
     gcc
     qemu
     gnumake
-    blender
     dbeaver
-    osu-lazer
+    blender
     cargo
     unzip
     zig
     prusa-slicer
-    protontricks
     kicad
   ];
 
