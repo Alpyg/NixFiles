@@ -21,6 +21,7 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
 
   services.zerotierone = {
     enable = true;
@@ -28,7 +29,7 @@
   };
 
   time.timeZone = "Asia/Jakarta";
-  i18n.defaultLocale = "en_CA.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   hardware.opengl = {
     enable = true;
@@ -49,7 +50,7 @@
     jack.enable = true;
   };
 
-  users.users.alpyg = {
+  users.users.kuyin = {
     isNormalUser = true;
     description = "Kuyin";
     extraGroups = [ "networkmanager" "wheel" "storage" ];
@@ -122,6 +123,6 @@
       };
     };
   };
-  
+
   system.stateVersion = "23.11";
 }
