@@ -59,13 +59,11 @@
 
   services.xserver.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.lightdm.greeters.pantheon.enable = false;
   services.xserver.displayManager.lightdm.greeters.gtk.enable = true;
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "kuyin";
-  services.xserver.windowManager.bspwm.enable = true;
-  services.picom.enable = true;
-  services.devmon.enable = true;
-  security.polkit.enable = true;
+  services.xserver.desktopManager.pantheon.enable = true;
+
+  services.openssh.enable = true;
 
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
@@ -79,21 +77,7 @@
 
   environment.systemPackages = with pkgs; [
     fishPlugins.done
-    kitty
     nix-index
-    neovim
-    libsForQt5.qt5ct
-    libsForQt5.polkit-kde-agent
-    libsForQt5.breeze-icons
-    libsForQt5.breeze-qt5
-    libsForQt5.breeze-gtk
-    libsForQt5.ark
-    libsForQt5.gwenview
-    libsForQt5.ktorrent
-    gtk3
-    dmenu
-    killall
-    wineWowPackages.stable
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = rec {
