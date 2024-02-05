@@ -30,7 +30,7 @@
       font-0 = "monospace;2";
 
       modules-left = "xwindow";
-      modules-right = "memory cpu volume date";
+      modules-right = "memory cpu volume battery date";
 
       cursor-click = "pointer";
       cursor-scroll = "ns-resize";
@@ -60,6 +60,12 @@
       label-volume = "%percentage%%";
       label-muted-foreground = "#660";
       interval = "10";
+    };
+    "module/battery" = {
+      type = "internal/battery";
+      full-at = "99";
+      low-at = "10";
+      poll-interval = "5";
     };
     "module/date" = {
       type = "internal/date";
