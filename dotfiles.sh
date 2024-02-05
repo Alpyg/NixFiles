@@ -2,15 +2,17 @@
 
 pushd ~/.dotfiles
 
+folders=("vencord")
+
 install_dotfiles() {
-	for folder in $(ls -d .*/ */ 2>/dev/null | grep -Ev "^\.{1,2}/?|\.git/?'"); do
+	for folder in "${folders[@]}"; do
 		echo "Stowing $folder"
 		stow -R $folder
 	done
 }
 
 clear_dotfiles() {
-	for folder in $(ls -d .*/ */ 2>/dev/null | grep -Ev "^\.{1,2}/?|\.git/?'"); do
+	for folder in "${folders[@]}"; do
 		echo "Unstowing $folder"
 		stow -D $folder
 	done
