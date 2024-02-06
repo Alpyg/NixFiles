@@ -118,10 +118,6 @@
     killall
     wineWowPackages.stable
     vulkan-loader
-
-    android-studio
-    android-tools
-    jdk17
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = rec {
@@ -131,6 +127,11 @@
     XDG_STATE_HOME   = "$HOME/.local/state";
     QT_QPA_PLATFORMTHEME = "qt5ct";
   };
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    libz
+  ];
 
   fonts.packages = with pkgs; [
     nerdfonts
@@ -151,6 +152,6 @@
       };
     };
   };
-  
+
   system.stateVersion = "23.11";
 }
