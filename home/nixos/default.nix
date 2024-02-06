@@ -76,6 +76,7 @@
     xclip
     playerctl
     p7zip
+    unzip
     unrar
     kate
     dolphin
@@ -104,7 +105,6 @@
     dbeaver
     blender
     cargo
-    unzip
     zig
     prusa-slicer
     kicad

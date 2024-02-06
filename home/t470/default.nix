@@ -20,6 +20,7 @@
     ../.modules/btop.nix
     ../.modules/kitty.nix
     ../.modules/tmux.nix
+    ../.modules/nixvim
   ];
 
   nixpkgs = {
@@ -61,11 +62,17 @@
     userName = "Alpyg";
     userEmail = "alpyg@pm.me";
   };
+  programs.gh.enable = true;
+  programs.lazygit.enable = true;
+
+  services.flameshot.enable = true;
 
   home.packages = with pkgs; [
+    tmuxinator
     xclip
     playerctl
     p7zip
+    unzip
     unrar
     kate
     dolphin
@@ -73,36 +80,26 @@
     thunderbird
     brave
     vlc
-    flameshot
-    vrc-get
-    mangohud
-    goverlay
-    prismlauncher
     (pkgs.discord.override {
       withVencord = true;
     })
 
-    lazygit
     lazydocker
-    tmuxinator
     php82
     php82Packages.composer
     nodejs
     bun
     python311
-    python311Packages.stdenv
-    python311Packages.langchain
     gcc
-    gtk2
-    filezilla
-    xorriso
+    qemu
     gnumake
-    gh
-    vscode
+    dbeaver
     cargo
-    unzip
-    zig
+
+    android-studio
+    android-tools
   ];
+  programs.java.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
