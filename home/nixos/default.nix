@@ -99,6 +99,7 @@
     nodejs
     bun
     python311
+    poetry
     gcc
     qemu
     gnumake

@@ -10,72 +10,62 @@
     };
 
     keymaps = let
-      normal =
-        lib.mapAttrsToList
-        (key: action: {
-          mode = "n";
-          inherit action key;
-        })
-        {
-          "<Space>" = "<NOP>";
+      elemAtOrDefault = list: index: (
+        if index >= 0 && index < builtins.length list
+        then builtins.elemAt list 3
+        else {}
+      );
+      maps = map (x: {
+        mode =  builtins.elemAt x 0;
+        key = builtins.elemAt x 1;
+        action = builtins.elemAt x 2;
+        options = elemAtOrDefault x 3;
+      }) [
+[ "n" "<Space>" "<NOP>" {} ]
+[ "n" "<esc>" ":noh<CR>" ] # clear search results
+[ "n" "Y" "y$" ] # fix Y behavior
+[ "n" "<C-c>" ":b#<CR>" ] # back and forth between the two most recent files
+[ "n" "<C-x>" ":close<CR>" ] # close by ctrl-x
 
-          # Esc to clear search results
-          "<esc>" = ":noh<CR>";
+# save
+[ "n" "<leader>s" ":w<CR>" ]
+[ "n" "<C-s>" ":w<CR>" ]
 
-          # fix Y behaviour
-          Y = "y$";
+# navigation
+[ "n" "<leader>h" "<C-w>h" { desc = "Navigate to right window"; } ]
+[ "n" "<leader>l" "<C-w>l" { desc = "Navigate to left window"; } ]
 
-          # back and fourth between the two most recent files
-          "<C-c>" = ":b#<CR>";
+# jump start/end of line (first/last character)
+[ "n" "H" "^" { desc = "Jump to start of line"; } ]
+[ "n" "L" "$" { desc = "Jump to end of line"; } ]
 
-          # close by Ctrl+x
-          "<C-x>" = ":close<CR>";
+# resize with arrows
+[ "n" "<C-Up>" ":resize -2<CR>" { desc = "Resize up"; } ]
+[ "n" "<C-Down>" ":resize +2<CR>" { desc = "Resize down"; } ]
+[ "n" "<C-Right>" ":vertical resize -2<CR>" { desc = "Resize right"; } ]
+[ "n" "<C-Left>" ":vertical resize +2<CR>" { desc = "Resize left"; } ]
 
-          # save by Space+s or Ctrl+s
-          "<leader>s" = ":w<CR>";
-          "<C-s>" = ":w<CR>";
+# move current line up/down
+[ "n" "<M-k>" ":move-2<CR>" ]
+[ "n" "<M-j>" ":move+<CR>" ]
 
-          # navigate to left/right window
-          "<leader>h" = "<C-w>h";
-          "<leader>l" = "<C-w>l";
+[ "n" "<leader>rp" ":!remi push<CR>" ]
 
-          # Press 'H', 'L' to jump to start/end of a line (first/last character)
-          L = "$";
-          H = "^";
+# better indenting
+[ "v" ">" ">gv" ]
+[ "v" "<" "<gv" ]
+[ "v" "<TAB>" ">gv" ]
+[ "v" "<S-TAB>" "<gv" ]
+# move selected line/block in visual mode
+[ "v" "K" ":m '<-2<CR>gv=gv" ]
+[ "v" "J" ":m '<+1<CR>gv=gv" ]
 
-          # resize with arrows
-          "<C-Up>" = ":resize -2<CR>";
-          "<C-Down>" = ":resize +2<CR>";
-          "<C-Left>" = ":vertical resize +2<CR>";
-          "<C-Right>" = ":vertical resize -2<CR>";
-
-          # move current line up/down
-          # M = Alt key
-          "<M-k>" = ":move-2<CR>";
-          "<M-j>" = ":move+<CR>";
-
-          "<leader>rp" = ":!remi push<CR>";
-        };
-      visual =
-        lib.mapAttrsToList
-        (key: action: {
-          mode = "v";
-          inherit action key;
-        })
-        {
-          # better indenting
-          ">" = ">gv";
-          "<" = "<gv";
-          "<TAB>" = ">gv";
-          "<S-TAB>" = "<gv";
-
-          # move selected line / block of text in visual mode
-          "K" = ":m '<-2<CR>gv=gv";
-          "J" = ":m '>+1<CR>gv=gv";
-        };
+# lazygit
+[["n" "i" "v"] "<leader>gg" "<cmd>FloatermNew --width=0.9 --height=0.9 --name=lazygit lazygit<CR>" { desc = "Open LazyGit"; } ]
+      ];
     in
       config.nixvim.helpers.keymaps.mkKeymaps
       {options.silent = true;}
-      (normal ++ visual);
+      (maps);
   };
 }
