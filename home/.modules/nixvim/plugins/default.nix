@@ -5,6 +5,7 @@
     ./lsp.nix
     ./lualine.nix
     ./neo-tree.nix
+    ./ollama.nix
     ./startify.nix
     ./telescope.nix
     ./treesitter.nix

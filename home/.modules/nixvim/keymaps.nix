@@ -60,8 +60,13 @@
 [ "v" "K" ":m '<-2<CR>gv=gv" ]
 [ "v" "J" ":m '<+1<CR>gv=gv" ]
 
-# lazygit
-[["n" "i" "v"] "<leader>gg" "<cmd>FloatermNew --width=0.9 --height=0.9 --name=lazygit lazygit<CR>" { desc = "Open LazyGit"; } ]
+# lazygit/docker
+[["n" "i" "v"] "<leader>lg" "<cmd>FloatermNew --width=0.9 --height=0.9 --name=lazygit lazygit<CR>" { desc = "Open LazyGit"; } ]
+[["n" "i" "v"] "<leader>ld" "<cmd>FloatermNew --width=0.9 --height=0.9 --name=lazydocker lazydocker<CR>" { desc = "Open LazyDocker"; } ]
+
+# Ollama
+[["n" "i" "v"] "<leader>og" ":<C-u>lua require('ollama').prompt('Generate_Code')<CR>" { desc = "Ollama generate code"; } ]
+[["n" "i" "v"] "<leader>oo" ":<C-u>lua require('ollama').prompt()<CR>" { desc = "Ollama prompt"; } ]
       ];
     in
       config.nixvim.helpers.keymaps.mkKeymaps

@@ -89,6 +89,7 @@
     vrc-get
     goverlay
     prismlauncher
+    osu-lazer
     (pkgs.discord.override {
       withVencord = true;
     })
