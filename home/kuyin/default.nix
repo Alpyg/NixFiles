@@ -71,6 +71,7 @@
     google-chrome
     vlc
     syncplay
+    audacity
     prismlauncher
     (pkgs.discord.override {
       withVencord = true;
