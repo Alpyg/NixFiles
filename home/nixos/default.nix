@@ -1,12 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, lib, config, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -64,6 +58,11 @@
   };
   programs.gh.enable = true;
   programs.lazygit.enable = true;
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   programs.mangohud.enable = true;
   programs.obs-studio.enable = true;
@@ -90,9 +89,7 @@
     goverlay
     prismlauncher
     osu-lazer
-    (pkgs.discord.override {
-      withVencord = true;
-    })
+    (pkgs.discord.override { withVencord = true; })
 
     lazydocker
     php82
@@ -108,8 +105,10 @@
     blender
     cargo
     zig
+    rustc
     prusa-slicer
     kicad
+    libreoffice-qt
 
     android-studio
     android-tools

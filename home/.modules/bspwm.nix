@@ -19,6 +19,8 @@
     gapless_monocle = true;
   };
   xsession.windowManager.bspwm.startupPrograms = [
+    "kill polybar"
+    "polybar bar 2>&1 | tee -a /tmp/polybar.log"
     "picom -b --config ~/.config/picom/picom.conf"
     "kdeconnect-cli"
     "flameshot"

@@ -5,6 +5,7 @@
     ./lsp.nix
     ./lualine.nix
     ./neo-tree.nix
+    ./none-ls.nix
     ./ollama.nix
     ./startify.nix
     ./telescope.nix
