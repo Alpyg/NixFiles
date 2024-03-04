@@ -134,7 +134,13 @@
   };
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [ glib libz libGL xorg.libxcb ];
+  programs.nix-ld.libraries = with pkgs; [
+    glib
+    libz
+    libGL
+    xorg.libX11
+    xorg.libxcb
+  ];
 
   fonts.packages = with pkgs; [ nerdfonts ];
 

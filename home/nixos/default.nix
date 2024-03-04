@@ -83,6 +83,7 @@
     thunderbird
     brave
     vlc
+    mpv
     syncplay
     unityhub
     vrc-get

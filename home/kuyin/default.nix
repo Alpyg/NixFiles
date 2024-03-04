@@ -1,12 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, lib, config, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -70,12 +64,11 @@
     filelight
     google-chrome
     vlc
+    mpv
     syncplay
     audacity
     prismlauncher
-    (pkgs.discord.override {
-      withVencord = true;
-    })
+    (pkgs.discord.override { withVencord = true; })
   ];
 
   # Nicely reload system units when changing configs
