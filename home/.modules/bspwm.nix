@@ -7,9 +7,9 @@
     xsetroot -cursor_name left_ptr &
   '';
   xsession.windowManager.bspwm.monitors = {
-    HDMI-0 = [ "I" "II" "III" "IV" ];
-    DP-1 = [ "I" "II" "III" "IV" ];
-    eDP-1 = [ "I" "II" "III" "IV" ];
+    HDMI-0 = [ "I" "II" "III" "IV" "V" ];
+    DP-1 = [ "I" "II" "III" "IV" "V" ];
+    eDP-1 = [ "I" "II" "III" "IV" "V" ];
   };
   xsession.windowManager.bspwm.settings = {
     border_width = 2;
