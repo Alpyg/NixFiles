@@ -68,7 +68,7 @@
     syncplay
     audacity
     prismlauncher
-    (pkgs.discord.override { withVencord = true; })
+    discord
   ];
 
   # Nicely reload system units when changing configs

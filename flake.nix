@@ -38,7 +38,7 @@
         };
         kuyin = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./nixos/kuyin ./nixos/pipewire.nix ./nixos/sws.nix ];
+          modules = [ ./nixos/kuyin ./nixos/pipewire.nix ];
         };
       };
 
