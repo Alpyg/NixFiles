@@ -90,7 +90,7 @@
     goverlay
     prismlauncher
     osu-lazer
-    discord
+    (pkgs.discord.override { withVencord = true; })
 
     lazydocker
     php82
