@@ -6,12 +6,12 @@
     # wm
     "super + Return" = "kitty"; # terminal
     "super + d" = "dmenu_run"; # dmenu
-    "super + Escape" =
+    "super + ``" =
       "pkill -USR1 -x sxhkd; pkill -USR1 polybar"; # reload sxhkd
 
     # bspwm
     "super + alt + r" = "bspc wm -r"; # reload bspwm
-    "super + {_,shift + }x" = "bspc node -{c, k}"; # close/kill
+    "super + {_,shift + }x" = "bspc node -{c,k}"; # close/kill
     "super + m" = "bspc desktop -l next"; # toggle monocle
     "super + {t,shift + t,s,f}" =
       "bspc node -t {tiled,pseudo_tiled,floating,fullscreen}"; # toggle node state
