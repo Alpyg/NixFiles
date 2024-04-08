@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1712010805302
+        "settingsSyncVersion": 1712594353073
     },
     "plugins": {
         "BadgeAPI": {
@@ -331,7 +331,8 @@
             "enabled": false
         },
         "PinDMs": {
-            "enabled": false
+            "enabled": false,
+            "pinnedDMs": "945154727820267520"
         },
         "PlainFolderIcon": {
             "enabled": false
@@ -440,10 +441,11 @@
             "enabled": false
         },
         "TypingIndicator": {
-            "enabled": false
+            "enabled": true
         },
         "TypingTweaks": {
-            "enabled": false
+            "enabled": true,
+            "alternativeFormatting": true
         },
         "Unindent": {
             "enabled": false

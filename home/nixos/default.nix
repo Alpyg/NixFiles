@@ -14,7 +14,6 @@
     ../.modules/btop.nix
     ../.modules/kitty.nix
     ../.modules/tmux.nix
-    ../.modules/nixvim
   ];
 
   nixpkgs = {
@@ -82,6 +81,7 @@
     filelight
     thunderbird
     brave
+    firefox-devedition
     vlc
     mpv
     syncplay
