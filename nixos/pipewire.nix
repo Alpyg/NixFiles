@@ -59,8 +59,10 @@ let
   };
 in
 {
-  environment.etc."pipewire/source-rnnoise.conf" = {
+  services.pipewire.extraConfig.pipewire = {
+    "source-rnnoise.conf" = {
       source = json.generate "source-rnnoise.conf" pw_rnnoise_config;
+    };
   };
   systemd.user.services."pipewire-source-rnnoise" = {
     environment = { LADSPA_PATH = "${pkgs.rnnoise-plugin}/lib/ladspa"; };

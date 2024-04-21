@@ -30,15 +30,15 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./nixos/nixos ./nixos/pipewire.nix ./nixos/sws.nix ];
+          modules = [ ./nixos/nixos ];
         };
         t470 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./nixos/t470 ./nixos/pipewire.nix ];
+          modules = [ ./nixos/t470 ];
         };
         kuyin = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./nixos/kuyin ./nixos/pipewire.nix ];
+          modules = [ ./nixos/kuyin ];
         };
       };
 

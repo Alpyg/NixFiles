@@ -87,8 +87,8 @@
   services.xserver.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.lightdm.greeters.gtk.enable = true;
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "alpyg";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "alpyg";
   services.xserver.windowManager.bspwm.enable = true;
   services.picom.enable = true;
   services.devmon.enable = true;
@@ -162,5 +162,5 @@
     };
   };
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }
