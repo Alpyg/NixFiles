@@ -5,7 +5,7 @@
     "useQuickCss": true,
     "themeLinks": [],
     "enabledThemes": [
-        "catppuccin_mocha.theme.css"
+        "catppuccin_latte.theme.css"
     ],
     "enableReactDevtools": false,
     "frameless": false,
@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1712594353073
+        "settingsSyncVersion": 1713224200282
     },
     "plugins": {
         "BadgeAPI": {
@@ -408,7 +408,8 @@
         },
         "SilentTyping": {
             "enabled": true,
-            "showIcon": false
+            "showIcon": false,
+            "isEnabled": true
         },
         "SortFriendRequests": {
             "enabled": false
@@ -445,7 +446,9 @@
         },
         "TypingTweaks": {
             "enabled": true,
-            "alternativeFormatting": true
+            "alternativeFormatting": true,
+            "showRoleColors": true,
+            "showAvatars": true
         },
         "Unindent": {
             "enabled": false
