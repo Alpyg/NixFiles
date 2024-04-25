@@ -90,11 +90,10 @@
     goverlay
     prismlauncher
     osu-lazer
+    obsidian
     (pkgs.discord.override { withVencord = true; })
 
     lazydocker
-    php82
-    php82Packages.composer
     nodejs
     bun
     python311
@@ -111,10 +110,7 @@
     kicad
     libreoffice-qt
 
-    android-studio
-    android-tools
   ];
-  programs.java.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
