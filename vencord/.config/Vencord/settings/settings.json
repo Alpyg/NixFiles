@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1713224200282
+        "settingsSyncVersion": 1714244721476
     },
     "plugins": {
         "BadgeAPI": {
@@ -143,9 +143,6 @@
         "Decor": {
             "enabled": false
         },
-        "DisableDMCallIdle": {
-            "enabled": true
-        },
         "EmoteCloner": {
             "enabled": true
         },
@@ -204,7 +201,14 @@
             "enabled": false
         },
         "ImageZoom": {
-            "enabled": true
+            "enabled": true,
+            "size": 966.6667221144012,
+            "zoom": 1.6666667093187701,
+            "nearestNeighbour": false,
+            "square": false,
+            "saveZoomValues": true,
+            "invertScroll": true,
+            "zoomSpeed": 0.5
         },
         "InvisibleChat": {
             "enabled": false,
@@ -220,7 +224,9 @@
             "enabled": false
         },
         "MemberCount": {
-            "enabled": true
+            "enabled": true,
+            "memberList": true,
+            "toolTip": true
         },
         "MessageClickActions": {
             "enabled": false
@@ -235,7 +241,9 @@
             "ignoreSelf": false,
             "ignoreUsers": "",
             "ignoreChannels": "",
-            "ignoreGuilds": ""
+            "ignoreGuilds": "",
+            "logEdits": true,
+            "logDeletes": true
         },
         "MessageTags": {
             "enabled": false
@@ -251,9 +259,6 @@
         },
         "Moyai": {
             "enabled": false
-        },
-        "MuteNewGuild": {
-            "enabled": true
         },
         "MutualGroupDMs": {
             "enabled": false
@@ -442,7 +447,9 @@
             "enabled": false
         },
         "TypingIndicator": {
-            "enabled": true
+            "enabled": true,
+            "includeMutedChannels": false,
+            "includeCurrentChannel": true
         },
         "TypingTweaks": {
             "enabled": true,
@@ -496,6 +503,42 @@
             "enabled": false
         },
         "XSOverlay": {
+            "enabled": false
+        },
+        "DisableCallIdle": {
+            "enabled": true
+        },
+        "NewGuildSettings": {
+            "enabled": true
+        },
+        "ChatInputButtonAPI": {
+            "enabled": true
+        },
+        "BetterGifPicker": {
+            "enabled": false
+        },
+        "BetterRoleContext": {
+            "enabled": false
+        },
+        "BetterSettings": {
+            "enabled": false
+        },
+        "FixCodeblockGap": {
+            "enabled": false
+        },
+        "FixYoutubeEmbeds": {
+            "enabled": false
+        },
+        "FriendsSince": {
+            "enabled": false
+        },
+        "OverrideForumDefaults": {
+            "enabled": false
+        },
+        "ResurrectHome": {
+            "enabled": false
+        },
+        "ReviewDB": {
             "enabled": false
         }
     }

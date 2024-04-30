@@ -97,7 +97,6 @@
     nodejs
     bun
     python311
-    poetry
     gcc
     qemu
     gnumake
@@ -109,7 +108,6 @@
     prusa-slicer
     kicad
     libreoffice-qt
-
   ];
 
   # Nicely reload system units when changing configs
