@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1714244721476
+        "settingsSyncVersion": 1714580724159
     },
     "plugins": {
         "BadgeAPI": {
@@ -539,6 +539,9 @@
             "enabled": false
         },
         "ReviewDB": {
+            "enabled": false
+        },
+        "UnlockedAvatarZoom": {
             "enabled": false
         }
     }

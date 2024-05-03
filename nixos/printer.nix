@@ -99,6 +99,14 @@
         screw4 = "30,195";
       };
 
+      bed_mesh = {
+        speed = 50;
+        horizontal_move_z = 2;
+        mesh_min = "20, 20";
+        mesh_max = "200, 200";
+        probe_count = "3, 3";
+      };
+
       "output_pin beeper" = {
         pin = "PB13";
       };
@@ -111,6 +119,7 @@
   services.moonraker = {
     enable = true;
     user = "root";
+    group = "root";
     address = "0.0.0.0";
     settings = {
       authorization = {

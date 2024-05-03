@@ -71,6 +71,7 @@
 
   home.packages = with pkgs; [
     tmuxinator
+    libnotify
     xclip
     playerctl
     p7zip

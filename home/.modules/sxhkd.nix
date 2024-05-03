@@ -6,7 +6,7 @@
     # wm
     "super + Return" = "kitty"; # terminal
     "super + d" = "dmenu_run"; # dmenu
-    "super + ``" =
+    "super + `" =
       "pkill -USR1 -x sxhkd; pkill -USR1 polybar"; # reload sxhkd
 
     # bspwm
