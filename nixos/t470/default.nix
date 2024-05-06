@@ -70,8 +70,8 @@
   services.xserver.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.lightdm.greeters.gtk.enable = true;
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "alpyg";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "alpyg";
   services.xserver.windowManager.bspwm.enable = true;
   services.picom.enable = true;
   services.devmon.enable = true;
@@ -115,6 +115,16 @@
     XDG_STATE_HOME   = "$HOME/.local/state";
     QT_QPA_PLATFORMTHEME = "qt5ct";
   };
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    glib
+    libgcc
+    libz
+    libGL
+    xorg.libX11
+    xorg.libxcb
+  ];
 
   fonts.packages = with pkgs; [
     nerdfonts
