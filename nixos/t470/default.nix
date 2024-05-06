@@ -8,8 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware.nix
-
-      ./printer.nix
     ];
 
   nix.settings = {
