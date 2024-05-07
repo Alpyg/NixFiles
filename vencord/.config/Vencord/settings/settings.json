@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1714580724159
+        "settingsSyncVersion": 1715047858819
     },
     "plugins": {
         "BadgeAPI": {
@@ -203,7 +203,7 @@
         "ImageZoom": {
             "enabled": true,
             "size": 966.6667221144012,
-            "zoom": 1.6666667093187701,
+            "zoom": 2.3333334186375403,
             "nearestNeighbour": false,
             "square": false,
             "saveZoomValues": true,
@@ -336,8 +336,10 @@
             "enabled": false
         },
         "PinDMs": {
-            "enabled": false,
-            "pinnedDMs": "945154727820267520"
+            "enabled": true,
+            "pinnedDMs": "945154727820267520",
+            "dmSectioncollapsed": false,
+            "pinOrder": 0
         },
         "PlainFolderIcon": {
             "enabled": false
