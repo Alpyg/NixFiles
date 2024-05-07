@@ -88,10 +88,6 @@
     QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 
-  fonts.packages = with pkgs; [
-    nerdfonts
-  ];
-
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
