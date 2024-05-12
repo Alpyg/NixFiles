@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1715047858819
+        "settingsSyncVersion": 1715451679504
     },
     "plugins": {
         "BadgeAPI": {
@@ -203,7 +203,7 @@
         "ImageZoom": {
             "enabled": true,
             "size": 966.6667221144012,
-            "zoom": 2.3333334186375403,
+            "zoom": 2.3333334186375407,
             "nearestNeighbour": false,
             "square": false,
             "saveZoomValues": true,
@@ -451,7 +451,8 @@
         "TypingIndicator": {
             "enabled": true,
             "includeMutedChannels": false,
-            "includeCurrentChannel": true
+            "includeCurrentChannel": true,
+            "indicatorMode": 3
         },
         "TypingTweaks": {
             "enabled": true,

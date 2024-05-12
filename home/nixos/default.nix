@@ -104,6 +104,7 @@
     dbeaver
     blender
     cargo
+    go
     zig
     rustc
     prusa-slicer
