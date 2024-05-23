@@ -103,10 +103,9 @@
     gnumake
     dbeaver
     blender
-    cargo
-    go
+    rustup
     zig
-    rustc
+    go
     prusa-slicer
     kicad
     libreoffice-qt
