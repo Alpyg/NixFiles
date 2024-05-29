@@ -28,6 +28,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/mnt/y" =
+    { device = "/dev/disk/by-uuid/cf8e4541-8868-4280-b184-d759495129b7";
+      fsType = "ext4";
+    };
+
   swapDevices = [
     { device = "/var/lib/swapfile";
       size = 8*1024;

@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1715451679504
+        "settingsSyncVersion": 1716882497506
     },
     "plugins": {
         "BadgeAPI": {
@@ -58,7 +58,8 @@
             "enabled": false
         },
         "NoTrack": {
-            "enabled": true
+            "enabled": true,
+            "disableAnalytics": true
         },
         "Settings": {
             "enabled": true,
@@ -80,8 +81,8 @@
             "enabled": false
         },
         "BetterFolders": {
-            "enabled": true,
-            "sidebar": true,
+            "enabled": false,
+            "sidebar": false,
             "showFolderIcon": 1,
             "closeAllHomeButton": false,
             "keepIcons": false,
@@ -203,7 +204,7 @@
         "ImageZoom": {
             "enabled": true,
             "size": 966.6667221144012,
-            "zoom": 2.3333334186375407,
+            "zoom": 4.749999865046092,
             "nearestNeighbour": false,
             "square": false,
             "saveZoomValues": true,
@@ -407,9 +408,6 @@
         "ShowMeYourName": {
             "enabled": false
         },
-        "ShowTimeouts": {
-            "enabled": false
-        },
         "SilentMessageToggle": {
             "enabled": false
         },
@@ -512,7 +510,14 @@
             "enabled": true
         },
         "NewGuildSettings": {
-            "enabled": true
+            "enabled": true,
+            "guild": true,
+            "everyone": true,
+            "role": true,
+            "events": true,
+            "highlights": true,
+            "messages": 3,
+            "showAllChannels": true
         },
         "ChatInputButtonAPI": {
             "enabled": true
@@ -545,6 +550,33 @@
             "enabled": false
         },
         "UnlockedAvatarZoom": {
+            "enabled": false
+        },
+        "ShowHiddenThings": {
+            "enabled": false
+        },
+        "BetterSessions": {
+            "enabled": false
+        },
+        "ImageLink": {
+            "enabled": false
+        },
+        "ImplicitRelationships": {
+            "enabled": false
+        },
+        "MessageLatency": {
+            "enabled": false
+        },
+        "PauseInvitesForever": {
+            "enabled": false
+        },
+        "ReplyTimestamp": {
+            "enabled": false
+        },
+        "StreamerModeOnStream": {
+            "enabled": false
+        },
+        "VoiceDownload": {
             "enabled": false
         }
     }
