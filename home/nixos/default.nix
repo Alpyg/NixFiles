@@ -101,7 +101,7 @@
     gcc
     qemu
     gnumake
-    dbeaver
+    dbeaver-bin
     blender
     rustup
     zig
