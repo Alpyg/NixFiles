@@ -30,7 +30,7 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./nixos/nixos ./nixos/pipewire.nix ./nixos/printer.nix ];
+          modules = [ ./nixos/nixos ./nixos/printer.nix ];
         };
         t470 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };

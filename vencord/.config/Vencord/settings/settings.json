@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1716882497506
+        "settingsSyncVersion": 1717088912513
     },
     "plugins": {
         "BadgeAPI": {
@@ -81,7 +81,7 @@
             "enabled": false
         },
         "BetterFolders": {
-            "enabled": false,
+            "enabled": true,
             "sidebar": false,
             "showFolderIcon": 1,
             "closeAllHomeButton": false,
@@ -139,7 +139,9 @@
             "enabled": false
         },
         "Dearrow": {
-            "enabled": true
+            "enabled": true,
+            "hideButton": false,
+            "replaceElements": 0
         },
         "Decor": {
             "enabled": false
@@ -204,7 +206,7 @@
         "ImageZoom": {
             "enabled": true,
             "size": 966.6667221144012,
-            "zoom": 4.749999865046092,
+            "zoom": 1,
             "nearestNeighbour": false,
             "square": false,
             "saveZoomValues": true,
@@ -319,9 +321,6 @@
             "enabled": false
         },
         "OpenInApp": {
-            "enabled": false
-        },
-        "Party mode 🎉": {
             "enabled": false
         },
         "PermissionFreeWill": {
@@ -523,13 +522,15 @@
             "enabled": true
         },
         "BetterGifPicker": {
-            "enabled": false
+            "enabled": true
         },
         "BetterRoleContext": {
             "enabled": false
         },
         "BetterSettings": {
-            "enabled": false
+            "enabled": true,
+            "disableFade": true,
+            "eagerLoad": true
         },
         "FixCodeblockGap": {
             "enabled": false
@@ -556,7 +557,9 @@
             "enabled": false
         },
         "BetterSessions": {
-            "enabled": false
+            "enabled": true,
+            "backgroundCheck": false,
+            "checkInterval": 20
         },
         "ImageLink": {
             "enabled": false
@@ -577,6 +580,12 @@
             "enabled": false
         },
         "VoiceDownload": {
+            "enabled": false
+        },
+        "ShowTimeoutDuration": {
+            "enabled": false
+        },
+        "PartyMode": {
             "enabled": false
         }
     }

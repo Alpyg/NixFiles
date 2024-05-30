@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
-let
-  json = pkgs.formats.json {};
-  pw_rnnoise_config = {
+{
+  services.pipewire.extraConfig.pipewire."rnnoise" = {
     "context.properties" = {
       "log.level" = 0;
     };
@@ -46,29 +45,22 @@ let
           };
           "capture.props" = {
             "node.passive" = true;
-	    "node.target" = "alsa_input.usb-M-Audio_Fast_Track-00.pro-input-0";
-	    "audio.position" = [ "AUX0" ];
+	          "node.target" = "alsa_input.usb-M-Audio_Fast_Track-00.pro-input-0";
+	          "audio.position" = [ "AUX0" ];
           };
           "playback.props" = {
-	    "audio.position" = [ "MONO" ];
+	          "audio.position" = [ "MONO" ];
             "media.class" = "Audio/Source";
           };
         };
       }
     ];
   };
-in
-{
-  services.pipewire.extraConfig.pipewire = {
-    "source-rnnoise.conf" = {
-      source = json.generate "source-rnnoise.conf" pw_rnnoise_config;
-    };
-  };
-  systemd.user.services."pipewire-source-rnnoise" = {
+  systemd.user.services."pipewire-rnnoise" = {
     environment = { LADSPA_PATH = "${pkgs.rnnoise-plugin}/lib/ladspa"; };
     description = "Noise canceling source for pipewire";
     wantedBy = ["pipewire.service"];
-    script = "${pkgs.pipewire}/bin/pipewire -c source-rnnoise.conf";
+    script = "${pkgs.pipewire}/bin/pipewire -c rnnoise.conf";
     enable = true;
     path = with pkgs; [pipewire rnnoise-plugin];
   };

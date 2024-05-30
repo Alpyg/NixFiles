@@ -4,7 +4,8 @@ set -e
 
 echo "Rebuilding NixOS"
 
-sudo nixos-rebuild switch --flake .#$(hostname) &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
-home-manager switch --impure --flake .#$(whoami)@$(hostname) &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+nix flake update
+sudo nixos-rebuild switch --flake .#$(hostname)
+home-manager switch --impure --flake .#$(whoami)@$(hostname)
 
 notify-send -e "NixOS Rebuilt!" --icon=software-update-available
