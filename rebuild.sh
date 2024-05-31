@@ -4,7 +4,7 @@ set -e
 
 echo "Rebuilding NixOS"
 
-nix flake update
+sudo nix flake update
 sudo nixos-rebuild switch --flake .#$(hostname)
 home-manager switch --impure --flake .#$(whoami)@$(hostname)
 
