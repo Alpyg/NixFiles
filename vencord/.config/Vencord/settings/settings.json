@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1717088912513
+        "settingsSyncVersion": 1717211151041
     },
     "plugins": {
         "BadgeAPI": {
@@ -206,7 +206,7 @@
         "ImageZoom": {
             "enabled": true,
             "size": 966.6667221144012,
-            "zoom": 1,
+            "zoom": 7.749999757082968,
             "nearestNeighbour": false,
             "square": false,
             "saveZoomValues": true,
@@ -530,7 +530,8 @@
         "BetterSettings": {
             "enabled": true,
             "disableFade": true,
-            "eagerLoad": true
+            "eagerLoad": true,
+            "organizeMenu": true
         },
         "FixCodeblockGap": {
             "enabled": false
@@ -586,6 +587,27 @@
             "enabled": false
         },
         "PartyMode": {
+            "enabled": false
+        },
+        "AutomodContext": {
+            "enabled": false
+        },
+        "CtrlEnterSend": {
+            "enabled": false
+        },
+        "CustomIdle": {
+            "enabled": false
+        },
+        "NoDefaultHangStatus": {
+            "enabled": false
+        },
+        "NoServerEmojis": {
+            "enabled": false
+        },
+        "ReplaceGoogleSearch": {
+            "enabled": false
+        },
+        "ValidReply": {
             "enabled": false
         }
     }

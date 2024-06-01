@@ -19,20 +19,23 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
-  networking.hostName = "nixos";
-  networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ "eno1" ];
-    allowedTCPPorts = [ 9942 9943 9944 25565 ];
-    allowedUDPPorts = [ 9942 9943 9944 ];
-    allowedTCPPortRanges = [{
-      from = 1714;
-      to = 1764;
-    }];
-    allowedUDPPortRanges = [{
-      from = 1714;
-      to = 1764;
-    }];
+  networking = {
+    hostName = "nixos";
+    useDHCP = true;
+    firewall = {
+      enable = true;
+      trustedInterfaces = [ "eno1" ];
+      allowedTCPPorts = [ 9942 9943 9944 25565 ];
+      allowedUDPPorts = [ 9942 9943 9944 ];
+      allowedTCPPortRanges = [{
+        from = 1714;
+        to = 1764;
+      }];
+      allowedUDPPortRanges = [{
+        from = 1714;
+        to = 1764;
+      }];
+    };
   };
 
   services.zerotierone = {
@@ -121,7 +124,6 @@
     gtk3
     dmenu
     killall
-    wineWowPackages.stable
     vulkan-loader
   ];
   environment.shells = with pkgs; [ fish ];

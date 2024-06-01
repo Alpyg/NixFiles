@@ -92,6 +92,7 @@
     prismlauncher
     osu-lazer
     obsidian
+    wineWowPackages.unstable
     (pkgs.discord.override { withVencord = true; })
 
     lazydocker
