@@ -4,7 +4,18 @@ set -e
 
 echo "Rebuilding NixOS"
 
-sudo nix flake update
+UPDATE_FLAKE=false
+for arg in "$@"; do
+	if [ "$arg" == "-u" ]; then
+		UPDATE_FLAKE=true
+	fi
+done
+
+if [ "$UPDATE_FLAKE" = true ]; then
+	echo "Updating packages"
+	sudo nix flake update
+fi
+
 sudo nixos-rebuild switch --flake .#$(hostname)
 home-manager switch --impure --flake .#$(whoami)@$(hostname)
 
