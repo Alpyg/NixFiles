@@ -70,6 +70,8 @@
   services.flameshot.enable = true;
 
   home.packages = with pkgs; [
+    zoxide
+    nixfmt-classic
     tmuxinator
     libnotify
     xclip
@@ -110,6 +112,8 @@
     prusa-slicer
     kicad
     libreoffice-qt
+
+    stremio
   ];
 
   # Nicely reload system units when changing configs

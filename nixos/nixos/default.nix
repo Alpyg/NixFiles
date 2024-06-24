@@ -25,8 +25,8 @@
     firewall = {
       enable = true;
       trustedInterfaces = [ "eno1" ];
-      allowedTCPPorts = [ 9942 9943 9944 25565 ];
-      allowedUDPPorts = [ 9942 9943 9944 ];
+      allowedTCPPorts = [ 9942 9943 9944 11470 25565 ];
+      allowedUDPPorts = [ 9942 9943 9944 11470 ];
       allowedTCPPortRanges = [{
         from = 1714;
         to = 1764;
@@ -46,19 +46,19 @@
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
     extraPackages = with pkgs; [ intel-media-driver vaapiVdpau libvdpau-va-gl ];
   };
   hardware.bluetooth.enable = true;
   hardware.opentabletdriver.enable = true;
+  boot.kernelModules = [ "nouveau" ];
+  boot.blacklistedKernelModules = [ "nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset" ];
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = true;
+    open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
