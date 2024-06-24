@@ -53,7 +53,8 @@
   hardware.bluetooth.enable = true;
   hardware.opentabletdriver.enable = true;
   boot.kernelModules = [ "nouveau" ];
-  boot.blacklistedKernelModules = [ "nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset" ];
+  boot.blacklistedKernelModules =
+    [ "nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset" ];
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -68,6 +69,8 @@
     enable = true;
     enableNvidia = true;
   };
+  virtualisation.virtualbox = { host.enable = true; };
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
