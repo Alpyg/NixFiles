@@ -5,10 +5,9 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware.nix
+  ];
 
   nix.settings = {
     auto-optimise-store = true;
@@ -31,11 +30,14 @@
   time.timeZone = "Asia/Jakarta";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [ intel-media-driver vaapiIntel vaapiVdpau libvdpau-va-gl ];
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
   };
   hardware.bluetooth.enable = true;
 
@@ -61,6 +63,8 @@
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.lightdm.greeters.pantheon.enable = false;
   services.xserver.displayManager.lightdm.greeters.gtk.enable = true;
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "kuyin";
   services.xserver.desktopManager.pantheon.enable = true;
 
   services.openssh.enable = true;
@@ -75,16 +79,13 @@
     dedicatedServer.openFirewall = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    fishPlugins.done
-    nix-index
-  ];
+  environment.systemPackages = with pkgs; [ fishPlugins.done nix-index ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = rec {
-    XDG_CACHE_HOME   = "$HOME/.cache";
-    XDG_CONFIG_HOME  = "$HOME/.config";
-    XDG_DATA_HOME    = "$HOME/.local/share";
-    XDG_STATE_HOME   = "$HOME/.local/state";
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
     QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 
@@ -96,7 +97,8 @@
       after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+        ExecStart =
+          "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;
