@@ -41,6 +41,7 @@
   services.zerotierone = {
     enable = true;
     joinNetworks = [ "ebe7fbd445ae1d09" ];
+    localConf = { };
   };
 
   time.timeZone = "America/Toronto";
