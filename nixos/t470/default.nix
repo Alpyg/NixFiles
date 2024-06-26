@@ -47,10 +47,7 @@
   };
   hardware.bluetooth.enable = true;
 
-  virtualisation.docker = {
-    enable = true;
-    enableNvidia = true;
-  };
+  virtualisation.docker.enable = true;
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
