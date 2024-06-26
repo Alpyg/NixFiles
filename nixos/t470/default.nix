@@ -5,10 +5,9 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware.nix
+  ];
 
   nix.settings = {
     auto-optimise-store = true;
@@ -31,16 +30,20 @@
   services.zerotierone = {
     enable = true;
     joinNetworks = [ "ebe7fbd445ae1d09" ];
+    localConf = { };
   };
 
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [ intel-media-driver vaapiIntel vaapiVdpau libvdpau-va-gl ];
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
   };
   hardware.bluetooth.enable = true;
 
@@ -108,11 +111,11 @@
     openjdk
   ];
   environment.shells = with pkgs; [ fish ];
-  environment.sessionVariables = rec {
-    XDG_CACHE_HOME   = "$HOME/.cache";
-    XDG_CONFIG_HOME  = "$HOME/.config";
-    XDG_DATA_HOME    = "$HOME/.local/share";
-    XDG_STATE_HOME   = "$HOME/.local/state";
+  environment.sessionVariables = {
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
     QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 
@@ -126,9 +129,7 @@
     xorg.libxcb
   ];
 
-  fonts.packages = with pkgs; [
-    nerdfonts
-  ];
+  fonts.packages = with pkgs; [ nerdfonts ];
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
@@ -138,13 +139,14 @@
       after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+        ExecStart =
+          "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;
       };
     };
   };
-  
+
   system.stateVersion = "23.11";
 }
