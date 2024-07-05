@@ -15,11 +15,4 @@
       };
     }];
   };
-  systemd.user.services."pipewire-roc-source" = {
-    description = "Pipewire roc source";
-    wantedBy = [ "pipewire.service" ];
-    script = "${pkgs.pipewire}/bin/pipewire -c roc-source.conf";
-    enable = true;
-    path = with pkgs; [ pipewire ];
-  };
 }
