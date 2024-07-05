@@ -49,8 +49,8 @@
         enable_pin = "!PC3";
         microsteps = 16;
         rotation_distance = 34.406;
-        nozzle_diameter = 0.400;
-        filament_diameter = 1.750;
+        nozzle_diameter = 0.4;
+        filament_diameter = 1.75;
         heater_pin = "PA1";
         sensor_type = "EPCOS 100K B57560G104F";
         sensor_pin = "PC5";
@@ -74,9 +74,7 @@
         max_temp = 110;
       };
 
-      fan = {
-        pin = "PA0";
-      };
+      fan = { pin = "PA0"; };
 
       mcu = {
         serial = "/dev/ttyUSB0";
@@ -107,13 +105,9 @@
         probe_count = "3, 3";
       };
 
-      "output_pin beeper" = {
-        pin = "PB13";
-      };
+      "output_pin beeper" = { pin = "PB13"; };
 
-      virtual_sdcard = {
-        path = "/var/lib/moonraker/gcodes/";
-      };
+      virtual_sdcard = { path = "/var/lib/moonraker/gcodes/"; };
     };
   };
   services.moonraker = {
@@ -125,11 +119,10 @@
       authorization = {
         force_logins = false;
         cors_domains = [ "localhost" "*.local" ];
-        trusted_clients = [ "0.0.0.0" "127.0.0.1" "192.168.2.0/24" "10.147.20.0/24" ];
+        trusted_clients =
+          [ "0.0.0.0" "127.0.0.1" "192.168.2.0/24" "10.147.20.0/24" ];
       };
     };
   };
-  services.mainsail = {
-    enable = true;
-  };
+  services.mainsail = { enable = true; };
 }
