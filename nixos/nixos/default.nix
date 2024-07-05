@@ -129,6 +129,7 @@
     dmenu
     killall
     vulkan-loader
+    qpwgraph
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = {

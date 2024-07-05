@@ -102,6 +102,7 @@
     gtk3
     dmenu
     killall
+    qpwgraph
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = {
