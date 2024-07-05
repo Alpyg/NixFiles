@@ -61,6 +61,7 @@
   services.flameshot.enable = true;
 
   home.packages = with pkgs; [
+    zoxide
     tmuxinator
     xclip
     playerctl
