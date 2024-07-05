@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   services.pipewire.extraConfig.pipewire."roc-sink" = {
     "context.modules" = [{
-      name = "libpipewire-module-roc-source";
+      name = "libpipewire-module-roc-sink";
       args = {
         fec.code = "disable";
         remote.ip = "192.168.2.99";
