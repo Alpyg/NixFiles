@@ -33,15 +33,12 @@
           modules = [
             ./nixos/nixos
             ./nixos/printer.nix
-            #./nixos/pipewire-tunnel-source.nix
+            ./nixos/pipewire-roc-source.nix
           ];
         };
         t470 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [
-            ./nixos/t470
-            #./nixos/pipewire-tunnel-sink.nix
-          ];
+          modules = [ ./nixos/t470 ./nixos/pipewire-roc-sink.nix ];
         };
         kuyin = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
