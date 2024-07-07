@@ -25,8 +25,8 @@
     firewall = {
       enable = true;
       trustedInterfaces = [ "eno1" ];
-      allowedTCPPorts = [ 9942 9943 9944 11470 25565 ];
-      allowedUDPPorts = [ 9942 9943 9944 11470 ];
+      allowedTCPPorts = [ 9942 9943 9944 10001 10002 10003 11470 25565 ];
+      allowedUDPPorts = [ 9942 9943 9944 10001 10002 10003 11470 ];
       allowedTCPPortRanges = [{
         from = 1714;
         to = 1764;
