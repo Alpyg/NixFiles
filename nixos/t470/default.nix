@@ -103,17 +103,6 @@
     dmenu
     killall
     qpwgraph
-
-    (roc-toolkit.overrideAttrs (oldAttrs: {
-      version = "0.3.0";
-      src = pkgs.fetchGit {
-        name = "roc-toolkit";
-        url = "https://github.com/NixOS/nixpkgs/";
-        ref = "refs/heads/nixpkgs-unstable";
-        sha256 =
-          "e89cf1c932006531f454de7d652163a9a5c86668"; # Replace with the actual SHA256 hash of the source
-      };
-    }))
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = {

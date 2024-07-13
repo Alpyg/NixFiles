@@ -30,15 +30,11 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [
-            ./nixos/nixos
-            ./nixos/printer.nix
-            ./nixos/pipewire-roc-source.nix
-          ];
+          modules = [ ./nixos/nixos ./nixos/printer.nix ];
         };
         t470 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./nixos/t470 ./nixos/pipewire-roc-sink.nix ];
+          modules = [ ./nixos/t470 ];
         };
         kuyin = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
