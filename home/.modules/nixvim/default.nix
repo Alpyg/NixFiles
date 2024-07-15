@@ -1,10 +1,18 @@
 {
   imports = [
-    ./autocommands.nix
-    ./completion.nix
-    ./keymaps.nix
-    ./options.nix
-    ./plugins
+    # lsp
+    ./lsp/lsp.nix
+    ./lsp/treesitter.nix
+    ./lsp/none-ls.nix
+
+    # ui
+    ./ui/theme.nix
+    ./ui/chadtree.nix
+    ./ui/bufferline.nix
+
+    # utils
+    ./utils/utils.nix
+    ./utils/git.nix
   ];
 
   home.shellAliases.v = "nvim";
@@ -20,5 +28,10 @@
 
     highlight.ExtraWhitespace.bg = "red";
     match.ExtraWhitespace = "\\s\\+$";
+
+    globals = {
+      mapleader = " ";
+      maplocalleader = " ";
+    };
   };
 }

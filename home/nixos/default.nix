@@ -14,6 +14,7 @@
     ../.modules/btop.nix
     ../.modules/kitty.nix
     ../.modules/tmux.nix
+    ../.modules/nixvim
   ];
 
   nixpkgs = {
@@ -44,7 +45,6 @@
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
   programs.home-manager.enable = true;
@@ -67,7 +67,6 @@
   programs.obs-studio.enable = true;
 
   services.kdeconnect.enable = true;
-  services.flameshot.enable = true;
 
   home.packages = with pkgs; [
     zoxide
@@ -95,12 +94,13 @@
     osu-lazer
     obsidian
     wineWowPackages.unstable
+    flameshot
     (pkgs.discord.override { withVencord = true; })
 
     lazydocker
     nodejs
     bun
-    python311
+    python312
     gcc
     qemu
     gnumake
@@ -110,7 +110,6 @@
     zig
     go
     prusa-slicer
-    kicad
     libreoffice-qt
 
     stremio
