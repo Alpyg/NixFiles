@@ -1,7 +1,7 @@
 {
   programs.nixvim.plugins.bufferline = {
     enable = true;
-    alwaysShowBufferline = true;
+    alwaysShowBufferline = false;
   };
 
   programs.nixvim.keymaps = [

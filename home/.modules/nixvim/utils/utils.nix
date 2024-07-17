@@ -8,8 +8,6 @@
     telescope.extensions.file-browser.enable = true;
     telescope.extensions.ui-select.enable = true;
 
-    lazygit.enable = true;
-
     which-key.enable = true;
     wtf.enable = true;
   };

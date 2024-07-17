@@ -5,7 +5,7 @@
     "useQuickCss": true,
     "themeLinks": [],
     "enabledThemes": [
-        "catppuccin_latte.theme.css"
+        "catppuccin_mocha.theme.css"
     ],
     "enableReactDevtools": false,
     "frameless": false,
@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1719284094256
+        "settingsSyncVersion": 1721136906355
     },
     "plugins": {
         "BadgeAPI": {
@@ -40,7 +40,7 @@
             "enabled": false
         },
         "MessageAccessoriesAPI": {
-            "enabled": false
+            "enabled": true
         },
         "MessageDecorationsAPI": {
             "enabled": false
@@ -638,6 +638,9 @@
         },
         "SettingsStoreAPI": {
             "enabled": false
+        },
+        "UserSettingsAPI": {
+            "enabled": true
         }
     }
 }

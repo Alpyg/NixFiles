@@ -5,7 +5,8 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware.nix
   ];
 
@@ -74,7 +75,6 @@
   virtualisation.virtualbox = { host.enable = true; };
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {

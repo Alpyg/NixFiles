@@ -7,4 +7,10 @@
       pollingRate = 0.5;
     };
   };
+
+  programs.nixvim.keymaps = [{
+    action = "<cmd>CHADopen<cr>";
+    key = "<leader>e";
+    options.silent = true;
+  }];
 }

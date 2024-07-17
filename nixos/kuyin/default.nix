@@ -5,7 +5,8 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware.nix
   ];
 
@@ -43,7 +44,6 @@
   };
   hardware.bluetooth.enable = true;
 
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {

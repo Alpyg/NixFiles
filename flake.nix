@@ -24,7 +24,8 @@
         nixvim.homeManagerModules.nixvim
         ./home/${hostname}
       ];
-    in {
+    in
+    {
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
@@ -35,6 +36,10 @@
         t470 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [ ./nixos/t470 ];
+        };
+        nexus = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./nixos/nexus ];
         };
         kuyin = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
@@ -58,6 +63,13 @@
             config = { allowUnfree = true; };
           };
           modules = homeManagerModules "t470";
+        };
+        "nexus@nexus" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config = { allowUnfree = true; };
+          };
+          modules = homeManagerModules "nexus";
         };
         "kuyin@kuyin" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
