@@ -10,7 +10,7 @@
       volumes = [
         "/home/nexus/.jellyfin/config:/config"
         "/home/nexus/.jellyfin/cache:/cache"
-        "/home/nexus/.jellyfin/media:/media"
+        "/home/nexus/.media:/media"
       ];
       ports = [ "8096:8096" ];
       autoStart = true;
@@ -19,6 +19,7 @@
       image = "lscr.io/linuxserver/sonarr:latest";
       hostname = "bebiflix-sonarr";
       volumes = [ "/home/nexus/.sonarr/config:/config" ];
+      volumes = [ "/home/nexus/.media:/media" ];
       environment = {
         PUID = "1000";
         PGID = "1000";
