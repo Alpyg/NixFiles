@@ -22,7 +22,7 @@
 
   networking = {
     hostName = "nexus";
-    useDHCP = true;
+    networkmanager.enable = true;
   };
 
   services.openssh.enable = true;
@@ -35,11 +35,7 @@
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  virtualisation.docker = {
-    enable = true;
-    enableNvidia = true;
-  };
-  virtualisation.virtualbox = { host.enable = true; };
+  virtualisation.docker = { enable = true; };
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
