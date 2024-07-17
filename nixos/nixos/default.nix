@@ -47,7 +47,7 @@
   };
 
   time.timeZone = "America/Toronto";
-  i18n.defaultLocale = "en_CA.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   hardware.graphics = {
     enable = true;
