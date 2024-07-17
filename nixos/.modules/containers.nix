@@ -29,5 +29,18 @@
       dependsOn = [ "jellyfin" ];
       autoStart = true;
     };
-  };
-}
+    transmission = {
+      image = "lscr.io/linuxserver/transmission:latest";
+      hostname = "bebiflix-transmission";
+
+      environment = {
+        PUID = "1000";
+        PGID = "1000";
+        TZ = "Etc/UTC";
+      };
+      ports = [ "9091:9091" "51413:51413" "51413:51413/udp" ];
+      dependsOn = [ "jellyfin" ];
+      autoStart = true
+        };
+    };
+  }
