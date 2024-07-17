@@ -32,7 +32,7 @@
     transmission = {
       image = "lscr.io/linuxserver/transmission:latest";
       hostname = "bebiflix-transmission";
-
+      volumes = [ "/home/nexus/Downloads:/downloads" ];
       environment = {
         PUID = "1000";
         PGID = "1000";
