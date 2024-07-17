@@ -3,9 +3,6 @@
 {
   containers.bebiflix = {
     autoStart = true;
-    privateNetwork = true;
-    hostAddress = "192.168.2.99";
-    localAddress = "192.168.10.10";
     config = { ... }: {
       services.jellyfin = {
         enable = true;
