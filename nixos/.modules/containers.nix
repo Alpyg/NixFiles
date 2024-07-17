@@ -18,8 +18,8 @@
     sonarr = {
       image = "lscr.io/linuxserver/sonarr:latest";
       hostname = "bebiflix-sonarr";
-      volumes = [ "/home/nexus/.sonarr/config:/config" ];
-      volumes = [ "/home/nexus/.media:/media" ];
+      volumes =
+        [ "/home/nexus/.sonarr/config:/config" "/home/nexus/.media:/media" ];
       environment = {
         PUID = "1000";
         PGID = "1000";
