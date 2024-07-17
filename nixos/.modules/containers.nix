@@ -40,7 +40,7 @@
       };
       ports = [ "9091:9091" "51413:51413" "51413:51413/udp" ];
       dependsOn = [ "jellyfin" ];
-      autoStart = true
-        };
+      autoStart = true;
     };
-  }
+  };
+}
