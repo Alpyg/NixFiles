@@ -16,11 +16,9 @@
       autoStart = true;
     };
     sonarr = {
-      image: "lscr.io/linuxserver/sonarr:latest";
+      image = "lscr.io/linuxserver/sonarr:latest";
       hostname = "sonarr";
-      volumes = [
-        "/home/nexus/.sonarr/config:/config"
-      ];
+      volumes = [ "/home/nexus/.sonarr/config:/config" ];
       environment = {
         PUID = 1000;
         PGID = 1000;
