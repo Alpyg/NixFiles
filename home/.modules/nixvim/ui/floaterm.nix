@@ -11,39 +11,27 @@
       mode = [ "n" "i" "v" ];
       action = "<cmd>FloatermNew --disposable --title=lazygit lazygit<cr>";
       key = "<leader>lg";
-      options = {
-        desc = "LazyGit";
-        silent = true;
-      };
+      options.desc = "LazyGit";
     }
     {
       mode = [ "n" "i" "v" ];
       action =
         "<cmd>FloatermNew --disposable --title=lazydocker lazydocker<cr>";
       key = "<leader>ld";
-      options = {
-        desc = "LazyDocker";
-        silent = true;
-      };
+      options.desc = "LazyDocker";
     }
     {
       mode = [ "n" "i" "v" ];
       action =
         "<cmd>FloatermNew --disposable --title=lazydocker lazydocker<cr>";
       key = "<leader>ld";
-      options = {
-        desc = "LazyDocker";
-        silent = true;
-      };
+      options.desc = "LazyDocker";
     }
     {
       mode = [ "n" "i" "v" ];
       action = "<cmd>FloatermNew --title=terminal<cr>";
       key = "<C-r>/";
-      options = {
-        desc = "Terminal";
-        silent = true;
-      };
+      options.desc = "Terminal";
     }
   ];
 }

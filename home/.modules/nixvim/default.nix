@@ -13,6 +13,8 @@
     ./ui/bufferline.nix
     ./ui/floaterm.nix
     ./ui/neotree.nix
+    ./ui/spectre.nix
+    ./ui/telescope.nix
     ./ui/theme.nix
 
     # utils

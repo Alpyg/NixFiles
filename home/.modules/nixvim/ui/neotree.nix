@@ -4,6 +4,6 @@
   programs.nixvim.keymaps = [{
     action = "<cmd>Neotree toggle<cr>";
     key = "<leader>e";
-    options.silent = true;
+    options.desc = "Neotree Toggle";
   }];
 }
