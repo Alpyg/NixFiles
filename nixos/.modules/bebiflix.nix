@@ -15,6 +15,7 @@
   };
   services.transmission = {
     enable = true;
-    openFirewall = true;
+    openRPCPort = true;
+    user = "nexus";
   };
 }
