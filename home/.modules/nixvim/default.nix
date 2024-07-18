@@ -16,8 +16,10 @@
     ./ui/theme.nix
 
     # utils
-    ./utils/utils.nix
     ./utils/git.nix
+    ./utils/todo.nix
+    ./utils/trouble.nix
+    ./utils/utils.nix
   ];
 
   home.shellAliases.v = "nvim";

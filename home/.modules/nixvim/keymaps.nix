@@ -14,7 +14,6 @@
             action = builtins.elemAt x 2;
             options = elemAtOrDefault x 3;
           }) [
-          [ "n" "<Space>" "<NOP>" { } ]
           [ "n" "<esc>" "<cmd>noh<cr>" ] # clear search results
           [ "n" "Y" "y$" ] # fix Y behavior
           [
