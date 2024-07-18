@@ -15,8 +15,11 @@
   };
   services.transmission = {
     enable = true;
-    openFirewall = true;
     openRPCPort = true;
     user = "nexus";
+    settings = {
+      rpc-bind-address = "0.0.0.0";
+      rpc-whitelist-enabled = false;
+    };
   };
 }
