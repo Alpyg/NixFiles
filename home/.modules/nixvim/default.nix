@@ -11,8 +11,8 @@
 
     # ui
     ./ui/bufferline.nix
-    ./ui/chadtree.nix
     ./ui/floaterm.nix
+    ./ui/neotree.nix
     ./ui/theme.nix
 
     # utils

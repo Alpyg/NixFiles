@@ -1,7 +1,13 @@
 {
   programs.nixvim.plugins.bufferline = {
     enable = true;
-    alwaysShowBufferline = false;
+    alwaysShowBufferline = true;
+    offsets = [{
+      filetype = "neo-tree";
+      text = "File Explorer";
+      text_align = "left";
+      separator = true;
+    }];
   };
 
   programs.nixvim.keymaps = [
