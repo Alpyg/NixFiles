@@ -39,7 +39,7 @@
         };
         nexus = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./nixos/nexus ];
+          modules = [ ./nixos/nexus ./nixos/.modules/bebiflix.nix ];
         };
         kuyin = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
