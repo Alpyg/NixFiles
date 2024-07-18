@@ -31,7 +31,8 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./nixos/nixos ./nixos/printer.nix ];
+          modules =
+            [ ./nixos/nixos ./nixos/.modules/bebiflix.nix ./nixos/printer.nix ];
         };
         t470 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
@@ -39,7 +40,7 @@
         };
         nexus = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./nixos/nexus ./nixos/.modules/bebiflix.nix ];
+          modules = [ ./nixos/nexus ];
         };
         kuyin = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
