@@ -3,6 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    sops-nix.url = "github:Mic92/sops-nix";
+
+    catppuccin.url = "github:catppuccin/nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,14 +18,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, catppuccin, nixvim, ... }@inputs:
     let
       system = "x86_64-linux";
       inherit (import nixpkgs { inherit system; }) lib;
 
       homeManagerModules = hostname: [
         nixvim.homeManagerModules.nixvim
-        ./home/${hostname}
+        catppuccin.homeManagerModules.catppuccin
+        ./home/${hostname}.nix
       ];
     in
     {
@@ -31,8 +35,12 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules =
-            [ ./nixos/nixos ./nixos/.modules/bebiflix.nix ./nixos/printer.nix ];
+          modules = [
+            catppuccin.nixosModules.catppuccin
+            ./nixos/nixos
+            ./nixos/.modules/bebiflix.nix
+            ./nixos/printer.nix
+          ];
         };
         t470 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };

@@ -7,9 +7,9 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    ../.modules/btop.nix
-    ../.modules/tmux.nix
-    ../.modules/nixvim
+    .modules/btop.nix
+    .modules/tmux.nix
+    .modules/nixvim
   ];
 
   nixpkgs = {

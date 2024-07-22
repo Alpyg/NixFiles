@@ -7,8 +7,15 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    ../.modules/btop.nix
-    ../.modules/kitty.nix
+    .modules/catppuccin-mocha.nix
+    .modules/bspwm.nix
+    .modules/sxhkd.nix
+    .modules/polybar.nix
+    .modules/dunst.nix
+    .modules/btop.nix
+    .modules/kitty.nix
+    .modules/tmux.nix
+    .modules/nixvim
   ];
 
   nixpkgs = {
@@ -34,43 +41,86 @@
   };
 
   home = {
-    username = "kuyin";
-    homeDirectory = "/home/kuyin";
+    username = "alpyg";
+    homeDirectory = "/home/alpyg";
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
   programs.home-manager.enable = true;
   programs.git = {
     enable = true;
     lfs.enable = true;
+
+    userName = "Alpyg";
+    userEmail = "alpyg@pm.me";
   };
   programs.gh.enable = true;
   programs.lazygit.enable = true;
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
+  };
 
-  services.flameshot.enable = true;
+  programs.mangohud.enable = true;
+  programs.obs-studio.enable = true;
+
+  services.kdeconnect.enable = true;
 
   home.packages = with pkgs; [
+    zoxide
+    yazi
+    nixfmt-classic
+    tmuxinator
+    libnotify
     xclip
     playerctl
     p7zip
     unzip
     unrar
-    kate
-    dolphin
-    filelight
-    google-chrome
+    thunderbird
+    brave
+    firefox-devedition
     vlc
     mpv
     syncplay
-    audacity
-    libsForQt5.kdenlive
+    unityhub
+    vrc-get
+    goverlay
     prismlauncher
-    discord
-    libsForQt5.xp-pen-deco-01-v2-driver
+    osu-lazer
+    obsidian
     wineWowPackages.unstable
+    flameshot
+    kate
+    filelight
+    ktorrent
+    polkit-kde-agent
+    breeze-icons
+    breeze-gtk
+    ark
+    gwenview
+    dolphin
+    (pkgs.discord.override { withVencord = true; })
+
+    lazydocker
+    nodejs
+    bun
+    python312
+    gcc
+    qemu
+    gnumake
+    dbeaver-bin
+    blender
+    rustup
+    zig
+    go
+    prusa-slicer
+    libreoffice-qt
+
+    stremio
   ];
 
   # Nicely reload system units when changing configs

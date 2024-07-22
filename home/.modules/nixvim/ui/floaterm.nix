@@ -29,8 +29,8 @@
     }
     {
       mode = [ "n" "i" "v" ];
-      action = "<cmd>FloatermNew --title=terminal<cr>";
-      key = "<C-r>/";
+      action = "<cmd>FloatermToggle --title=terminal<cr>";
+      key = "<C-/>";
       options.desc = "Terminal";
     }
   ];

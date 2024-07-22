@@ -4,6 +4,8 @@
     ./options.nix
     ./keymaps.nix
 
+    ./cmp/cmp.nix
+
     # lsp
     ./lsp/lsp.nix
     ./lsp/treesitter.nix
