@@ -48,7 +48,7 @@
         };
         nexus = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./nixos/nexus ];
+          modules = [ ./nixos/nexus ./nixos/.modules/hostify.nix ];
         };
         kuyin = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };

@@ -59,6 +59,7 @@
   };
 
   home.packages = with pkgs; [
+    sops
     zoxide
     nixfmt-classic
     tmuxinator

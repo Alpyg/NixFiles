@@ -2,10 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = [
+    inputs.sops-nix.nixosModules.sops
+
     # Include the results of the hardware scan.
     ./hardware.nix
   ];
@@ -19,6 +21,12 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  sops.defaultSopsFile = ./secrets.yml;
+  sops.defaultSopsFormat = "yaml";
+
+  sops.age.generateKey = true;
+  sops.age.keyFile = "/home/nexus/.config/sops/age/keys.txt";
 
   networking = {
     hostName = "nexus";
