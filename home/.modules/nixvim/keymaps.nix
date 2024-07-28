@@ -39,7 +39,7 @@
           [
             [ "n" "i" "v" ]
             "<leader>qq"
-            "<cmd>wqa<cr>"
+            "<cmd>qa!<cr>"
             { desc = "Close neovim"; }
           ]
 

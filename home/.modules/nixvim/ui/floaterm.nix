@@ -28,7 +28,7 @@
       options.desc = "LazyDocker";
     }
     {
-      mode = [ "n" "i" "v" ];
+      mode = [ "n" "i" "v" "t" ];
       action = "<cmd>FloatermToggle --title=terminal<cr>";
       key = "<C-/>";
       options.desc = "Terminal";

@@ -39,12 +39,15 @@
             catppuccin.nixosModules.catppuccin
             ./nixos/nixos
             ./nixos/.modules/bebiflix.nix
-            ./nixos/printer.nix
           ];
         };
         t470 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./nixos/t470 ];
+          modules = [
+            catppuccin.nixosModules.catppuccin
+            ./nixos/t470
+            ./nixos/printer.nix
+          ];
         };
         nexus = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };

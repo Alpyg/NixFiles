@@ -114,6 +114,8 @@
     gnumake
     dbeaver-bin
     blender
+    pkg-config
+    openssl
     rustup
     zig
     go
