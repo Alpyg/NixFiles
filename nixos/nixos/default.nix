@@ -68,10 +68,9 @@
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  virtualisation.docker = {
-    enable = true;
-    enableNvidia = true;
-  };
+  virtualisation.docker.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
+
   virtualisation.virtualbox = { host.enable = true; };
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 

@@ -3,7 +3,7 @@
 {
   xsession.windowManager.bspwm.enable = true;
   xsession.windowManager.bspwm.extraConfig = ''
-    xrandr --output HDMI-0 --auto --primary --left-of DP-1 &
+    xrandr --output HDMI-0 --auto --primary --right-of DP-1 &
     xsetroot -cursor_name left_ptr &
   '';
   xsession.windowManager.bspwm.monitors = {

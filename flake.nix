@@ -16,9 +16,12 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zig.url = "github:mitchellh/zig-overlay";
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, nixvim, ... }@inputs:
+  outputs =
+    { self, nixpkgs, home-manager, catppuccin, nixvim, zig, ... }@inputs:
     let
       system = "x86_64-linux";
       inherit (import nixpkgs { inherit system; }) lib;
@@ -26,6 +29,7 @@
       homeManagerModules = hostname: [
         nixvim.homeManagerModules.nixvim
         catppuccin.homeManagerModules.catppuccin
+        { nixpkgs.overlays = [ zig.overlays.default ]; }
         ./home/${hostname}.nix
       ];
     in

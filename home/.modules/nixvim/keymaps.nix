@@ -101,7 +101,6 @@
           [ "v" "J" "<cmd>m '<+1<cr>gv=gv" ]
         ];
       in
-      config.nixvim.helpers.keymaps.mkKeymaps { options.silent = true; }
-        (maps);
+      config.lib.nixvim.keymaps.mkKeymaps { options.silent = true; } (maps);
   };
 }
