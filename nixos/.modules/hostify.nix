@@ -18,11 +18,14 @@
         "${config.sops.secrets."cloudflared/nexus-tunnel/creds".path}";
       ingress = {
         "alpyg.dev" = { service = "http://localhost:80"; };
+        "vaultwarden.alpyg.dev" = { service = "http://localhost:8222"; };
         "analytics.alpyg.dev" = { service = "http://localhost:10000"; };
       };
       default = "http_status:404";
     };
   };
+
+  services.vaultwarden.enable = true;
 
   sops.secrets."plausible/key" = { };
   sops.secrets."plausible/admin-password" = { };
