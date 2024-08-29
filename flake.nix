@@ -42,7 +42,7 @@
           modules = [
             catppuccin.nixosModules.catppuccin
             ./nixos/nixos
-            ./nixos/.modules/bebiflix.nix
+            #./nixos/.modules/ap.nix
           ];
         };
         t470 = nixpkgs.lib.nixosSystem {

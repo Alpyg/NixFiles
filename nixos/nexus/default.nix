@@ -22,7 +22,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  sops.defaultSopsFile = ./secrets.yml;
+  sops.defaultSopsFile = ../../secrets.yml;
   sops.defaultSopsFormat = "yaml";
 
   sops.age.generateKey = true;
