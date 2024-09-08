@@ -68,6 +68,7 @@
     audacity
     libsForQt5.kdenlive
     prismlauncher
+    vesktop
     discord
     libsForQt5.xp-pen-deco-01-v2-driver
     wineWowPackages.unstable

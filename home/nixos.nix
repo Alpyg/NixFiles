@@ -124,6 +124,7 @@
     ark
     gwenview
     dolphin
+    vesktop
     (pkgs.discord.override { withVencord = true; })
 
     lazydocker
