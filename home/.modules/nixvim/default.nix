@@ -20,6 +20,7 @@
     ./ui/theme.nix
 
     # utils
+    ./utils/crates-nvim.nix
     ./utils/git.nix
     ./utils/todo.nix
     ./utils/trouble.nix

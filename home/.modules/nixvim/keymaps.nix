@@ -28,9 +28,9 @@
           ] # close by ctrl-x
 
           # save
-          [ [ "n" "i" "v" ] "<leader>s" "<cmd>w<cr>" ]
+          [ "n" "<leader>s" "<cmd>w<cr>" ]
           [
-            "n"
+            [ "n" "i" "v" ]
             "<C-s>"
             "<cmd>w<cr>"
           ]
