@@ -68,10 +68,11 @@
     audacity
     libsForQt5.kdenlive
     prismlauncher
-    vesktop
-    discord
     libsForQt5.xp-pen-deco-01-v2-driver
     wineWowPackages.unstable
+
+    vesktop
+    (pkgs.discord.override { withVencord = true; })
   ];
 
   # Nicely reload system units when changing configs
