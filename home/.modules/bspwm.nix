@@ -3,12 +3,12 @@
 {
   xsession.windowManager.bspwm.enable = true;
   xsession.windowManager.bspwm.extraConfig = ''
-    xrandr --output HDMI-0 --auto --primary --right-of DP-1 &
+    xrandr --output DP-0 --mode 2560x1440 --rate 180 --primary --left-of HDMI-0 &
     xsetroot -cursor_name left_ptr &
   '';
   xsession.windowManager.bspwm.monitors = {
     HDMI-0 = [ "I" "II" "III" "IV" "V" ];
-    DP-1 = [ "I" "II" "III" "IV" "V" ];
+    DP-0 = [ "I" "II" "III" "IV" "V" ];
     eDP-1 = [ "I" "II" "III" "IV" "V" ];
   };
   xsession.windowManager.bspwm.settings = {
