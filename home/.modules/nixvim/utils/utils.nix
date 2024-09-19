@@ -1,7 +1,7 @@
 {
   programs.nixvim.plugins = {
     lualine.enable = true;
-    surround.enable = true;
+    vim-surround.enable = true;
     trim.enable = true;
 
     telescope.enable = true;

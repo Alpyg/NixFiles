@@ -20,7 +20,7 @@
           installRustc = false;
         };
         tailwindcss.enable = true;
-        tsserver.enable = true;
+        ts-ls.enable = true;
         zls.enable = true;
       };
     };
