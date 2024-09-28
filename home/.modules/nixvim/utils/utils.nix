@@ -10,5 +10,6 @@
 
     which-key.enable = true;
     wtf.enable = true;
+    web-devicons.enable = true;
   };
 }
