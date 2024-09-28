@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1722202838451
+        "settingsSyncVersion": 1727242030500
     },
     "plugins": {
         "BadgeAPI": {
@@ -81,7 +81,7 @@
             "enabled": false
         },
         "BetterFolders": {
-            "enabled": true,
+            "enabled": false,
             "sidebar": true,
             "showFolderIcon": 1,
             "closeAllHomeButton": false,
@@ -141,7 +141,8 @@
         "Dearrow": {
             "enabled": true,
             "hideButton": false,
-            "replaceElements": 0
+            "replaceElements": 0,
+            "dearrowByDefault": true
         },
         "Decor": {
             "enabled": false
@@ -622,9 +623,6 @@
         "Summaries": {
             "enabled": false
         },
-        "WatchTogetherAdblock": {
-            "enabled": false
-        },
         "ServerInfo": {
             "enabled": false
         },
@@ -649,7 +647,19 @@
         "MentionAvatars": {
             "enabled": false
         },
-        "ShowAllRoles": {
+        "AlwaysExpandRoles": {
+            "enabled": false
+        },
+        "YoutubeAdblock": {
+            "enabled": false
+        },
+        "CopyFileContents": {
+            "enabled": false
+        },
+        "NoMaskedUrlPaste": {
+            "enabled": false
+        },
+        "StickerPaste": {
             "enabled": false
         }
     }
