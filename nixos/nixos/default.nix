@@ -136,6 +136,7 @@
     killall
     vulkan-loader
     qpwgraph
+    inputs.zen-browser.packages."${system}".default
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = {

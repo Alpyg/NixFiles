@@ -68,7 +68,6 @@
 
   home.packages = with pkgs; [
     zoxide
-    yazi
     nixfmt-classic
     tmuxinator
     libnotify
@@ -123,6 +122,7 @@
     (zigpkgs.master)
     kicad
     sops
+    anki
   ];
 
   # Nicely reload system units when changing configs
