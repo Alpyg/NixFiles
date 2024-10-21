@@ -1,8 +1,5 @@
 {
-  programs.nixvim.plugins.trouble = {
-    enable = true;
-    settings.position = "left";
-  };
+  programs.nixvim.plugins.trouble = { enable = true; };
 
   programs.nixvim.keymaps = [
     {

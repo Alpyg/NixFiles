@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1727242030500
+        "settingsSyncVersion": 1728623288468
     },
     "plugins": {
         "BadgeAPI": {
@@ -379,9 +379,6 @@
         "RoleColorEverywhere": {
             "enabled": false
         },
-        "SearchReply": {
-            "enabled": false
-        },
         "SecretRingToneEnabler": {
             "enabled": false
         },
@@ -660,6 +657,9 @@
             "enabled": false
         },
         "StickerPaste": {
+            "enabled": false
+        },
+        "FullSearchContext": {
             "enabled": false
         }
     }
