@@ -11,8 +11,7 @@
         google_java_format.enable = true;
         leptosfmt.enable = true;
         mdformat.enable = true;
-        nixfmt.enable = true;
-        nixpkgs_fmt.enable = true;
+        alejandra.enable = true;
         prettierd.enable = true;
         stylua.enable = true;
         yamlfmt.enable = true;

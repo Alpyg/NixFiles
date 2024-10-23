@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.polybar.enable = true;
   services.polybar.package = pkgs.polybar.override {
     alsaSupport = true;

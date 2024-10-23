@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   catppuccin.enable = true;
   catppuccin.pointerCursor.enable = true;
 
@@ -19,8 +17,7 @@
     style.name = "kvantum";
   };
 
-  xdg.configFile."Kvantum/kvantum.kvconfig".source =
-    (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
-      General.theme = "Catppuccin-Mocha-Mauve";
-    };
+  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
+    General.theme = "Catppuccin-Mocha-Mauve";
+  };
 }

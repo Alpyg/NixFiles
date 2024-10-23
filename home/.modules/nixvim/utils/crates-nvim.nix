@@ -1,1 +1,1 @@
-{ programs.nixvim.plugins.crates-nvim.enable = true; }
+{programs.nixvim.plugins.crates-nvim.enable = true;}

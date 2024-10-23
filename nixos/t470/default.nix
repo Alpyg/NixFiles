@@ -1,10 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
@@ -12,27 +6,27 @@
 
   nix.settings = {
     auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "alpyg" ];
+    experimental-features = ["nix-command" "flakes"];
+    trusted-users = ["alpyg"];
   };
   nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 
   networking.hostName = "t470";
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    trustedInterfaces = [ "enp0s31f6" ];
-    allowedTCPPorts = [ 80 443 7125 25565 ];
+    trustedInterfaces = ["enp0s31f6"];
+    allowedTCPPorts = [80 443 7125 25565];
   };
 
   services.zerotierone = {
     enable = true;
-    joinNetworks = [ "ebe7fbd445ae1d09" ];
-    localConf = { };
+    joinNetworks = ["ebe7fbd445ae1d09"];
+    localConf = {};
   };
 
   time.timeZone = "America/Toronto";
@@ -64,7 +58,7 @@
   users.users.alpyg = {
     isNormalUser = true;
     description = "Alpyg";
-    extraGroups = [ "networkmanager" "wheel" "storage" "docker" ];
+    extraGroups = ["networkmanager" "wheel" "storage" "docker"];
   };
   users.defaultUserShell = pkgs.fish;
 
@@ -105,7 +99,7 @@
     killall
     qpwgraph
   ];
-  environment.shells = with pkgs; [ fish ];
+  environment.shells = with pkgs; [fish];
   environment.sessionVariables = {
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
@@ -124,18 +118,17 @@
     xorg.libxcb
   ];
 
-  fonts.packages = with pkgs; [ nerdfonts ];
+  fonts.packages = with pkgs; [nerdfonts];
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
+      wantedBy = ["graphical-session.target"];
+      wants = ["graphical-session.target"];
+      after = ["graphical-session.target"];
       serviceConfig = {
         Type = "simple";
-        ExecStart =
-          "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+        ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;

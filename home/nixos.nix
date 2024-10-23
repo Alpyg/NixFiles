@@ -1,6 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ lib, config, pkgs, inputs, ... }: {
+{pkgs, ...}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -100,7 +100,7 @@
     gwenview
     dolphin
     vesktop
-    (pkgs.discord.override { withVencord = true; })
+    (pkgs.discord.override {withVencord = true;})
 
     lazydocker
     nodejs
@@ -120,7 +120,7 @@
 
     stremio
     (zigpkgs.master)
-    kicad
+    #kicad
     sops
     anki
   ];

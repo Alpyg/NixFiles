@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
@@ -25,6 +25,13 @@
         tailwindcss.enable = true;
         ts_ls.enable = true;
         zls.enable = true;
+        nixd = {
+          enable = true;
+          settings = {
+            nixpkgs.expr = "import <nixpkgs> {}";
+            formatting.command = ["alejandra"];
+          };
+        };
       };
     };
   };

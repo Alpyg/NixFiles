@@ -1,10 +1,9 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.sops-nix.nixosModules.sops
 
@@ -14,14 +13,14 @@
 
   nix.settings = {
     auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "alpyg" ];
+    experimental-features = ["nix-command" "flakes"];
+    trusted-users = ["alpyg"];
   };
   nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 
   sops.defaultSopsFile = ../../secrets.yml;
   sops.defaultSopsFormat = "yaml";
@@ -34,24 +33,28 @@
     useDHCP = true;
     firewall = {
       enable = true;
-      trustedInterfaces = [ "eno1" ];
-      allowedTCPPorts = [ 9942 9943 9944 11470 25565 ];
-      allowedUDPPorts = [ 9942 9943 9944 11470 ];
-      allowedTCPPortRanges = [{
-        from = 1714;
-        to = 1764;
-      }];
-      allowedUDPPortRanges = [{
-        from = 1714;
-        to = 1764;
-      }];
+      trustedInterfaces = ["eno1"];
+      allowedTCPPorts = [9942 9943 9944 11470 25565];
+      allowedUDPPorts = [9942 9943 9944 11470];
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+      ];
     };
   };
 
   services.zerotierone = {
     enable = true;
-    joinNetworks = [ "ebe7fbd445ae1d09" ];
-    localConf = { };
+    joinNetworks = ["ebe7fbd445ae1d09"];
+    localConf = {};
   };
 
   time.timeZone = "America/Toronto";
@@ -59,13 +62,12 @@
 
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [ intel-media-driver vaapiVdpau libvdpau-va-gl ];
+    extraPackages = with pkgs; [intel-media-driver vaapiVdpau libvdpau-va-gl];
   };
   hardware.bluetooth.enable = true;
   hardware.opentabletdriver.enable = true;
-  boot.kernelModules = [ "nouveau" ];
-  boot.blacklistedKernelModules =
-    [ "nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset" ];
+  boot.kernelModules = ["nouveau"];
+  boot.blacklistedKernelModules = ["nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset"];
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -74,13 +76,13 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   virtualisation.docker.enable = true;
   hardware.nvidia-container-toolkit.enable = true;
 
-  virtualisation.virtualbox = { host.enable = true; };
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  virtualisation.virtualbox = {host.enable = true;};
+  users.extraGroups.vboxusers.members = ["user-with-access-to-virtualbox"];
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -95,7 +97,7 @@
   users.users.alpyg = {
     isNormalUser = true;
     description = "Alpyg";
-    extraGroups = [ "networkmanager" "wheel" "storage" "docker" ];
+    extraGroups = ["networkmanager" "wheel" "storage" "docker"];
   };
   users.defaultUserShell = pkgs.fish;
 
@@ -138,7 +140,7 @@
     qpwgraph
     inputs.zen-browser.packages."${system}".default
   ];
-  environment.shells = with pkgs; [ fish ];
+  environment.shells = with pkgs; [fish];
   environment.sessionVariables = {
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
@@ -157,18 +159,17 @@
     xorg.libxcb
   ];
 
-  fonts.packages = with pkgs; [ nerdfonts ];
+  fonts.packages = with pkgs; [nerdfonts];
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
+      wantedBy = ["graphical-session.target"];
+      wants = ["graphical-session.target"];
+      after = ["graphical-session.target"];
       serviceConfig = {
         Type = "simple";
-        ExecStart =
-          "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+        ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;
