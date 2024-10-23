@@ -12,8 +12,6 @@
           {name = "nvim_lsp";}
           {name = "path";}
           {name = "buffer";}
-          {name = "cmdline";}
-          {name = "nvim_lua";}
         ];
 
         mapping = {
