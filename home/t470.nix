@@ -59,6 +59,11 @@
   };
   programs.gh.enable = true;
   programs.lazygit.enable = true;
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   services.flameshot.enable = true;
 
