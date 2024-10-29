@@ -123,6 +123,7 @@
     #kicad
     sops
     anki
+    gimp
   ];
 
   # Nicely reload system units when changing configs
