@@ -13,7 +13,7 @@
 
     swapfile = false; # Disable the swap file
     modeline = true; # Tags such as 'vim:ft=sh'
-    modelines = 100; # Sets the type of modelines
+    modelines = 120; # Sets the type of modelines
     undofile = true; # Automatically save and restore undo history
     incsearch = true;
     # Incremental search: show match for partly typed search command
