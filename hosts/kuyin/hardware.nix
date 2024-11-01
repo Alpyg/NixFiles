@@ -16,6 +16,11 @@
     fsType = "ext4";
   };
 
+  fileSystems."/mnt/meow" = {
+    device = "/dev/disk/by-uuid/24442ca4-babb-4c4c-b928-fee3736693b0";
+    fsType = "ext4";
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/84E0-7FA4";
     fsType = "vfat";
