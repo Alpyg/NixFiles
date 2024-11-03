@@ -56,7 +56,7 @@
         modules = [
           catppuccin.nixosModules.catppuccin
           ./hosts/t470
-          ./hosts/printer.nix
+          ./services/printer.nix
         ];
       };
       nexus = nixpkgs.lib.nixosSystem {

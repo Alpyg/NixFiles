@@ -26,7 +26,7 @@
   sops.defaultSopsFormat = "yaml";
 
   sops.age.generateKey = true;
-  sops.age.keyFile = "/home/nexus/.config/sops/age/keys.txt";
+  sops.age.keyFile = "/home/alpyg/.config/sops/age/keys.txt";
 
   networking = {
     hostName = "nixos";

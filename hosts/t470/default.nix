@@ -1,5 +1,11 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
+    inputs.sops-nix.nixosModules.sops
     # Include the results of the hardware scan.
     ./hardware.nix
   ];
@@ -14,6 +20,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = ["ntfs"];
+
+  sops.defaultSopsFile = ../../secrets.yml;
+  sops.defaultSopsFormat = "yaml";
+
+  sops.age.generateKey = true;
+  sops.age.keyFile = "/home/alpyg/.config/sops/age/keys.txt";
 
   networking.hostName = "t470";
   networking.networkmanager.enable = true;

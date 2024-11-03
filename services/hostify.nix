@@ -1,25 +1,22 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   networking = {
     firewall = {
       enable = true;
-      trustedInterfaces = [ "eno1" ];
-      allowedTCPPorts = [ 80 443 ];
-      allowedUDPPorts = [ 80 443 ];
+      trustedInterfaces = ["eno1"];
+      allowedTCPPorts = [80 443];
+      allowedUDPPorts = [80 443];
     };
   };
 
-  sops.secrets."cloudflared/nexus-tunnel/creds" = { owner = "cloudflared"; };
+  sops.secrets."cloudflared/nexus-tunnel/creds" = {owner = "cloudflared";};
   services.cloudflared = {
     enable = true;
     tunnels."nexus" = {
-      credentialsFile =
-        "${config.sops.secrets."cloudflared/nexus-tunnel/creds".path}";
+      credentialsFile = "${config.sops.secrets."cloudflared/nexus-tunnel/creds".path}";
       ingress = {
-        "alpyg.dev" = { service = "http://localhost:80"; };
-        "vaultwarden.alpyg.dev" = { service = "http://localhost:8222"; };
-        "analytics.alpyg.dev" = { service = "http://localhost:10000"; };
+        "alpyg.dev" = {service = "http://localhost:80";};
+        "vaultwarden.alpyg.dev" = {service = "http://localhost:8222";};
+        "analytics.alpyg.dev" = {service = "http://localhost:10000";};
       };
       default = "http_status:404";
     };
@@ -27,8 +24,8 @@
 
   services.vaultwarden.enable = true;
 
-  sops.secrets."plausible/key" = { };
-  sops.secrets."plausible/admin-password" = { };
+  sops.secrets."plausible/key" = {};
+  sops.secrets."plausible/admin-password" = {};
   services.plausible = {
     enable = true;
     server = {
