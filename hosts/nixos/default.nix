@@ -33,9 +33,9 @@
     useDHCP = true;
     firewall = {
       enable = true;
-      trustedInterfaces = ["eno1"];
-      allowedTCPPorts = [9942 9943 9944 11470 25565];
-      allowedUDPPorts = [9942 9943 9944 11470];
+      trustedInterfaces = ["eno1" "zth6rflskm"];
+      allowedTCPPorts = [9000 9001 9942 9943 9944 11470 25565];
+      allowedUDPPorts = [9000 9001 9942 9943 9944 11470];
       allowedTCPPortRanges = [
         {
           from = 1714;
@@ -119,6 +119,9 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
   };
   programs.alvr = {
     enable = true;

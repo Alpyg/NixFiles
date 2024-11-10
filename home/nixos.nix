@@ -124,6 +124,7 @@
     sops
     anki
     gimp
+    nexusmods-app-unfree
   ];
 
   # Nicely reload system units when changing configs
