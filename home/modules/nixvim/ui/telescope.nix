@@ -1,27 +1,25 @@
 {
-  programs.nixvim.plugins.telescope = {
-    enable = true;
-  };
+  programs.nixvim.plugins.telescope = { enable = true; };
 
   programs.nixvim.keymaps = [
     {
-      action = "<cmd>Telescope find_files<cr>";
       key = "<leader>ff";
+      action = "<cmd>Telescope find_files<cr>";
       options.desc = "Telescope find files";
     }
     {
-      action = "<cmd>Telescope live_grep<cr>";
       key = "<leader>fg";
+      action = "<cmd>Telescope live_grep<cr>";
       options.desc = "Telescope live grep";
     }
     {
-      action = "<cmd>Telescope buffers<cr>";
       key = "<leader>fb";
+      action = "<cmd>Telescope buffers<cr>";
       options.desc = "Telescope buffers";
     }
     {
-      action = "<cmd>Telescope help_tags<cr>";
       key = "<leader>fh";
+      action = "<cmd>Telescope help_tags<cr>";
       options.desc = "Telescope help tags";
     }
   ];

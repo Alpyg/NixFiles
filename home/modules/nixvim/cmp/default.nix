@@ -8,11 +8,8 @@
       enable = true;
       autoEnableSources = true;
       settings = {
-        sources = [
-          {name = "nvim_lsp";}
-          {name = "path";}
-          {name = "buffer";}
-        ];
+        sources =
+          [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
 
         mapping = {
           "<C-n>" = "cmp.mapping.select_next_item()";
@@ -23,7 +20,8 @@
           "<C-f>" = "cmp.mapping.scroll_docs(4)";
           "<C-Space>" = "cmp.mapping.complete()";
           "<C-e>" = "cmp.mapping.close()";
-          "<CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })";
+          "<CR>" =
+            "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })";
         };
         experimental = {
           ghost_text = true;

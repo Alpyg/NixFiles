@@ -4,10 +4,14 @@
     ./options.nix
     ./keymaps.nix
 
-    ./cmp/cmp.nix
+    # cmp
+    ./cmp
+
+    # dap
+    ./dap
 
     # lsp
-    ./lsp/lsp.nix
+    ./lsp
     ./lsp/treesitter.nix
     ./lsp/none-ls.nix
 
@@ -18,13 +22,14 @@
     ./ui/spectre.nix
     ./ui/telescope.nix
     ./ui/theme.nix
+    ./ui/which-key.nix
 
     # utils
-    ./utils/crates-nvim.nix
+    ./utils
     ./utils/git.nix
+    ./utils/refactoring.nix
     ./utils/todo.nix
     ./utils/trouble.nix
-    ./utils/utils.nix
   ];
 
   home.shellAliases.v = "nvim";

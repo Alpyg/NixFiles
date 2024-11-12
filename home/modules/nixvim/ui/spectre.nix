@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.nixvim.plugins.spectre = {
     enable = true;
 
@@ -6,11 +6,9 @@
     replacePackage = pkgs.gnused;
   };
 
-  programs.nixvim.keymaps = [
-    {
-      action = "<cmd>Spectre<cr>";
-      key = "<leader>sr";
-      options.desc = "Replace in Files (Spectre)";
-    }
-  ];
+  programs.nixvim.keymaps = [{
+    key = "<leader>sr";
+    action = "<cmd>Spectre<cr>";
+    options.desc = "Replace in Files (Spectre)";
+  }];
 }

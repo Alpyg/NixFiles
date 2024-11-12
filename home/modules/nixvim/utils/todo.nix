@@ -3,23 +3,23 @@
 
   programs.nixvim.keymaps = [
     {
-      action = "<cmd>TodoTelescope<cr>";
       key = "<leader>st";
+      action = "<cmd>TodoTelescope<cr>";
       options.desc = "Todo";
     }
     {
-      action = "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>";
       key = "<leader>sT";
+      action = "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>";
       options.desc = "Todo/Fix/Fixme";
     }
     {
-      action = "<cmd>Trouble todo toggle<cr>";
       key = "<leader>xt";
+      action = "<cmd>Trouble todo toggle<cr>";
       options.desc = "Todo (Trouble)";
     }
     {
-      action = "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,FIXME}}<cr>";
       key = "<leader>xT";
+      action = "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,FIXME}}<cr>";
       options.desc = "Todo/Fix/Fixme (Trouble)";
     }
   ];
