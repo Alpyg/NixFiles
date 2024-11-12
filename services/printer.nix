@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   services.klipper = {
     enable = true;
     user = "root";
@@ -72,7 +72,7 @@
         max_temp = 110;
       };
 
-      fan = {pin = "PA0";};
+      fan = { pin = "PA0"; };
 
       mcu = {
         serial = "/dev/ttyUSB0";
@@ -103,9 +103,9 @@
         probe_count = "3, 3";
       };
 
-      "output_pin beeper" = {pin = "PB13";};
+      "output_pin beeper" = { pin = "PB13"; };
 
-      virtual_sdcard = {path = "/var/lib/moonraker/gcodes/";};
+      virtual_sdcard = { path = "/var/lib/moonraker/gcodes/"; };
     };
   };
   services.moonraker = {
@@ -116,10 +116,11 @@
     settings = {
       authorization = {
         force_logins = false;
-        cors_domains = ["localhost" "*.local"];
-        trusted_clients = ["0.0.0.0" "127.0.0.1" "192.168.2.0/24" "10.147.20.0/24"];
+        cors_domains = [ "localhost" "*.local" ];
+        trusted_clients =
+          [ "0.0.0.0" "127.0.0.1" "192.168.2.0/24" "10.147.20.0/24" ];
       };
     };
   };
-  services.mainsail = {enable = true;};
+  services.mainsail = { enable = true; };
 }

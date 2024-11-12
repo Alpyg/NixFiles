@@ -1,13 +1,13 @@
-{...}: {
+{ ... }: {
   xsession.windowManager.bspwm.enable = true;
   xsession.windowManager.bspwm.extraConfig = ''
     ~/.nixdots/scripts/xrandr.sh
   '';
   xsession.windowManager.bspwm.monitors = {
-    HDMI-0 = ["I" "II" "III" "IV" "V"];
-    DP-0 = ["I" "II" "III" "IV" "V"];
-    DP-3 = ["I" "II" "III" "IV" "V"];
-    eDP-1 = ["I" "II" "III" "IV" "V"];
+    HDMI-0 = [ "I" "II" "III" "IV" "V" ];
+    DP-0 = [ "I" "II" "III" "IV" "V" ];
+    DP-3 = [ "I" "II" "III" "IV" "V" ];
+    eDP-1 = [ "I" "II" "III" "IV" "V" ];
   };
   xsession.windowManager.bspwm.settings = {
     border_width = 2;

@@ -21,85 +21,79 @@
     zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    catppuccin,
-    nixvim,
-    zig,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    inherit (import nixpkgs {inherit system;}) lib;
+  outputs =
+    { self, nixpkgs, home-manager, catppuccin, nixvim, zig, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      inherit (import nixpkgs { inherit system; }) lib;
 
-    homeManagerModules = hostname: [
-      nixvim.homeManagerModules.nixvim
-      catppuccin.homeManagerModules.catppuccin
-      {nixpkgs.overlays = [zig.overlays.default];}
-      ./home/${hostname}.nix
-    ];
-  in {
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          catppuccin.nixosModules.catppuccin
-          ./hosts/nixos
-          #./hosts/.modules/ap.nix
-        ];
+      homeManagerModules = hostname: [
+        nixvim.homeManagerModules.nixvim
+        catppuccin.homeManagerModules.catppuccin
+        { nixpkgs.overlays = [ zig.overlays.default ]; }
+        ./home/${hostname}.nix
+      ];
+    in {
+      # NixOS configuration entrypoint
+      # Available through 'nixos-rebuild --flake .#your-hostname'
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            catppuccin.nixosModules.catppuccin
+            ./hosts/nixos
+            #./hosts/.modules/ap.nix
+          ];
+        };
+        t470 = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            catppuccin.nixosModules.catppuccin
+            ./hosts/t470
+            ./services/printer.nix
+          ];
+        };
+        nexus = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/nexus ./services/hostify.nix ];
+        };
+        kuyin = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/kuyin ];
+        };
       };
-      t470 = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          catppuccin.nixosModules.catppuccin
-          ./hosts/t470
-          ./services/printer.nix
-        ];
-      };
-      nexus = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [./hosts/nexus ./services/hostify.nix];
-      };
-      kuyin = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [./hosts/kuyin];
+
+      # Standalone home-manager configuration entrypoint
+      # Available through 'home-manager --flake .#your-username@your-hostname'
+      homeConfigurations = {
+        "alpyg@nixos" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config = { allowUnfree = true; };
+          };
+          modules = homeManagerModules "nixos";
+        };
+        "alpyg@t470" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config = { allowUnfree = true; };
+          };
+          modules = homeManagerModules "t470";
+        };
+        "nexus@nexus" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config = { allowUnfree = true; };
+          };
+          modules = homeManagerModules "nexus";
+        };
+        "kuyin@kuyin" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config = { allowUnfree = true; };
+          };
+          modules = homeManagerModules "kuyin";
+        };
       };
     };
-
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "alpyg@nixos" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config = {allowUnfree = true;};
-        };
-        modules = homeManagerModules "nixos";
-      };
-      "alpyg@t470" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config = {allowUnfree = true;};
-        };
-        modules = homeManagerModules "t470";
-      };
-      "nexus@nexus" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config = {allowUnfree = true;};
-        };
-        modules = homeManagerModules "nexus";
-      };
-      "kuyin@kuyin" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config = {allowUnfree = true;};
-        };
-        modules = homeManagerModules "kuyin";
-      };
-    };
-  };
 }
