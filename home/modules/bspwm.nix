@@ -22,7 +22,7 @@
     "picom -b --config ~/.config/picom/picom.conf"
     "kdeconnect-cli"
     "flameshot"
-    "vesktop"
+    "discord"
     "steam"
   ];
 }
