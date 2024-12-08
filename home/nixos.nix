@@ -7,15 +7,15 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    modules/catppuccin-mocha.nix
-    modules/bspwm.nix
-    modules/sxhkd.nix
-    modules/polybar.nix
-    modules/dunst.nix
-    modules/btop.nix
-    modules/kitty.nix
-    modules/tmux.nix
-    modules/nixvim
+    ./modules/catppuccin-mocha.nix
+    ./modules/bspwm.nix
+    ./modules/sxhkd.nix
+    ./modules/polybar.nix
+    ./modules/dunst.nix
+    ./modules/btop.nix
+    ./modules/kitty.nix
+    ./modules/tmux.nix
+    ./modules/nixvim
   ];
 
   nixpkgs = {
@@ -73,6 +73,7 @@
     libnotify
     xclip
     playerctl
+    catppuccin-fcitx5
     p7zip
     unzip
     unrar
@@ -122,7 +123,7 @@
     sops
     anki
     gimp
-    nexusmods-app-unfree
+    kicad
   ];
 
   # Nicely reload system units when changing configs
