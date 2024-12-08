@@ -125,7 +125,7 @@
     xorg.libxcb
   ];
 
-  fonts.packages = with pkgs; [ nerdfonts ];
+  fonts.packages = with pkgs; [ nerd-fonts.noto ];
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {

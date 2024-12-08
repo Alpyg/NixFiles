@@ -65,7 +65,7 @@
     killall
   ];
   environment.shells = with pkgs; [ fish ];
-  fonts.packages = with pkgs; [ nerdfonts ];
+  fonts.packages = with pkgs; [ nerd-fonts.noto ];
 
   system.stateVersion = "24.05";
 }

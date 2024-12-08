@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1728623288468
+        "settingsSyncVersion": 1733648097480
     },
     "plugins": {
         "BadgeAPI": {
@@ -352,9 +352,6 @@
         "PreviewMessage": {
             "enabled": false
         },
-        "PronounDB": {
-            "enabled": false
-        },
         "QuickMention": {
             "enabled": false
         },
@@ -660,6 +657,9 @@
             "enabled": false
         },
         "FullSearchContext": {
+            "enabled": false
+        },
+        "UserMessagesPronouns": {
             "enabled": false
         }
     }
