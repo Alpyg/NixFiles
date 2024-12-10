@@ -13,7 +13,10 @@
         leptosfmt.enable = true;
         mdformat.enable = true;
         nixfmt.enable = true;
-        prettierd.enable = true;
+        prettierd = {
+          enable = true;
+          disableTsServerFormatter = true;
+        };
         stylua.enable = true;
         yamlfmt.enable = true;
       };
