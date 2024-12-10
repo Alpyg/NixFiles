@@ -57,9 +57,6 @@
   };
   hardware.bluetooth.enable = true;
   hardware.opentabletdriver.enable = true;
-  boot.kernelModules = [ "nouveau" ];
-  boot.blacklistedKernelModules =
-    [ "nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset" ];
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -101,10 +98,8 @@
   services.xserver.displayManager.lightdm.greeters.gtk.enable = true;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "alpyg";
-  services.xserver.windowManager.bspwm.enable = true;
-  services.picom.enable = true;
-  services.devmon.enable = true;
-  security.polkit.enable = true;
+
+  programs.hyprland = { enable = true; };
 
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
@@ -157,22 +152,22 @@
 
   fonts.packages = with pkgs; [ nerd-fonts.noto ];
 
-  systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart =
-          "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
-  };
+  # systemd = {
+  #   user.services.polkit-gnome-authentication-agent-1 = {
+  #     description = "polkit-gnome-authentication-agent-1";
+  #     wantedBy = [ "graphical-session.target" ];
+  #     wants = [ "graphical-session.target" ];
+  #     after = [ "graphical-session.target" ];
+  #     serviceConfig = {
+  #       Type = "simple";
+  #       ExecStart =
+  #         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+  #       Restart = "on-failure";
+  #       RestartSec = 1;
+  #       TimeoutStopSec = 10;
+  #     };
+  #   };
+  # };
 
   system.stateVersion = "24.05";
 }

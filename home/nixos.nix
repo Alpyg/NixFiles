@@ -8,14 +8,16 @@
 
     # You can also split up your configuration and import pieces of it here:
     ./modules/catppuccin-mocha.nix
-    ./modules/bspwm.nix
-    ./modules/sxhkd.nix
-    ./modules/polybar.nix
-    ./modules/dunst.nix
+    # ./modules/bspwm.nix
+    # ./modules/sxhkd.nix
+    # ./modules/polybar.nix
+    # ./modules/dunst.nix
     ./modules/btop.nix
     ./modules/kitty.nix
     ./modules/tmux.nix
     ./modules/nixvim
+
+    ./modules/hyprland.nix
   ];
 
   nixpkgs = {

@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   catppuccin.enable = true;
-  catppuccin.pointerCursor.enable = true;
 
   home.packages = with pkgs; [
     catppuccin-kvantum
