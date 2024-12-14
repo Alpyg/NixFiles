@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ pkgs, config, ... }: {
   networking = {
     firewall = {
       enable = true;
@@ -18,6 +18,7 @@
         "alpyg.dev" = { service = "http://localhost:80"; };
         "vaultwarden.alpyg.dev" = { service = "http://localhost:8222"; };
         "analytics.alpyg.dev" = { service = "http://localhost:10000"; };
+        "gitea.alpyg.dev" = { service = "http://localhost:10001"; };
       };
       default = "http_status:404";
     };
@@ -26,7 +27,6 @@
   services.vaultwarden.enable = true;
 
   sops.secrets."plausible/key" = { };
-  sops.secrets."plausible/admin-password" = { };
   services.plausible = {
     enable = true;
     server = {
@@ -35,12 +35,33 @@
       secretKeybaseFile = "${config.sops.secrets."plausible/key".path}";
       #disableRegistration = false; # disabled after first account creation cuz adminUser didnt work
     };
+  };
 
-    adminUser = {
-      name = "Admin";
-      email = "admin@localhost";
-      activate = true;
-      passwordFile = "${config.sops.secrets."plausible/admin-password".path}";
+  services.gitea = {
+    enable = true;
+    appName = "Gitea";
+    database.type = "sqlite3";
+
+    settings.server = {
+      HTTP_PORT = 10001;
+      DOMAIN = "gitea.alpyg.dev";
+    };
+  };
+
+  sops.secrets."gitea/runner-token" = { };
+  services.gitea-actions-runner = {
+    instances.native = {
+      enable = true;
+      name = "Native";
+      url = "http://localhost:10001";
+      token = "T5a4DqZdNLpcvcy8V7fl2bZl0GKBXT20IHm35sWK";
+      labels = [
+        "native:host"
+        # "docker:docker://docker:latest"
+        # "rust:docker://rust:alpine"
+        # "golang:docker://go:alpine"
+        # "node:docker://node:current-alpine"
+      ];
     };
   };
 }

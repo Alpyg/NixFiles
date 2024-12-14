@@ -37,7 +37,11 @@
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  virtualisation.docker = { enable = true; };
+  virtualisation.docker = {
+    enable = true;
+    liveRestore = false;
+    extraOptions = "--insecure-registry 10.147.20.18:10000";
+  };
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;

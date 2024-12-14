@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1733648097480
+        "settingsSyncVersion": 1733852330071
     },
     "plugins": {
         "BadgeAPI": {
@@ -114,7 +114,7 @@
             "enabled": false
         },
         "CallTimer": {
-            "enabled": true,
+            "enabled": false,
             "format": "stopwatch"
         },
         "ClearURLs": {
@@ -133,7 +133,9 @@
             "enabled": false
         },
         "CrashHandler": {
-            "enabled": true
+            "enabled": true,
+            "attemptToPreventCrashes": true,
+            "attemptToNavigateToHome": true
         },
         "CustomRPC": {
             "enabled": false
@@ -660,6 +662,12 @@
             "enabled": false
         },
         "UserMessagesPronouns": {
+            "enabled": false
+        },
+        "DynamicImageModalAPI": {
+            "enabled": false
+        },
+        "AccountPanelServerProfile": {
             "enabled": false
         }
     }

@@ -70,6 +70,16 @@
   virtualisation.docker = {
     enable = true;
     enableNvidia = true;
+    liveRestore = false;
+    extraOptions = "--insecure-registry 10.147.20.18:10000";
+  };
+  services.dockerRegistry = {
+    enable = true;
+    enableDelete = true;
+    enableGarbageCollect = true;
+    openFirewall = true;
+    port = 10000;
+    listenAddress = "0.0.0.0";
   };
   hardware.nvidia-container-toolkit.enable = true;
 
@@ -99,7 +109,10 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "alpyg";
 
-  programs.hyprland = { enable = true; };
+  programs.hyprland = {
+    enable = true;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+  };
 
   programs.fish.enable = true;
   programs.partition-manager.enable = true;

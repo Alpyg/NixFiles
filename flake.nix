@@ -91,7 +91,7 @@
         nixos = {
           hostname = "localhost";
           profiles.system = {
-            user = "root";
+            sshUser = "root";
             path = deploy-rs.lib.x86_64-linux.activate.nixos
               self.nixosConfigurations.nixos;
           };
@@ -99,7 +99,7 @@
         t470 = {
           hostname = "10.147.20.101";
           profiles.system = {
-            user = "root";
+            sshUser = "root";
             interactiveSudo = true;
             path = deploy-rs.lib.x86_64-linux.activate.nixos
               self.nixosConfigurations.t470;
@@ -108,6 +108,7 @@
         nexus = {
           hostname = "10.147.20.99";
           profiles.system = {
+            sshUser = "nexus";
             user = "root";
             interactiveSudo = true;
             path = deploy-rs.lib.x86_64-linux.activate.nixos
@@ -117,7 +118,7 @@
         kuyin = {
           hostname = "10.147.20.158";
           profiles.system = {
-            user = "root";
+            sshUser = "kuyin";
             interactiveSudo = true;
             path = deploy-rs.lib.x86_64-linux.activate.nixos
               self.nixosConfigurations.kuyin;
