@@ -92,7 +92,6 @@
     osu-lazer
     obsidian
     wineWowPackages.unstable
-    flameshot
     kate
     filelight
     ktorrent
@@ -102,8 +101,11 @@
     ark
     gwenview
     dolphin
+    (lutris.override {
+      extraLibraries = pkgs: [ wineWowPackages.waylandFull libGL ];
+    })
     vesktop
-    (pkgs.discord.override { withVencord = true; })
+    (discord.override { withVencord = true; })
 
     lazydocker
     nodejs
