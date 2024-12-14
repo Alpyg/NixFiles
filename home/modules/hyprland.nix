@@ -8,7 +8,7 @@
       monitor = [
         "HDMI-A-1, 1920x1080@60, 0x0, 1, transform, 1"
         "DP-1, 2560x1440@180, 1080x480, 1"
-        "DP-2, 1920x1080@75, 3680x840, 1"
+        "DP-2, 1920x1080@75, 3640x840, 1"
       ];
       env = [
         "XCURSOR_SIZE,24"
@@ -19,22 +19,31 @@
 
       cursor.no_hardware_cursors = true;
 
-      windowrulev2 = [ ];
+      windowrulev2 = [
+        "opacity 0.0 override, class:^(xwaylandvideobridge)$"
+        "noanim, class:^(xwaylandvideobridge)$"
+        "noinitialfocus, class:^(xwaylandvideobridge)$"
+        "maxsize 1 1, class:^(xwaylandvideobridge)$"
+        "noblur, class:^(xwaylandvideobridge)$"
+        "nofocus, class:^(xwaylandvideobridge)$"
+        "float, class:(clipse)"
+        "size 622 622, class:(clipse)"
+      ];
 
       general = {
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
         layout = "dwindle";
-        resize_on_border = true;
       };
 
       input = { follow_mouse = 2; };
 
       "$mod" = "SUPER";
+      "$terminal" = "kitty";
 
       bind = [
-        "$mod, return, exec, kitty"
+        "$mod, return, exec, $terminal"
         "$mod, d, exec, rofi -show drun -show-icons"
         "$mod SHIFT, x, killactive"
 
@@ -56,6 +65,8 @@
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPlay, exec, playerctl play-pause"
+        ", Print, exec, flameshot gui -c -s"
+        "$mod SHIFT, v, exec, $terminal --class clipse -e clipse"
 
         # workspaces
         "$mod, 1, split:workspace, 1"
@@ -77,6 +88,8 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
+
+      exec-once = [ "clipse -listen" "discord" "steam" "kdeconnect-cli" ];
     };
   };
 }

@@ -73,7 +73,7 @@
     nixfmt-classic
     tmuxinator
     libnotify
-    xclip
+    clipse
     playerctl
     catppuccin-fcitx5
     p7zip
