@@ -1,9 +1,11 @@
 {
   programs.nixvim.plugins.floaterm = {
     enable = true;
-    borderchars = "─│─│╭╮╯╰";
-    height = 0.9;
-    width = 0.9;
+    settings = {
+      borderchars = "─│─│╭╮╯╰";
+      height = 0.9;
+      width = 0.9;
+    };
   };
 
   programs.nixvim.keymaps = [

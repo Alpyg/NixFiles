@@ -59,7 +59,8 @@
     kate
     dolphin
     filelight
-    google-chrome
+    # google-chrome
+    brave
     vlc
     mpv
     syncplay

@@ -43,7 +43,6 @@
     extraOptions = "--insecure-registry 10.147.20.18:10000";
   };
 
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

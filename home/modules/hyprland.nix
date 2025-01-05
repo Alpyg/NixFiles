@@ -6,9 +6,9 @@
     plugins = [ pkgs.hyprlandPlugins.hyprsplit ];
     settings = {
       monitor = [
-        "HDMI-A-1, 1920x1080@60, 0x0, 1, transform, 1"
-        "DP-1, 2560x1440@180, 1080x480, 1"
-        "DP-2, 1920x1080@75, 3640x840, 1"
+        "HDMI-A-1, 1920x1080@60, 0x0, 1, transform, 1, bitdepth, 10"
+        "DP-1, 2560x1440@180, 1080x480, 1, bitdepth, 10"
+        "DP-2, 1920x1080@75, 3640x840, 1, bitdepth, 10"
       ];
       env = [
         "XCURSOR_SIZE,24"

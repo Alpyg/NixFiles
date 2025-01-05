@@ -4,7 +4,7 @@
     vim-surround.enable = true;
     trim.enable = true;
 
-    crates-nvim.enable = true;
+    crates.enable = true;
 
     telescope.enable = true;
     telescope.extensions.file-browser.enable = true;

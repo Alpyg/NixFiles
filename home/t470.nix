@@ -65,12 +65,11 @@
     nix-direnv.enable = true;
   };
 
-  services.flameshot.enable = true;
-
   home.packages = with pkgs; [
     zoxide
     tmuxinator
     xclip
+    flameshot
     playerctl
     p7zip
     unzip
@@ -81,6 +80,8 @@
     thunderbird
     brave
     vlc
+    stremio
+    mpv
     (pkgs.discord.override { withVencord = true; })
 
     lazydocker

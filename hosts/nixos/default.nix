@@ -29,8 +29,8 @@
     firewall = {
       enable = true;
       trustedInterfaces = [ "eno1" "zth6rflskm" ];
-      allowedTCPPorts = [ 9000 9001 9942 9943 9944 11470 25565 ];
-      allowedUDPPorts = [ 9000 9001 9942 9943 9944 11470 ];
+      allowedTCPPorts = [ 22 9000 9001 9942 9943 9944 11470 25565 ];
+      allowedUDPPorts = [ 22 9000 9001 9942 9943 9944 11470 ];
       allowedTCPPortRanges = [{
         from = 1714;
         to = 1764;
@@ -42,6 +42,7 @@
     };
   };
 
+  services.openssh.enable = true;
   services.zerotierone = {
     enable = true;
     joinNetworks = [ "ebe7fbd445ae1d09" ];
@@ -65,7 +66,20 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver = {
+    videoDrivers = [ "nvidia" ];
+
+    config = ''
+      Section "Device"
+        Identifier    "Device0"
+        Driver        "nvidia"
+        VendorName    "NVIDIA Corporation"
+        BoardName     "GeForce RTX 3060"
+        Option        "Coolbits" "12"
+        Option        "RegistryDwords" "PowerMizerEnable=0x1; PowerMizerDefaultAC=0x3;"
+      EndSection
+    '';
+  };
 
   virtualisation.docker = {
     enable = true;
@@ -86,7 +100,6 @@
   virtualisation.virtualbox = { host.enable = true; };
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -108,11 +121,15 @@
   services.xserver.displayManager.lightdm.greeters.gtk.enable = true;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "alpyg";
+  services.xserver.windowManager.bspwm.enable = true;
+  services.picom.enable = true;
+  services.devmon.enable = true;
+  security.polkit.enable = true;
 
-  programs.hyprland = {
-    enable = true;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   portalPackage = pkgs.xdg-desktop-portal-hyprland;
+  # };
 
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
@@ -129,8 +146,10 @@
     openFirewall = true;
   };
 
-  catppuccin.enable = true;
-  console.catppuccin.enable = true;
+  catppuccin = {
+    enable = true;
+    tty.enable = true;
+  };
   environment.systemPackages = with pkgs; [
     fishPlugins.done
     kitty
@@ -165,22 +184,22 @@
 
   fonts.packages = with pkgs; [ nerd-fonts.noto ];
 
-  # systemd = {
-  #   user.services.polkit-gnome-authentication-agent-1 = {
-  #     description = "polkit-gnome-authentication-agent-1";
-  #     wantedBy = [ "graphical-session.target" ];
-  #     wants = [ "graphical-session.target" ];
-  #     after = [ "graphical-session.target" ];
-  #     serviceConfig = {
-  #       Type = "simple";
-  #       ExecStart =
-  #         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
-  #       Restart = "on-failure";
-  #       RestartSec = 1;
-  #       TimeoutStopSec = 10;
-  #     };
-  #   };
-  # };
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart =
+          "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+  };
 
   system.stateVersion = "24.05";
 }

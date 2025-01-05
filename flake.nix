@@ -99,7 +99,7 @@
         t470 = {
           hostname = "10.147.20.101";
           profiles.system = {
-            sshUser = "root";
+            sshUser = "alpyg";
             interactiveSudo = true;
             path = deploy-rs.lib.x86_64-linux.activate.nixos
               self.nixosConfigurations.t470;

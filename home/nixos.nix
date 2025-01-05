@@ -8,16 +8,16 @@
 
     # You can also split up your configuration and import pieces of it here:
     ./modules/catppuccin-mocha.nix
-    # ./modules/bspwm.nix
-    # ./modules/sxhkd.nix
-    # ./modules/polybar.nix
-    # ./modules/dunst.nix
+    ./modules/bspwm.nix
+    ./modules/sxhkd.nix
+    ./modules/polybar.nix
+    ./modules/dunst.nix
     ./modules/btop.nix
     ./modules/kitty.nix
     ./modules/tmux.nix
     ./modules/nixvim
 
-    ./modules/hyprland.nix
+    # ./modules/hyprland.nix
   ];
 
   nixpkgs = {
@@ -73,7 +73,8 @@
     nixfmt-classic
     tmuxinator
     libnotify
-    clipse
+    xclip
+    flameshot
     playerctl
     catppuccin-fcitx5
     p7zip
@@ -104,6 +105,8 @@
     (lutris.override {
       extraLibraries = pkgs: [ wineWowPackages.waylandFull libGL ];
     })
+    protontricks
+    winetricks
     vesktop
     (discord.override { withVencord = true; })
 
@@ -128,6 +131,9 @@
     anki
     gimp
     kicad
+    nexusmods-app
+    r2modman
+    blockbench
   ];
 
   # Nicely reload system units when changing configs

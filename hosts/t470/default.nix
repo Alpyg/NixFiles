@@ -26,8 +26,8 @@
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    trustedInterfaces = [ "enp0s31f6" ];
-    allowedTCPPorts = [ 80 443 7125 25565 ];
+    trustedInterfaces = [ "enp0s31f6" "zth6rflskm" ];
+    allowedTCPPorts = [ 80 443 7125 25565 11470 ];
   };
 
   services.zerotierone = {
@@ -52,7 +52,6 @@
 
   virtualisation.docker.enable = true;
 
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

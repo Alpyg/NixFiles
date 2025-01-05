@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1733852330071
+        "settingsSyncVersion": 1735731316776
     },
     "plugins": {
         "BadgeAPI": {
@@ -243,14 +243,15 @@
         "MessageLogger": {
             "enabled": true,
             "deleteStyle": "text",
-            "ignoreBots": false,
+            "ignoreBots": true,
             "ignoreSelf": false,
             "ignoreUsers": "",
             "ignoreChannels": "",
             "ignoreGuilds": "",
             "logEdits": true,
             "logDeletes": true,
-            "collapseDeleted": false
+            "collapseDeleted": false,
+            "inlineEdits": true
         },
         "MessageTags": {
             "enabled": false

@@ -11,7 +11,7 @@
   };
   xsession.windowManager.bspwm.settings = {
     border_width = 2;
-    window_gap = 4;
+    window_gap = 5;
     split_ratio = 0.5;
     borderless_monocle = true;
     gapless_monocle = true;
