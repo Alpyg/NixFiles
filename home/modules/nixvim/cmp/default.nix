@@ -4,12 +4,26 @@
     cmp-emoji.enable = true;
     cmp-cmdline.enable = true;
     cmp-nvim-lsp.enable = true;
+    cmp-path.enable = true;
+    cmp_luasnip.enable = true;
     cmp = {
       enable = true;
-      autoEnableSources = true;
       settings = {
-        sources =
-          [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+          { name = "buffer"; }
+          {
+            name = "luasnip";
+            keywordLength = 3;
+          }
+        ];
+
+        formatting.fields = [ "kind" "abbr" "menu" ];
+
+        snippet = { expand = "luasnip"; };
+
+        experimental.ghost_text = false;
 
         mapping = {
           "<C-n>" = "cmp.mapping.select_next_item()";
@@ -23,11 +37,49 @@
           "<CR>" =
             "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })";
         };
-        experimental = {
-          ghost_text = true;
-          native_menu = false;
-        };
       };
     };
+
+    nvim-autopairs = {
+      enable = true;
+      settings = { disable_filetype = [ "TelescopePrompt" "vim" ]; };
+    };
+
+    schemastore = {
+      enable = true;
+      json.enable = true;
+      yaml.enable = true;
+    };
   };
+
+  programs.nixvim.extraConfigLua = ''
+    luasnip = require("luasnip")
+    kind_icons = {
+      Text = "󰊄",
+      Method = " ",
+      Function = "󰡱 ",
+      Constructor = " ",
+      Field = " ",
+      Variable = "󱀍 ",
+      Class = " ",
+      Interface = " ",
+      Module = "󰕳 ",
+      Property = " ",
+      Unit = " ",
+      Value = " ",
+      Enum = " ",
+      Keyword = " ",
+      Snippet = " ",
+      Color = " ",
+      File = "",
+      Reference = " ",
+      Folder = " ",
+      EnumMember = " ",
+      Constant = " ",
+      Struct = " ",
+      Event = " ",
+      Operator = " ",
+      TypeParameter = " ",
+    }
+  '';
 }

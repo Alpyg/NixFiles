@@ -1,5 +1,14 @@
 {
-  programs.nixvim.plugins.telescope = { enable = true; };
+  programs.nixvim.plugins.telescope = {
+    enable = true;
+
+    settings.defaults = {
+      file_ignore_patterns = [ "^.git/" "^.mypy_cache/" "^__pycache__" ];
+    };
+
+    extensions.file-browser.enable = true;
+    extensions.ui-select.enable = true;
+  };
 
   programs.nixvim.keymaps = [
     {

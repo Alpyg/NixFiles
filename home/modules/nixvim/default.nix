@@ -12,13 +12,18 @@
 
     # lsp
     ./lsp
-    ./lsp/treesitter.nix
     ./lsp/none-ls.nix
+    ./lsp/treesitter.nix
+
+    # snippets
+    ./snippets/luasnip.nix
 
     # ui
     ./ui/bufferline.nix
     ./ui/floaterm.nix
+    ./ui/illuminate.nix
     ./ui/neotree.nix
+    ./ui/noice.nix
     ./ui/spectre.nix
     ./ui/telescope.nix
     ./ui/theme.nix

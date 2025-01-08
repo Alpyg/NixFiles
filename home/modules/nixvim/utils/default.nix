@@ -4,11 +4,14 @@
     vim-surround.enable = true;
     trim.enable = true;
 
-    crates.enable = true;
-
-    telescope.enable = true;
-    telescope.extensions.file-browser.enable = true;
-    telescope.extensions.ui-select.enable = true;
+    crates = {
+      enable = true;
+      settings = {
+        autoload = true;
+        autoupdate = true;
+        smart_insert = true;
+      };
+    };
 
     mini.enable = true;
     which-key.enable = true;

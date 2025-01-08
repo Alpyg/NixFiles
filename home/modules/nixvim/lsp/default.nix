@@ -14,6 +14,7 @@
       };
       java_language_server.enable = true;
       jsonls.enable = true;
+      yamlls.enable = true;
       lua_ls.enable = true;
       pyright.enable = true;
       rust_analyzer = {
@@ -35,6 +36,7 @@
   };
 
   programs.nixvim.plugins.inc-rename.enable = true;
+  programs.nixvim.plugins.nix.enable = true;
 
   programs.nixvim.keymaps = [
     {
