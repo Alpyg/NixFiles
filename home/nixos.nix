@@ -59,12 +59,18 @@
   programs.lazygit.enable = true;
   programs.direnv = {
     enable = true;
-    enableFishIntegration = true;
+    # enableFishIntegration = true;
     nix-direnv.enable = true;
   };
 
   programs.mangohud.enable = true;
   programs.obs-studio.enable = true;
+
+  programs.fish.enable = true;
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 
   services.kdeconnect.enable = true;
 

@@ -126,11 +126,6 @@
   services.devmon.enable = true;
   security.polkit.enable = true;
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   portalPackage = pkgs.xdg-desktop-portal-hyprland;
-  # };
-
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
 
