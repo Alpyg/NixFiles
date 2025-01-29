@@ -42,6 +42,7 @@
         nixos = makeNixosSystem [
           ./hosts/nixos
           ./services/kanata.nix
+          ./services/ollama.nix
           catppuccin.nixosModules.catppuccin
           {
             home-manager.users.alpyg = {
