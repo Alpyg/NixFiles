@@ -83,7 +83,6 @@
 
   virtualisation.docker = {
     enable = true;
-    enableNvidia = true;
     liveRestore = false;
     extraOptions = "--insecure-registry 10.147.20.18:10000";
   };
@@ -143,8 +142,10 @@
 
   catppuccin = {
     enable = true;
-    tty.enable = true;
+    accent = "blue";
+    flavor = "mocha";
   };
+
   environment.systemPackages = with pkgs; [
     fishPlugins.done
     kitty

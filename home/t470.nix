@@ -7,7 +7,7 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    ./modules/catppuccin-mocha.nix
+    ./modules/catppuccin.nix
     ./modules/bspwm.nix
     ./modules/sxhkd.nix
     ./modules/polybar.nix

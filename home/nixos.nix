@@ -7,7 +7,7 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    ./modules/catppuccin-mocha.nix
+    ./modules/catppuccin.nix
     ./modules/bspwm.nix
     ./modules/sxhkd.nix
     ./modules/polybar.nix
@@ -116,6 +116,7 @@
     vesktop
     (discord.override { withVencord = true; })
 
+    godot_4
     lazydocker
     nodejs
     bun
@@ -127,16 +128,16 @@
     blender
     rustup
     go
+    just
     prusa-slicer
     libreoffice-qt
 
     stremio
     (zigpkgs.master)
-    #kicad
+    kicad
     sops
     anki
     gimp
-    kicad
     nexusmods-app
     r2modman
     blockbench
