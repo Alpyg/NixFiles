@@ -1,10 +1,9 @@
 { ... }: {
-  programs.nixvim.plugins.dap = {
-    enable = true;
+  programs.nixvim.plugins = {
+    dap.enable = true;
 
-    extensions.dap-ui.enable = true;
-    extensions.dap-virtual-text.enable = true;
-
-    extensions.dap-python.enable = true;
+    dap-ui.enable = true;
+    dap-virtual-text.enable = true;
+    dap-python.enable = true;
   };
 }
