@@ -31,6 +31,7 @@
 
     # utils
     ./utils
+    ./utils/codecompanion.nix
     ./utils/git.nix
     ./utils/refactoring.nix
     ./utils/todo.nix
