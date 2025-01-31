@@ -15,6 +15,7 @@
     ./modules/btop.nix
     ./modules/kitty.nix
     ./modules/tmux.nix
+    ./modules/vscode.nix
     ./modules/nixvim
 
     # ./modules/hyprland.nix
@@ -92,6 +93,7 @@
     vlc
     mpv
     syncplay
+    calibre
     unityhub
     vrc-get
     goverlay

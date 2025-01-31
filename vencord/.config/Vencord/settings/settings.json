@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1738125994257
+        "settingsSyncVersion": 1738255182159
     },
     "plugins": {
         "BadgeAPI": {
