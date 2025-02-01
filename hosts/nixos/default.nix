@@ -48,7 +48,6 @@
     joinNetworks = [ "ebe7fbd445ae1d09" ];
     localConf = { };
   };
-  programs.kdeconnect.enable = true;
 
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -166,7 +165,7 @@
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
   programs.nix-ld.enable = true;

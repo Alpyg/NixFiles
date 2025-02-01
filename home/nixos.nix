@@ -101,15 +101,22 @@
     osu-lazer
     obsidian
     wineWowPackages.unstable
-    kate
-    filelight
-    ktorrent
-    polkit-kde-agent
-    breeze-icons
-    breeze-gtk
-    ark
-    gwenview
-    dolphin
+    libsForQt5.qt5ct
+    kdePackages.qt6ct
+    kdePackages.breeze-gtk
+    kdePackages.breeze-icons
+    kdePackages.qtstyleplugin-kvantum
+    kdePackages.kdegraphics-thumbnailers
+    kdePackages.ffmpegthumbs
+    kdePackages.qtimageformats
+    kdePackages.qtsvg
+    kdePackages.ark
+    kdePackages.gwenview
+    kdePackages.dolphin
+    kdePackages.kate
+    kdePackages.filelight
+    kdePackages.ktorrent
+    kdePackages.polkit-kde-agent-1
     (lutris.override {
       extraLibraries = pkgs: [ wineWowPackages.waylandFull libGL ];
     })

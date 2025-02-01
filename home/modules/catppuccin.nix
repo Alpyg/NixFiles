@@ -9,14 +9,14 @@
 
   # gtk = {
   #   enable = true;
-  #   # theme = {
-  #   #   name = "Catppuccin-Mocha-Mauve";
-  #   #   package = pkgs.catppuccin-gtk;
-  #   # };
-  #   # cursorTheme = {
-  #   #   name = "Catppuccin-Mocha-Blue-Cursors";
-  #   #   package = pkgs.catppuccin-cursors.mochaBlue;
-  #   # };
+  #   theme = {
+  #     name = "Catppuccin-Mocha-Mauve";
+  #     package = pkgs.catppuccin-gtk;
+  #   };
+  #   cursorTheme = {
+  #     name = "Catppuccin-Mocha-Blue-Cursors";
+  #     package = pkgs.catppuccin-cursors.mochaBlue;
+  #   };
   #   gtk3 = { extraConfig.gtk-application-prefer-dark-theme = true; };
   # };
 
