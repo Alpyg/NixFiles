@@ -116,6 +116,7 @@
     kdePackages.kate
     kdePackages.filelight
     kdePackages.ktorrent
+    kdePackages.kservice
     kdePackages.polkit-kde-agent-1
     (lutris.override {
       extraLibraries = pkgs: [ wineWowPackages.waylandFull libGL ];
@@ -134,7 +135,7 @@
     qemu
     gnumake
     dbeaver-bin
-    blender
+    # blender
     rustup
     go
     just
@@ -150,6 +151,7 @@
     nexusmods-app
     r2modman
     blockbench
+    ida-free
   ];
 
   # Nicely reload system units when changing configs
