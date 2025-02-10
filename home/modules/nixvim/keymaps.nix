@@ -41,7 +41,17 @@
           { desc = "Close neovim"; }
         ]
 
-        # navigation
+        # windows
+        [ "n" "<leader>wj" "<C-W>s" { desc = "Split Window Below"; } ]
+        [ "n" "<leader>wl" "<C-W>v" { desc = "Split Window Right"; } ]
+        [
+          "n"
+          "<leader>wd"
+          "<C-W>c"
+          { desc = "Close Window"; }
+        ]
+
+        # window navigation
         [ "n" "<leader>h" "<C-w>h" { desc = "Navigate to right window"; } ]
         [
           "n"
@@ -76,8 +86,8 @@
         ]
 
         # move current line up/down
-        [ "n" "<M-k>" "<cmd>move-2<cr>" ]
-        [ "n" "<M-j>" "<cmd>move+<cr>" ]
+        [ [ "n" "i" ] "<M-k>" "<cmd>move-2<cr>" ]
+        [ [ "n" "i" ] "<M-j>" "<cmd>move+<cr>" ]
 
         [
           "n"
