@@ -13,7 +13,7 @@
     enable = true;
     tunnels."nexus" = {
       credentialsFile =
-        "${config.sops.secrets."cloudflared/nexus-tunnel/creds".path}";
+        config.sops.secrets."cloudflared/nexus-tunnel/creds".path;
       ingress = {
         "alpyg.dev" = { service = "http://localhost:80"; };
         "vaultwarden.alpyg.dev" = { service = "http://localhost:8222"; };
@@ -32,7 +32,7 @@
     server = {
       baseUrl = "https://analytics.alpyg.dev";
       port = 10000;
-      secretKeybaseFile = "${config.sops.secrets."plausible/key".path}";
+      secretKeybaseFile = config.sops.secrets."plausible/key".path;
       #disableRegistration = false; # disabled after first account creation cuz adminUser didnt work
     };
   };

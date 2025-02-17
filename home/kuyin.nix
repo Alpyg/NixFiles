@@ -68,10 +68,6 @@
     libsForQt5.kdenlive
     prismlauncher
     libsForQt5.xp-pen-deco-01-v2-driver
-    wineWowPackages.unstable
-    (lutris.override {
-      extraLibraries = pkgs: [ wineWowPackages.waylandFull libGL ];
-    })
 
     vesktop
     (pkgs.discord.override { withVencord = true; })

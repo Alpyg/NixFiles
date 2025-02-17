@@ -73,6 +73,7 @@
           ./hosts/nexus
           ./services/adguard.nix
           ./services/hostify.nix
+          ./services/nextcloud.nix
           {
             home-manager.users.nexus = {
               imports = [ ./home/nexus.nix nixvim.homeManagerModules.nixvim ];
@@ -121,6 +122,7 @@
           hostname = "10.147.20.158";
           profiles.system = {
             sshUser = "kuyin";
+            user = "kuyin";
             interactiveSudo = true;
             path = deploy-rs.lib.x86_64-linux.activate.nixos
               self.nixosConfigurations.kuyin;

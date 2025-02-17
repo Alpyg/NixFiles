@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1738255182159
+        "settingsSyncVersion": 1739674451782
     },
     "plugins": {
         "BadgeAPI": {
@@ -197,9 +197,6 @@
         "GreetStickerPicker": {
             "enabled": false
         },
-        "HideAttachments": {
-            "enabled": false
-        },
         "iLoveSpam": {
             "enabled": false
         },
@@ -343,8 +340,21 @@
         "PinDMs": {
             "enabled": true,
             "pinnedDMs": "945154727820267520",
-            "dmSectioncollapsed": false,
-            "pinOrder": 0
+            "pinOrder": 0,
+            "dmSectionCollapsed": false,
+            "canCollapseDmSection": false,
+            "userBasedCategoryList": {
+                "173342126069776384": [
+                    {
+                        "id": "oldPins",
+                        "name": "Pins",
+                        "color": 10070709,
+                        "channels": [
+                            "945154727820267520"
+                        ]
+                    }
+                ]
+            }
         },
         "PlainFolderIcon": {
             "enabled": false
@@ -669,6 +679,15 @@
             "enabled": false
         },
         "AccountPanelServerProfile": {
+            "enabled": false
+        },
+        "HideMedia": {
+            "enabled": false
+        },
+        "FullUserInChatbox": {
+            "enabled": false
+        },
+        "IrcColors": {
             "enabled": false
         }
     }
