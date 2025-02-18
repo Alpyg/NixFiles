@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1739674451782
+        "settingsSyncVersion": 1739770687912
     },
     "plugins": {
         "BadgeAPI": {
@@ -206,7 +206,7 @@
         "ImageZoom": {
             "enabled": true,
             "size": 966.6667221144012,
-            "zoom": 1,
+            "zoom": 9.955223908535242,
             "nearestNeighbour": false,
             "square": false,
             "saveZoomValues": true,

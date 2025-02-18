@@ -45,10 +45,6 @@
     homeDirectory = "/home/alpyg";
   };
 
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
-
   programs.home-manager.enable = true;
   programs.git = {
     enable = true;
@@ -61,9 +57,20 @@
   programs.lazygit.enable = true;
   programs.direnv = {
     enable = true;
-    enableFishIntegration = true;
+    # enableFishIntegration = true;
     nix-direnv.enable = true;
   };
+
+  programs.mangohud.enable = true;
+  programs.obs-studio.enable = true;
+
+  programs.fish.enable = true;
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  services.kdeconnect.enable = true;
 
   home.packages = with pkgs; [
     zoxide
@@ -74,14 +81,28 @@
     p7zip
     unzip
     unrar
-    kate
-    dolphin
-    filelight
     thunderbird
     brave
     vlc
     stremio
     mpv
+    libsForQt5.qt5ct
+    kdePackages.qt6ct
+    kdePackages.breeze-gtk
+    kdePackages.breeze-icons
+    kdePackages.qtstyleplugin-kvantum
+    kdePackages.kdegraphics-thumbnailers
+    kdePackages.ffmpegthumbs
+    kdePackages.qtimageformats
+    kdePackages.qtsvg
+    kdePackages.ark
+    kdePackages.gwenview
+    kdePackages.dolphin
+    kdePackages.kate
+    kdePackages.filelight
+    kdePackages.ktorrent
+    kdePackages.kservice
+    kdePackages.polkit-kde-agent-1
     (pkgs.discord.override { withVencord = true; })
 
     lazydocker

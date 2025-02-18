@@ -83,7 +83,18 @@
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
 
-  programs.kdeconnect.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+  };
+
+  catppuccin = {
+    enable = true;
+    accent = "blue";
+    flavor = "mocha";
+  };
 
   environment.systemPackages = with pkgs; [
     fishPlugins.done
@@ -111,7 +122,7 @@
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
   programs.nix-ld.enable = true;
@@ -143,5 +154,5 @@
     };
   };
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }

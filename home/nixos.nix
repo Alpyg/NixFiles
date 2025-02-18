@@ -17,8 +17,6 @@
     ./modules/tmux.nix
     ./modules/vscode.nix
     ./modules/nixvim
-
-    # ./modules/hyprland.nix
   ];
 
   nixpkgs = {
@@ -122,6 +120,7 @@
       extraLibraries = pkgs: [ wineWowPackages.waylandFull libGL ];
     })
     protontricks
+    modrinth-app
     winetricks
     vesktop
     (discord.override { withVencord = true; })
