@@ -15,7 +15,7 @@
     ./modules/btop.nix
     ./modules/kitty.nix
     ./modules/tmux.nix
-    ./modules/vscode.nix
+    # ./modules/vscode.nix
     ./modules/nixvim
   ];
 

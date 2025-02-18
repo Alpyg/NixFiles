@@ -17,8 +17,8 @@
     "super + {_,shift + }{h,j,k,l}" =
       "bspc node -{f,s} {west,south,north,east}"; # focus/swap
     "super + Tab" = "bspc desktop -f last"; # last desktop
-    "super + {_,shift + }{1,2,3,4,5}" =
-      "bspc {desktop -f,node -d} focused:'^{1-5}'"; # focus/swap desktop
+    "super + {_,shift + }{1-9,0}" =
+      "bspc {desktop -f,node -d} focused:'^{1-9,10}'"; # focus/swap desktop
 
     # preselect
     "super + ctrl + {h,j,k,l}" =
