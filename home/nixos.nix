@@ -123,7 +123,7 @@
     modrinth-app
     winetricks
     vesktop
-    (discord.override { withVencord = true; })
+    (discord.override { withVencord = false; })
 
     godot_4
     lazydocker
@@ -134,7 +134,7 @@
     qemu
     gnumake
     dbeaver-bin
-    # blender
+    blender
     rustup
     go
     just
@@ -142,7 +142,7 @@
     libreoffice-qt
 
     stremio
-    (zigpkgs.master)
+    (zigpkgs.master-mach)
     kicad
     sops
     anki

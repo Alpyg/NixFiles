@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zig.url = "github:mitchellh/zig-overlay";
+    zig.url = "github:Alpyg/zig-overlay";
   };
 
   outputs = { self, nixpkgs, sops-nix, deploy-rs, home-manager, catppuccin

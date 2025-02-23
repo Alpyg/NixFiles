@@ -111,14 +111,6 @@
     htop
     neovim
     stow
-    libsForQt5.qt5ct
-    libsForQt5.polkit-kde-agent
-    libsForQt5.breeze-icons
-    libsForQt5.breeze-qt5
-    libsForQt5.breeze-gtk
-    libsForQt5.ark
-    libsForQt5.gwenview
-    libsForQt5.ktorrent
     gtk3
     dmenu
     killall

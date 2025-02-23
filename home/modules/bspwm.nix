@@ -18,7 +18,7 @@
   };
   xsession.windowManager.bspwm.startupPrograms = [
     "kill polybar"
-    "MONITOR=HDMI-0 polybar bar"
+    "MONITOR=DP-3 polybar bar"
     "picom -b --config ~/.config/picom/picom.conf"
     "kdeconnect-cli"
     "flameshot"
