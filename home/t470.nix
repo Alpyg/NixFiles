@@ -13,6 +13,7 @@
   };
   sxhkd.enable = true;
   dunst.enable = true;
+  catppuccin2.enable = true;
 
   nixpkgs = {
     overlays = [
