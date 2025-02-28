@@ -96,7 +96,6 @@
       extraLibraries = pkgs: [ wineWowPackages.waylandFull libGL ];
     })
     protontricks
-    modrinth-app
     winetricks
     vesktop
     (discord.override { withVencord = true; })
