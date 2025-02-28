@@ -1,10 +1,11 @@
-{ config, pkgs, inputs, ... }: {
+{ config, pkgs, inputs, outputs, ... }: {
   imports = [
     inputs.sops-nix.nixosModules.sops
 
-    # Include the results of the hardware scan.
     ./hardware.nix
   ];
+
+  kanata.enable = true;
 
   nix.settings = {
     auto-optimise-store = true;

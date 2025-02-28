@@ -1,10 +1,13 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, outputs, ... }: {
   imports = [
     inputs.sops-nix.nixosModules.sops
 
-    # Include the results of the hardware scan.
     ./hardware.nix
   ];
+
+  adguard.enable = true;
+  hostify.enable = true;
+  nextcloud.enable = true;
 
   nix.settings = {
     auto-optimise-store = true;

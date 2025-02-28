@@ -24,7 +24,11 @@
       };
       tailwindcss.enable = true;
       ts_ls.enable = true;
-      zls.enable = true;
+      zls = {
+        enable = true;
+        package = null;
+        cmd = [ "zls" ];
+      };
       nixd = {
         enable = true;
         settings = {

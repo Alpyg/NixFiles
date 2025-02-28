@@ -21,62 +21,64 @@
     zig.url = "github:Alpyg/zig-overlay";
   };
 
-  outputs = { self, nixpkgs, sops-nix, deploy-rs, home-manager, catppuccin
-    , nixvim, zig, ... }@inputs:
+  outputs = { self, nixpkgs, deploy-rs, catppuccin, nixvim, ... }@inputs:
     let
+      inherit (self) outputs;
       system = "x86_64-linux";
       inherit (import nixpkgs { inherit system; }) lib;
 
       makeNixosSystem = modules:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs outputs; };
 
           modules = [
-            sops-nix.nixosModules.sops
-            home-manager.nixosModules.home-manager
+            ./modules/nixos
+            inputs.sops-nix.nixosModules.sops
+            inputs.home-manager.nixosModules.home-manager
+            catppuccin.nixosModules.catppuccin
           ] ++ modules;
         };
     in {
       nixosConfigurations = {
         nixos = makeNixosSystem [
           ./hosts/nixos
-          ./services/kanata.nix
-          # ./services/ollama.nix
-          catppuccin.nixosModules.catppuccin
           {
             home-manager.users.alpyg = {
               imports = [
                 ./home/nixos.nix
+                ./modules/home-manager
                 catppuccin.homeManagerModules.catppuccin
                 nixvim.homeManagerModules.nixvim
-                { nixpkgs.overlays = [ zig.overlays.default ]; }
+                { nixpkgs.overlays = [ inputs.zig.overlays.default ]; }
               ];
             };
           }
         ];
         t470 = makeNixosSystem [
           ./hosts/t470
-          ./services/printer.nix
-          catppuccin.nixosModules.catppuccin
           {
             home-manager.users.alpyg = {
               imports = [
                 ./home/t470.nix
+                ./modules/home-manager
                 catppuccin.homeManagerModules.catppuccin
                 nixvim.homeManagerModules.nixvim
+                { nixpkgs.overlays = [ inputs.zig.overlays.default ]; }
               ];
             };
           }
         ];
         nexus = makeNixosSystem [
           ./hosts/nexus
-          ./services/adguard.nix
-          ./services/hostify.nix
-          ./services/nextcloud.nix
           {
             home-manager.users.nexus = {
-              imports = [ ./home/nexus.nix nixvim.homeManagerModules.nixvim ];
+              imports = [
+                ./home/nexus.nix
+                ./modules/home-manager
+                catppuccin.homeManagerModules.catppuccin
+                nixvim.homeManagerModules.nixvim
+              ];
             };
           }
         ];
@@ -84,7 +86,12 @@
           ./hosts/kuyin
           {
             home-manager.users.kuyin = {
-              imports = [ ./home/kuyin.nix nixvim.homeManagerModules.nixvim ];
+              imports = [
+                ./home/kuyin.nix
+                ./modules/home-manager
+                catppuccin.homeManagerModules.catppuccin
+                nixvim.homeManagerModules.nixvim
+              ];
             };
           }
         ];
