@@ -26,8 +26,6 @@
     programs.tmux.mouse = true;
     programs.tmux.baseIndex = 1;
 
-    nvf.enable = true;
-
     home.packages = with pkgs; [
       lazydocker
       nodejs

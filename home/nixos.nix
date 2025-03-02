@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   dev.enable = true;
+  nixvim.enable = true;
   polybar.enable = true;
   bspwm = {
     enable = true;

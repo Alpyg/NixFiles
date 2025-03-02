@@ -9,6 +9,7 @@
     ./sxhkd.nix
 
     ./dev.nix
+    ./nixvim
     ./nvf.nix
 
     ./vscode.nix

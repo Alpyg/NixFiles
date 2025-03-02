@@ -13,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,6 +31,7 @@
     nixpkgs,
     deploy-rs,
     catppuccin,
+    nixvim,
     nvf,
     ...
   } @ inputs: let
@@ -54,6 +60,7 @@
           home
           ./modules/home-manager
           catppuccin.homeManagerModules.catppuccin
+          nixvim.homeManagerModules.nixvim
           nvf.homeManagerModules.default
           {nixpkgs.overlays = [inputs.zig.overlays.default];}
         ];
