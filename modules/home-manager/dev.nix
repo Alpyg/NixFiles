@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options.dev.enable = lib.mkEnableOption "Enable dev";
 
   config = lib.mkIf config.dev.enable {
@@ -22,7 +26,7 @@
     programs.tmux.mouse = true;
     programs.tmux.baseIndex = 1;
 
-    nixvim.enable = true;
+    nvf.enable = true;
 
     home.packages = with pkgs; [
       lazydocker
@@ -35,6 +39,7 @@
       dbeaver-bin
       rustup
       go
+      dotnet-sdk_9
       zigpkgs.mach
       just
       tmuxinator

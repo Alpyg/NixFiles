@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-  nixvim.enable = true;
+{pkgs, ...}: {
   catppuccin2.enable = true;
 
   nixpkgs = {
