@@ -75,6 +75,8 @@
     prismlauncher
     osu-lazer
     obsidian
+    prusa-slicer
+    gnome-common
     wineWowPackages.unstable
     libsForQt5.qt5ct
     kdePackages.qt6ct
@@ -112,6 +114,13 @@
     blockbench
     ida-free
   ];
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    config.common.default = [ "gtk" ];
+  };
 
   systemd.user.startServices = "sd-switch";
 

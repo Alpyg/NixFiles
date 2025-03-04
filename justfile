@@ -1,3 +1,5 @@
+update:
+  nix flake update
 nixos:
   nixos-rebuild switch --target-host root@10.147.20.18  --flake .#nixos
 nexus:
