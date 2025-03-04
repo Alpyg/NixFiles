@@ -38,6 +38,7 @@
     }];
   };
 
+  services.openssh.enable = true;
   services.zerotierone = {
     enable = true;
     joinNetworks = [ "ebe7fbd445ae1d09" ];
@@ -85,8 +86,6 @@
   services.picom.enable = true;
   services.devmon.enable = true;
   security.polkit.enable = true;
-
-  services.openssh.enable = true;
 
   programs.fish.enable = true;
   programs.partition-manager.enable = true;

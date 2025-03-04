@@ -158,7 +158,6 @@
     killall
     vulkan-loader
     qpwgraph
-    deploy-rs
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = {
