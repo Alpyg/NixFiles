@@ -1,19 +1,11 @@
 { lib, config, ... }: {
   imports = [
-    # misc
     ./options.nix
     ./keymaps.nix
 
-    # cmp
-    ./cmp
-
-    # dap
-    ./dap
-
-    # lsp
-    ./lsp
-    ./lsp/none-ls.nix
-    ./lsp/treesitter.nix
+    ./cmp.nix
+    ./dap.nix
+    ./lsp.nix
 
     # snippets
     ./snippets/luasnip.nix

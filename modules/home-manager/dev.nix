@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
+{ pkgs, lib, config, ... }: {
   options.dev.enable = lib.mkEnableOption "Enable dev";
 
   config = lib.mkIf config.dev.enable {
@@ -13,6 +8,7 @@
 
       userName = "Alpyg";
       userEmail = "alpyg@pm.me";
+      extraConfig.init.defaultBranch = "main";
     };
     programs.gh.enable = true;
     programs.lazygit.enable = true;
@@ -37,7 +33,7 @@
       dbeaver-bin
       rustup
       go
-      dotnet-sdk_9
+      dotnet-sdk
       zigpkgs.mach
       just
       tmuxinator
