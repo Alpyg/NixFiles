@@ -1,5 +1,6 @@
 {
   imports = [
+    ./hyprland.nix
     ./bspwm.nix
     ./btop.nix
     ./catppuccin.nix
@@ -10,8 +11,6 @@
 
     ./dev.nix
     ./nixvim
-    ./nvf.nix
-
     ./vscode.nix
   ];
 }

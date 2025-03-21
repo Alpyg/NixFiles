@@ -2,20 +2,21 @@
   dev.enable = true;
   nixvim.enable = true;
   polybar.enable = true;
-  bspwm = {
-    enable = true;
-    startupPrograms = [
-      "kill polybar"
-      "MONITOR=DP-3 polybar bar"
-      "picom -b --config ~/.config/picom/picom.conf"
-      "kdeconnect-cli"
-      "flameshot"
-      "discord"
-      "steam"
-    ];
-  };
-  sxhkd.enable = true;
-  dunst.enable = true;
+  hyprland.enable = true;
+  # bspwm = {
+  #   enable = true;
+  #   startupPrograms = [
+  #     "kill polybar"
+  #     "MONITOR=DP-3 polybar bar"
+  #     "picom -b --config ~/.config/picom/picom.conf"
+  #     "kdeconnect-cli"
+  #     "flameshot"
+  #     "discord"
+  #     "steam"
+  #   ];
+  # };
+  # sxhkd.enable = true;
+  # dunst.enable = true;
   catppuccin2.enable = true;
 
   nixpkgs = {
@@ -64,7 +65,7 @@
     unrar
     thunderbird
     brave
-    firefox-devedition
+    # firefox-devedition
     vlc
     mpv
     syncplay
@@ -76,7 +77,6 @@
     osu-lazer
     obsidian
     prusa-slicer
-    gnome-common
     wineWowPackages.unstable
     libsForQt5.qt5ct
     kdePackages.qt6ct
@@ -114,13 +114,6 @@
     blockbench
     ida-free
   ];
-
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-    config.common.default = [ "gtk" ];
-  };
 
   systemd.user.startServices = "sd-switch";
 

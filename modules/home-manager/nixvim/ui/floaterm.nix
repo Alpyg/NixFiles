@@ -31,7 +31,7 @@
     }
     {
       mode = [ "n" "i" "v" "t" ];
-      key = "<leader>/";
+      key = "<C-/>";
       action = "<cmd>FloatermToggle --title=terminal<cr>";
       options.desc = "Terminal";
     }

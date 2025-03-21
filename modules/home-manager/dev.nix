@@ -41,6 +41,8 @@
       libnotify
       nixfmt-classic
       godot_4
+      android-studio
+      google-chrome
     ];
   };
 }

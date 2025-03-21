@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     sops-nix.url = "github:Mic92/sops-nix";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     catppuccin.url = "github:catppuccin/nix";
 
@@ -17,15 +18,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     zig.url = "github:Alpyg/zig-overlay";
   };
 
-  outputs = { self, nixpkgs, catppuccin, nixvim, nvf, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -39,8 +35,9 @@
           modules = [
             ./modules/nixos
             inputs.sops-nix.nixosModules.sops
+            inputs.hyprland.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
-            catppuccin.nixosModules.catppuccin
+            inputs.catppuccin.nixosModules.catppuccin
           ] ++ modules;
         };
 
@@ -49,9 +46,9 @@
           imports = [
             home
             ./modules/home-manager
-            catppuccin.homeManagerModules.catppuccin
-            nixvim.homeManagerModules.nixvim
-            nvf.homeManagerModules.default
+            inputs.hyprland.homeManagerModules.default
+            inputs.catppuccin.homeManagerModules.catppuccin
+            inputs.nixvim.homeManagerModules.nixvim
             { nixpkgs.overlays = [ inputs.zig.overlays.default ]; }
           ];
         };
