@@ -1,0 +1,30 @@
+$background: #181825;
+$foreground: #1e1e2f;
+
+$blue: #8aadf4;
+
+* {
+  all: unset;
+  color: $blue;
+  font-weight: bold;
+}
+
+.bar {
+  background-color: $foreground;
+  padding: 0.75rem;
+  // border-radius: 3rem;
+}
+
+.volume {
+  margin: 0.25rem 0rem;
+}
+.volume_label {
+  font-size: 0.8rem;
+}
+.volume_icon {
+  color: $blue;
+}
+
+.time {
+  font-size: 1.25rem;
+}

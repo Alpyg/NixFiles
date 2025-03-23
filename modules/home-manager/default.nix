@@ -6,6 +6,7 @@
     ./catppuccin.nix
     ./dunst.nix
     ./kitty.nix
+    ./eww
     ./polybar.nix
     ./sxhkd.nix
 

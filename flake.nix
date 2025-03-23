@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     sops-nix.url = "github:Mic92/sops-nix";
-    hyprland.url = "github:hyprwm/Hyprland";
+    eww.url = "github:elkowar/eww/1e1d907a5d3d0eac4c253143d728c6f9edaa5f7f";
 
     catppuccin.url = "github:catppuccin/nix";
 
@@ -35,22 +35,24 @@
           modules = [
             ./modules/nixos
             inputs.sops-nix.nixosModules.sops
-            inputs.hyprland.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
             inputs.catppuccin.nixosModules.catppuccin
           ] ++ modules;
         };
 
       makeHomeManager = user: home: {
-        home-manager.users."${user}" = {
-          imports = [
-            home
-            ./modules/home-manager
-            inputs.hyprland.homeManagerModules.default
-            inputs.catppuccin.homeManagerModules.catppuccin
-            inputs.nixvim.homeManagerModules.nixvim
-            { nixpkgs.overlays = [ inputs.zig.overlays.default ]; }
-          ];
+        home-manager = {
+          extraSpecialArgs = { inherit inputs; };
+          users."${user}" = {
+            imports = [
+              home
+              ./modules/home-manager
+              inputs.catppuccin.homeManagerModules.catppuccin
+              inputs.nixvim.homeManagerModules.nixvim
+              { nixpkgs.overlays = [ inputs.zig.overlays.default ]; }
+              { nixpkgs.overlays = [ inputs.eww.overlays.default ]; }
+            ];
+          };
         };
       };
     in {

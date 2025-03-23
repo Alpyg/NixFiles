@@ -1,5 +1,7 @@
 update:
   nix flake update
+test:
+  nixos-rebuild test   --target-host root@10.147.20.18  --flake .#nixos
 nixos:
   nixos-rebuild switch --target-host root@10.147.20.18  --flake .#nixos
 nexus:

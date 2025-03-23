@@ -2,16 +2,21 @@
   options.hyprland.enable = lib.mkEnableOption "Enable hyprland";
 
   config = lib.mkIf config.hyprland.enable {
-    home.packages = with pkgs; [ rofi-wayland ];
+    home.packages = with pkgs; [
+      rofi-wayland
+      kdePackages.xwaylandvideobridge
+      grim
+      slurp
+    ];
     wayland.windowManager.hyprland = {
       enable = true;
 
       plugins = [ pkgs.hyprlandPlugins.hyprsplit ];
       settings = {
         monitor = [
-          "HDMI-A-1, 1920x1080@60, 4480x360, 1, bitdepth, 10"
-          "DP-1, 2560x1440@180, 1920x0, 1, bitdepth, 10"
-          "DP-2, 1920x1080@75, 0x360, 1, bitdepth, 10"
+          "HDMI-A-1, 1920x1080@60, 4480x360, 1"
+          "DP-1, 2560x1440@180, 1920x0, 1"
+          "DP-2, 1920x1080@75, 0x360, 1"
         ];
         env = [
           "XCURSOR_SIZE,24"
@@ -27,7 +32,7 @@
           "noanim, class:^(xwaylandvideobridge)$"
           "noinitialfocus, class:^(xwaylandvideobridge)$"
           "maxsize 1 1, class:^(xwaylandvideobridge)$"
-          "noblur, class:^(xwaylandvideobridge)$"
+          "noblur, class:^()$"
           "nofocus, class:^(xwaylandvideobridge)$"
           "float, class:(clipse)"
           "size 622 622, class:(clipse)"
@@ -62,9 +67,9 @@
           "$mod, j, movefocus, d"
 
           # funct
-          ", XF86AudioLowerVolume, exec, wpctl --set-sink-volume @DEFAULT_AUDIO_SINK@ -5%"
-          ", XF86AudioRaiseVolume, exec, wpctl --set-sink-volume @DEFAULT_AUDIO_SINK@ +5%"
-          ", XF86AudioMute, exec, wpctl --set-sink-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ -5%"
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ +5% -l 1"
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
           ", XF86AudioPrev, exec, playerctl previous"
           ", XF86AudioNext, exec, playerctl next"
           ", XF86AudioPlay, exec, playerctl play-pause"
@@ -101,7 +106,14 @@
           "$mod, mouse:273, resizewindow"
         ];
 
-        exec-once = [ "clipse -listen" "discord" "steam" "kdeconnect-cli" ];
+        exec-once = [
+          "clipse -listen"
+          "XDG_SESSION_TYPE=x11 discord"
+          "steam"
+          "kdeconnect-cli"
+          "eww open bar"
+          "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        ];
       };
 
       # set to null to use the ones from the Nixos module
