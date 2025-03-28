@@ -6,6 +6,12 @@
       enable = true;
       accent = "blue";
       flavor = "mocha";
+
+      cursors = {
+        enable = true;
+        accent = "blue";
+        flavor = "mocha";
+      };
     };
 
     home.packages = with pkgs; [ catppuccin-kvantum ];
@@ -22,13 +28,6 @@
     #   };
     #   gtk3 = { extraConfig.gtk-application-prefer-dark-theme = true; };
     # };
-
-    home.pointerCursor = {
-      gtk.enable = true;
-      name = "Catppuccin-Mocha-Blue-Cursors";
-      package = pkgs.catppuccin-cursors.mochaBlue;
-      size = 16;
-    };
 
     # dconf.settings = {
     #   "org/gnome/desktop/interface" = {
