@@ -11,7 +11,7 @@
       };
     };
 
-    sops.secrets."cloudflared/nexus-tunnel/creds" = { owner = "cloudflared"; };
+    sops.secrets."cloudflared/nexus-tunnel/creds" = { owner = "nexus"; };
     services.cloudflared = {
       enable = true;
       tunnels."nexus" = {
@@ -20,9 +20,11 @@
         ingress = {
           "alpyg.dev" = { service = "http://localhost:80"; };
           "vaultwarden.alpyg.dev" = { service = "http://localhost:8222"; };
+          "crafty.alpyg.dev" = { service = "https://localhost:8443"; };
           "analytics.alpyg.dev" = { service = "http://localhost:10000"; };
           "gitea.alpyg.dev" = { service = "http://localhost:10001"; };
         };
+        originRequest.noTLSVerify = true;
         default = "http_status:404";
       };
     };

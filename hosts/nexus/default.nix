@@ -8,6 +8,7 @@
   adguard.enable = true;
   hostify.enable = true;
   nextcloud.enable = true;
+  crafty.enable = true;
 
   nix.settings = {
     auto-optimise-store = true;

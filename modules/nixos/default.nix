@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./adguard.nix
+    ./crafty.nix
     ./hostify.nix
     ./kanata.nix
     ./nextcloud.nix
