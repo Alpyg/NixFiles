@@ -7,6 +7,8 @@
       kdePackages.xwaylandvideobridge
       grim
       slurp
+      hyprshot
+      clipse
     ];
     wayland.windowManager.hyprland = {
       enable = true;
@@ -23,6 +25,7 @@
           "HYPRCURSOR_SIZE,24"
           "LIBVA_DRIVER_NAME,nvidia"
           "___GLX_VENDOR_LIBRARY_NAME,nvidia"
+          "__NV_DISABLE_EXPLICIT_SYNC,1"
         ];
 
         cursor.no_hardware_cursors = true;
@@ -73,7 +76,8 @@
           ", XF86AudioPrev, exec, playerctl previous"
           ", XF86AudioNext, exec, playerctl next"
           ", XF86AudioPlay, exec, playerctl play-pause"
-          ", Print, exec, flameshot gui -c -s"
+          ", Print, exec, hyprshot --clipboard-only -m region"
+          "SHIFT, Print, exec, hyprshot --clipboard-only -m window"
           "$mod SHIFT, v, exec, $terminal --class clipse -e clipse"
 
           # workspaces

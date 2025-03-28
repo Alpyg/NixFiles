@@ -43,6 +43,7 @@
       makeHomeManager = user: home: {
         home-manager = {
           extraSpecialArgs = { inherit inputs; };
+          backupFileExtension = "bak";
           users."${user}" = {
             imports = [
               home
