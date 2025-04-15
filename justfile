@@ -1,5 +1,8 @@
 update:
   nix flake update
+cg:
+  sudo nix-collect-garbage -d
+  nix-collect-garbage -d
 test:
   nixos-rebuild test   --target-host root@10.147.20.18  --flake .#nixos
 nixos:
