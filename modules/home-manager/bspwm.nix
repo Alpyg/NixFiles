@@ -1,5 +1,4 @@
 { lib, config, ... }: {
-
   options.bspwm = {
     enable = lib.mkEnableOption "Enable bspwm";
     startupPrograms = lib.mkOption {

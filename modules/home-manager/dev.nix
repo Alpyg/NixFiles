@@ -34,7 +34,8 @@
       rustup
       go
       dotnet-sdk
-      zigpkgs.mach
+      zig
+      zls
       just
       tmuxinator
       vrc-get

@@ -42,11 +42,13 @@
         ];
 
         general = {
-          gaps_in = 5;
-          gaps_out = 10;
+          gaps_in = 8;
+          gaps_out = 16;
           border_size = 2;
           layout = "dwindle";
         };
+
+        decoration = { rounding = 8; };
 
         input = { follow_mouse = 2; };
 
@@ -119,10 +121,6 @@
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         ];
       };
-
-      # set to null to use the ones from the Nixos module
-      package = null;
-      portalPackage = null;
     };
   };
 }

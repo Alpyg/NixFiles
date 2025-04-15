@@ -24,7 +24,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/cloud/",
         "settingsSync": true,
-        "settingsSyncVersion": 1740776776163
+        "settingsSyncVersion": 1743901064358
     },
     "plugins": {
         "BadgeAPI": {
@@ -351,7 +351,8 @@
                         "color": 10070709,
                         "channels": [
                             "945154727820267520"
-                        ]
+                        ],
+                        "collapsed": false
                     }
                 ]
             }
