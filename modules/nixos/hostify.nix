@@ -22,7 +22,6 @@
           "vaultwarden.alpyg.dev" = { service = "http://localhost:8222"; };
           "crafty.alpyg.dev" = { service = "https://localhost:8443"; };
           "analytics.alpyg.dev" = { service = "http://localhost:10000"; };
-          "gitea.alpyg.dev" = { service = "http://localhost:10001"; };
         };
         originRequest.noTLSVerify = true;
         default = "http_status:404";
@@ -39,34 +38,6 @@
         port = 10000;
         secretKeybaseFile = config.sops.secrets."plausible/key".path;
         #disableRegistration = false; # disabled after first account creation cuz adminUser didnt work
-      };
-    };
-
-    services.gitea = {
-      enable = true;
-      appName = "Gitea";
-      database.type = "sqlite3";
-
-      settings.server = {
-        HTTP_PORT = 10001;
-        DOMAIN = "gitea.alpyg.dev";
-      };
-    };
-
-    sops.secrets."gitea/runner-token" = { };
-    services.gitea-actions-runner = {
-      instances.native = {
-        enable = true;
-        name = "Native";
-        url = "http://localhost:10001";
-        token = "T5a4DqZdNLpcvcy8V7fl2bZl0GKBXT20IHm35sWK";
-        labels = [
-          "native:host"
-          # "docker:docker://docker:latest"
-          # "rust:docker://rust:alpine"
-          # "golang:docker://go:alpine"
-          # "node:docker://node:current-alpine"
-        ];
       };
     };
   };
