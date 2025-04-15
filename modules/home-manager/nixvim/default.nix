@@ -16,7 +16,6 @@
     ./ui/illuminate.nix
     ./ui/neotree.nix
     ./ui/noice.nix
-    ./ui/spectre.nix
     ./ui/telescope.nix
     ./ui/theme.nix
     ./ui/which-key.nix

@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs.nixvim.plugins = {
     dap.enable = true;
 
@@ -10,24 +10,37 @@
       enable = true;
 
       settings = {
+        codelldb_path =
+          "${pkgs.vscode-extensions.vadimcn.vscode-lldb.out}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
         configurations = {
-          zig = [{
-            name = "Debug QEMU";
-            type = "codelldb";
-            request = "launch";
-            program =
-              "$\${workspaceFolder}/zig-out/bin/$\${workspaceFolderBasename}";
-            cwd = "$\${workspaceFolder}";
-            miDebuggerPath = "gdb";
-            miDebuggerServerAddress = "localhost:1234";
-            stopAtEntry = true;
-          }];
+          zig = [
+            {
+              name = "Build";
+              type = "shell";
+              command = "zig build";
+
+            }
+            {
+              name = "Debug";
+              type = "lldb";
+              request = "launch";
+              program =
+                "\${workspaceFolder}/zig-out/bin/\${workspaceFolderBasename}";
+              cwd = "\${workspaceFolder}";
+              stopOnEntry = false;
+              dependsOn = [ "Build" ];
+            }
+          ];
         };
       };
     };
   };
 
   programs.nixvim.keymaps = [
+    {
+      key = "<leader>du";
+      action = "<cmd>lua require('dapui').toggle()<cr>";
+    }
     {
       key = "<leader>db";
       action = "<cmd>DapToggleBreakpoint<cr>";
