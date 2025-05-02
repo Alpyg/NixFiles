@@ -1,23 +1,22 @@
 { pkgs, ... }: {
+  bspwm = {
+    enable = true;
+    startupPrograms = [
+      "kill polybar"
+      "MONITOR=DP-3 polybar bar"
+      "picom -b --config ~/.config/picom/picom.conf"
+      "kdeconnect-cli"
+      "flameshot"
+      "discord"
+      "steam"
+    ];
+  };
+  catppuccin2.enable = true;
   dev.enable = true;
+  dunst.enable = true;
   nixvim.enable = true;
   polybar.enable = true;
-  hyprland.enable = true;
-  # bspwm = {
-  #   enable = true;
-  #   startupPrograms = [
-  #     "kill polybar"
-  #     "MONITOR=DP-3 polybar bar"
-  #     "picom -b --config ~/.config/picom/picom.conf"
-  #     "kdeconnect-cli"
-  #     "flameshot"
-  #     "discord"
-  #     "steam"
-  #   ];
-  # };
-  # sxhkd.enable = true;
-  # dunst.enable = true;
-  catppuccin2.enable = true;
+  sxhkd.enable = true;
 
   nixpkgs = {
     overlays = [
@@ -104,7 +103,6 @@
     (discord.override { withVencord = true; })
 
     stremio
-    (zigpkgs.mach)
     # kicad
     sops
     anki

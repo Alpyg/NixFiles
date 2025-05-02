@@ -15,7 +15,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
-  networking.hostName = "nixos";
+  networking.hostName = "kuyin";
   networking.networkmanager.enable = true;
 
   services.zerotierone = {
