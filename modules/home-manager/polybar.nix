@@ -63,10 +63,14 @@
         label = "%percentage:2%%";
       };
       "module/volume" = {
-        type = "internal/alsa";
+        type = "internal/pulseaudio";
+        use-ui-max = "false";
+        format-volume-prefix = "VOL ";
+        format-volume-prefix-foreground = "\${colors.primary}";
+        format-volume = "<label-volume>";
         label-volume = "%percentage%%";
-        label-muted-foreground = "#660";
-        interval = "10";
+        label-muted = "muted";
+        label-muted-foreground = "\${colors.disabled}";
       };
       "module/battery" = {
         type = "internal/battery";

@@ -11,17 +11,15 @@
       };
     };
 
-    sops.secrets."cloudflared/nexus-tunnel/creds" = { owner = "nexus"; };
+    sops.secrets."cloudflared/tunnel" = { owner = "nexus"; };
     services.cloudflared = {
       enable = true;
       tunnels."nexus" = {
-        credentialsFile =
-          config.sops.secrets."cloudflared/nexus-tunnel/creds".path;
+        credentialsFile = config.sops.secrets."cloudflared/tunnel".path;
         ingress = {
-          "alpyg.dev" = { service = "http://localhost:80"; };
           "vaultwarden.alpyg.dev" = { service = "http://localhost:8222"; };
-          "crafty.alpyg.dev" = { service = "https://localhost:8443"; };
           "analytics.alpyg.dev" = { service = "http://localhost:10000"; };
+          "crafty.alpyg.dev" = { service = "https://localhost:8443"; };
         };
         originRequest.noTLSVerify = true;
         default = "http_status:404";
@@ -37,7 +35,7 @@
         baseUrl = "https://analytics.alpyg.dev";
         port = 10000;
         secretKeybaseFile = config.sops.secrets."plausible/key".path;
-        #disableRegistration = false; # disabled after first account creation cuz adminUser didnt work
+        # disableRegistration = false; # disabled after first account creation cuz adminUser didnt work
       };
     };
   };

@@ -5,8 +5,8 @@
     ./btop.nix
     ./catppuccin.nix
     ./dunst.nix
+    ./fish.nix
     ./kitty.nix
-    ./eww
     ./polybar.nix
     ./sxhkd.nix
 
