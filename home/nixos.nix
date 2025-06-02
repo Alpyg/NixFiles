@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   bspwm = {
     enable = true;
     startupPrograms = [
@@ -17,6 +17,8 @@
   nixvim.enable = true;
   polybar.enable = true;
   sxhkd.enable = true;
+
+  imports = [ inputs.zen-browser.homeModules.beta ];
 
   nixpkgs = {
     overlays = [
@@ -64,7 +66,6 @@
     unrar
     thunderbird
     brave
-    # firefox-devedition
     vlc
     mpv
     syncplay
@@ -100,18 +101,27 @@
     protontricks
     winetricks
     vesktop
-    (discord.override { withVencord = true; })
+    (discord.override { withVencord = false; })
 
     stremio
-    # kicad
+    kicad
+    blender
+    freecad
     sops
     anki
     gimp
     nexusmods-app
     r2modman
     blockbench
-    ida-free
   ];
+
+  programs.zen-browser = {
+    enable = true;
+    policies = {
+      DisableAppUpdate = true;
+      DisableTelemetry = true;
+    };
+  };
 
   systemd.user.startServices = "sd-switch";
 

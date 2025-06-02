@@ -75,7 +75,8 @@
     kdePackages.ktorrent
     kdePackages.kservice
     kdePackages.polkit-kde-agent-1
-    (pkgs.discord.override { withVencord = true; })
+    (pkgs.discord.override { withVencord = false; })
+    prismlauncher
   ];
   programs.java.enable = true;
 

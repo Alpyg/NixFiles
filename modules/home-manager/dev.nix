@@ -22,28 +22,61 @@
     programs.tmux.mouse = true;
     programs.tmux.baseIndex = 1;
 
+    programs.helix = {
+      enable = true;
+      settings = {
+        editor.cursor-shape = {
+          normal = "block";
+          insert = "bar";
+          select = "underline";
+        };
+      };
+    };
+
     home.packages = with pkgs; [
-      lazydocker
-      nodejs
+      android-studio
+      bacon
       bun
-      python313
-      gcc
-      qemu
-      gnumake
       dbeaver-bin
-      rustup
-      go
       dotnet-sdk
+      gcc
+      gnumake
+      go
+      godot_4
+      google-chrome
+      jetbrains.idea-community-bin
+      just
+      kondo
+      lazydocker
+      libnotify
+      mask
+      mprocs
+      nixfmt-classic
+      nodejs
+      python313
+      qemu
+      rustup
+      rusty-man
+      tmuxinator
+      tokei
+      vrc-get
       zig
       zls
-      just
-      tmuxinator
-      vrc-get
-      libnotify
-      nixfmt-classic
-      godot_4
-      android-studio
-      google-chrome
+
+      # language servers
+      csharp-ls
+      docker-language-server
+      fish-lsp
+      gopls
+      jdt-language-server
+      kotlin-language-server
+      libclang
+      marksman
+      nixd
+      ruff
+      typescript-language-server
+      wgsl-analyzer
+      yaml-language-server
     ];
   };
 }

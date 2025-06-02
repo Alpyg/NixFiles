@@ -5,6 +5,8 @@
     ./hardware.nix
   ];
 
+  printer.enable = true;
+
   nix.settings = {
     auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
@@ -152,6 +154,13 @@
       };
     };
   };
+
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+  };
+  networking.firewall.extraCommands =
+    "iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns";
 
   system.stateVersion = "24.05";
 }

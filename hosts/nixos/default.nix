@@ -12,6 +12,7 @@
   };
   nixpkgs.config.allowUnfree = true;
 
+  # boot.kernelPackages = pkgs.linuxPackages_6_15;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
@@ -96,7 +97,7 @@
   hardware.nvidia-container-toolkit.enable = true;
 
   virtualisation.virtualbox = { host.enable = true; };
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  users.extraGroups.vboxusers.members = [ "alpyg" ];
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -115,13 +116,14 @@
   users.defaultUserShell = pkgs.fish;
 
   services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.displayManager.lightdm.greeters.gtk.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.package = pkgs.kdePackages.sddm;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "alpyg";
   services.xserver.windowManager.bspwm.enable = true;
   services.picom.enable = true;
   services.devmon.enable = true;
+  security.pam.services.login.kwallet.enable = true;
   security.polkit.enable = true;
 
   programs.fish.enable = true;
@@ -182,8 +184,8 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-    config.common.default = [ "gtk" ];
+    extraPortals = with pkgs; [ kdePackages.xdg-desktop-portal-kde ];
+    config.common.default = [ "kde" ];
   };
 
   systemd = {
@@ -201,6 +203,39 @@
         TimeoutStopSec = 10;
       };
     };
+  };
+
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      global = {
+        "workgroup" = "WORKGROUP";
+        "server string" = "smbnix";
+        "netbios name" = "smbnix";
+        security = "user";
+        #"use sendfile" = "yes";
+        #"max protocol" = "smb2";
+        # note: localhost is the ipv6 localhost ::1
+        "hosts allow" = "10.147.20.0/24 192.168.2.0/24 127.0.0.1 localhost";
+        "hosts deny" = "0.0.0.0/0";
+        "guest account" = "alpyg";
+        "map to guest" = "bad user";
+      };
+      "laribi" = {
+        path = "/mnt/y/.share/laribi";
+        browsable = "yes";
+        "read only" = "no";
+        "guest ok" = "yes";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+      };
+    };
+  };
+
+  services.samba-wsdd = {
+    enable = true;
+    openFirewall = true;
   };
 
   system.stateVersion = "24.05";

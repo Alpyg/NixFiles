@@ -19,6 +19,7 @@
     };
 
     zig.url = "github:Alpyg/zig-overlay";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -48,7 +49,7 @@
             imports = [
               home
               ./modules/home-manager
-              inputs.catppuccin.homeManagerModules.catppuccin
+              inputs.catppuccin.homeModules.catppuccin
               inputs.nixvim.homeManagerModules.nixvim
               { nixpkgs.overlays = [ inputs.zig.overlays.default ]; }
               { nixpkgs.overlays = [ inputs.eww.overlays.default ]; }
@@ -73,6 +74,10 @@
         kuyin = makeNixosSystem [
           ./hosts/kuyin
           (makeHomeManager "kuyin" ./home/kuyin.nix)
+        ];
+        live = makeNixosSystem [
+          ./hosts/nixos
+          (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
         ];
       };
     };
