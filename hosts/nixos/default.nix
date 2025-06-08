@@ -238,5 +238,9 @@
     openFirewall = true;
   };
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="2886", ATTRS{idProduct}=="0062", MODE="0660", TAG+="uaccess
+  '';
+
   system.stateVersion = "24.05";
 }

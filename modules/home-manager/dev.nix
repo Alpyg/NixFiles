@@ -22,17 +22,6 @@
     programs.tmux.mouse = true;
     programs.tmux.baseIndex = 1;
 
-    programs.helix = {
-      enable = true;
-      settings = {
-        editor.cursor-shape = {
-          normal = "block";
-          insert = "bar";
-          select = "underline";
-        };
-      };
-    };
-
     home.packages = with pkgs; [
       android-studio
       bacon

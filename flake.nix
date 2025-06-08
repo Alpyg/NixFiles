@@ -63,18 +63,24 @@
           ./hosts/nixos
           (makeHomeManager "alpyg" ./home/nixos.nix)
         ];
-        t470 = makeNixosSystem [
-          ./hosts/t470
-          (makeHomeManager "alpyg" ./home/t470.nix)
-        ];
-        nexus = makeNixosSystem [
-          ./hosts/nexus
-          (makeHomeManager "nexus" ./home/nexus.nix)
-        ];
         kuyin = makeNixosSystem [
           ./hosts/kuyin
           (makeHomeManager "kuyin" ./home/kuyin.nix)
         ];
+        t470 = makeNixosSystem [
+          ./hosts/t470
+          (makeHomeManager "alpyg" ./home/t470.nix)
+        ];
+        
+        nexus = makeNixosSystem [
+          ./hosts/nexus
+          (makeHomeManager "nexus" ./home/nexus.nix)
+        ];
+        nas = makeNixosSystem [
+          ./hosts/nas
+          (makeHomeManager "nas" ./home/nas.nix)
+        ];
+        
         live = makeNixosSystem [
           ./hosts/nixos
           (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")

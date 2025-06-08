@@ -5,13 +5,13 @@
     ./hardware.nix
   ];
 
-  hostify.enable = true;
-  crafty.enable = true;
+  adguard.enable = true;
+  nextcloud.enable = true;
 
   nix.settings = {
     auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "nexus" ];
+    trusted-users = [ "nas" ];
   };
   nixpkgs.config.allowUnfree = true;
 
@@ -22,10 +22,10 @@
   sops.defaultSopsFormat = "yaml";
 
   sops.age.generateKey = true;
-  sops.age.keyFile = "/home/nexus/.config/sops/age/keys.txt";
+  sops.age.keyFile = "/home/nas/.config/sops/age/keys.txt";
 
   networking = {
-    hostName = "nexus";
+    hostName = "nas";
     networkmanager.enable = true;
   };
 
@@ -51,12 +51,11 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    #jack.enable = true;
   };
 
-  users.users.nexus = {
+  users.users.nas = {
     isNormalUser = true;
-    description = "Nexus";
+    description = "NAS";
     extraGroups = [ "networkmanager" "wheel" "storage" "docker" ];
   };
   users.defaultUserShell = pkgs.fish;

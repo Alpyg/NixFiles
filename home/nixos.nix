@@ -3,7 +3,7 @@
     enable = true;
     startupPrograms = [
       "kill polybar"
-      "MONITOR=DP-3 polybar bar"
+      "MONITOR=HDMI-0 polybar bar"
       "picom -b --config ~/.config/picom/picom.conf"
       "kdeconnect-cli"
       "flameshot"

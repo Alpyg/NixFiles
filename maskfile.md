@@ -23,6 +23,7 @@ nixos-rebuild test   --target-host root@10.147.20.18  --flake .#nixos
 case $host in
   nixos) ip="10.147.20.18" ;;
   nexus) ip="10.147.20.99" ;;
+  nas)   ip="10.147.20.100" ;;
   t470)  ip="10.147.20.101" ;;
   kuyin) ip="10.147.20.158" ;;
   *)

@@ -13,9 +13,16 @@
 
   programs.yazi = {
     enable = true;
+    settings.manager.show_hidden = true;
+  };
+
+  programs.helix = {
+    enable = true;
     settings = {
-      manager = {
-        show_hidden = true;
+      editor.cursor-shape = {
+        normal = "block";
+        insert = "bar";
+        select = "underline";
       };
     };
   };
@@ -27,7 +34,7 @@
     fd
     lldb
     ripgrep-all
-    uutils-coreutils-noprefix
+    # uutils-coreutils-noprefix
     xh
   ];
 
