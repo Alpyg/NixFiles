@@ -101,7 +101,7 @@
     protontricks
     winetricks
     vesktop
-    (discord.override { withVencord = false; })
+    (discord.override { withVencord = true; })
 
     stremio
     kicad

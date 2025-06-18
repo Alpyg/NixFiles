@@ -45,7 +45,7 @@
     libsForQt5.xp-pen-deco-01-v2-driver
 
     vesktop
-    (pkgs.discord.override { withVencord = false; })
+    (pkgs.discord.override { withVencord = true; })
   ];
 
   systemd.user.startServices = "sd-switch";

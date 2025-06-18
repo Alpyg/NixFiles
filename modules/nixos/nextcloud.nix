@@ -2,6 +2,15 @@
   options.nextcloud.enable = lib.mkEnableOption "Enable Nextcloud";
 
   config = lib.mkIf config.nextcloud.enable {
+    networking = {
+      firewall = {
+        enable = true;
+        trustedInterfaces = [ "enp0s31f6" ];
+        allowedTCPPorts = [ 80 443 ];
+        allowedUDPPorts = [ 80 443 ];
+      };
+    };
+
     sops.secrets."nextcloud/admin-password" = { owner = "nextcloud"; };
     services.nextcloud = {
       enable = true;
@@ -30,7 +39,7 @@
         ports = [ "9980:9980" ];
         autoStart = true;
         environment = {
-          aliasgroup1 = "192.168.2.227,10.147.20.99";
+          aliasgroup1 = "192.168.2.112,10.147.20.100";
           extra_params = "--o:ssl.enable=false";
         };
       };

@@ -62,6 +62,7 @@
       libclang
       marksman
       nixd
+      omnisharp-roslyn
       ruff
       typescript-language-server
       wgsl-analyzer
