@@ -5,6 +5,7 @@
     services.ollama = {
       enable = true;
       acceleration = "cuda";
+      openFirewall = true;
 
       loadModels = [ "deepseek-r1:7b" ];
     };
