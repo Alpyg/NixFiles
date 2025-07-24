@@ -5,7 +5,7 @@
     networking = {
       firewall = {
         enable = true;
-        trustedInterfaces = [ "enp0s31f6" ];
+        trustedInterfaces = [ "eno1" ];
         allowedTCPPorts = [ 80 443 ];
         allowedUDPPorts = [ 80 443 ];
       };

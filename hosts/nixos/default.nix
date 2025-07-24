@@ -5,6 +5,8 @@
     ./hardware.nix
   ];
 
+  ollama.enable = true;
+
   nix.settings = {
     auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
@@ -12,7 +14,6 @@
   };
   nixpkgs.config.allowUnfree = true;
 
-  # boot.kernelPackages = pkgs.linuxPackages_6_15;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
@@ -105,7 +106,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    #jack.enable = true;
   };
 
   users.users.alpyg = {
@@ -140,6 +140,45 @@
     enable = true;
     openFirewall = true;
   };
+  programs.noisetorch.enable = true;
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-vaapi
+      obs-gstreamer
+      obs-vkcapture
+    ];
+  };
+  services.wivrn = {
+    enable = true;
+    openFirewall = true;
+    autoStart = true;
+
+    package = pkgs.wivrn.override { config.cudaSupport = true; };
+
+    config = {
+      enable = true;
+      json = {
+        scale = 0.5;
+        bitrate = 100000000;
+        encoders = [
+          {
+            encoder = "nvenc";
+            codec = "h264";
+            width = 1.0;
+            height = 1.0;
+            offset_x = 0.0;
+            offset_y = 0.0;
+          }
+        ];
+        application = [ pkgs.wlx-overlay-s ];
+      };
+    };
+  };
 
   catppuccin = {
     enable = true;
@@ -159,6 +198,8 @@
     vulkan-loader
     qpwgraph
     wget
+    v4l-utils
+    linuxPackages.v4l2loopback
   ];
   environment.shells = with pkgs; [ fish ];
   environment.sessionVariables = {

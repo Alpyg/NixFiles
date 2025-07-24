@@ -39,7 +39,7 @@
             "enabled": false
         },
         "MessageUpdaterAPI": {
-            "enabled": false
+            "enabled": true
         },
         "ServerListAPI": {
             "enabled": false
@@ -277,7 +277,17 @@
             "enabled": false
         },
         "MessageLogger": {
-            "enabled": false
+            "enabled": true,
+            "deleteStyle": "text",
+            "logDeletes": true,
+            "collapseDeleted": false,
+            "logEdits": true,
+            "inlineEdits": true,
+            "ignoreBots": false,
+            "ignoreSelf": true,
+            "ignoreUsers": "",
+            "ignoreChannels": "",
+            "ignoreGuilds": ""
         },
         "MessageTags": {
             "enabled": false
@@ -604,6 +614,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1750282587979
+        "settingsSyncVersion": 1753070483190
     }
 }

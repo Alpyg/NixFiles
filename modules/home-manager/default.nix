@@ -9,10 +9,10 @@
     ./home.nix
     ./hyprland.nix
     ./kitty.nix
+    ./mangohud.nix
+    ./nixvim
     ./polybar.nix
     ./sxhkd.nix
-
-    ./nixvim
     ./vscode.nix
   ];
 }

@@ -3,7 +3,7 @@
     enable = true;
     startupPrograms = [
       "kill polybar"
-      "MONITOR=HDMI-0 polybar bar"
+      "MONITOR=DP-1 polybar bar"
       "picom -b --config ~/.config/picom/picom.conf"
       "kdeconnect-cli"
       "flameshot"
@@ -14,6 +14,7 @@
   catppuccin2.enable = true;
   dev.enable = true;
   dunst.enable = true;
+  mangohud.enable = true;
   nixvim.enable = true;
   polybar.enable = true;
   sxhkd.enable = true;
@@ -40,10 +41,7 @@
   };
 
   programs.home-manager.enable = true;
-
-  programs.mangohud.enable = true;
   programs.obs-studio.enable = true;
-
   programs.fish.enable = true;
   programs.zoxide = {
     enable = true;
@@ -70,7 +68,7 @@
     mpv
     syncplay
     calibre
-    unityhub
+    # unityhub
     vrc-get
     goverlay
     prismlauncher
@@ -100,8 +98,10 @@
     })
     protontricks
     winetricks
+    limo
     vesktop
     (discord.override { withVencord = true; })
+    v4l-utils
 
     stremio
     kicad
@@ -109,7 +109,7 @@
     freecad
     sops
     anki
-    gimp
+    # gimp
     nexusmods-app
     r2modman
     blockbench

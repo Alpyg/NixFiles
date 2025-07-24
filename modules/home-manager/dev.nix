@@ -33,7 +33,7 @@
       go
       godot_4
       google-chrome
-      jetbrains.idea-community-bin
+      # jetbrains.idea-community-bin
       just
       kondo
       lazydocker

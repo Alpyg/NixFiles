@@ -5,8 +5,10 @@
     ./hardware.nix
   ];
 
-  hostify.enable = true;
+  adguard.enable = true;
   crafty.enable = true;
+  hostify.enable = true;
+  nextcloud.enable = true;
 
   nix.settings = {
     auto-optimise-store = true;

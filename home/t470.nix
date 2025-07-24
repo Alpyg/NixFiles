@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   dev.enable = true;
   polybar.enable = true;
   bspwm = {
@@ -14,6 +14,8 @@
   sxhkd.enable = true;
   dunst.enable = true;
   catppuccin2.enable = true;
+
+  imports = [ inputs.zen-browser.homeModules.beta ];
 
   nixpkgs = {
     overlays = [
@@ -79,6 +81,14 @@
     prismlauncher
   ];
   programs.java.enable = true;
+
+  programs.zen-browser = {
+    enable = true;
+    policies = {
+      DisableAppUpdate = true;
+      DisableTelemetry = true;
+    };
+  };
 
   systemd.user.startServices = "sd-switch";
 

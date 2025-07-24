@@ -20,6 +20,7 @@
           "vaultwarden.alpyg.dev" = { service = "http://localhost:8222"; };
           "analytics.alpyg.dev" = { service = "http://localhost:10000"; };
           "crafty.alpyg.dev" = { service = "https://localhost:8443"; };
+          "legge.alpyg.dev" = { service = "http://localhost:12000"; };
         };
         originRequest.noTLSVerify = true;
         default = "http_status:404";
@@ -28,15 +29,15 @@
 
     services.vaultwarden.enable = true;
 
-    sops.secrets."plausible/key" = { };
-    services.plausible = {
-      enable = true;
-      server = {
-        baseUrl = "https://analytics.alpyg.dev";
-        port = 10000;
-        secretKeybaseFile = config.sops.secrets."plausible/key".path;
-        # disableRegistration = false; # disabled after first account creation cuz adminUser didnt work
-      };
-    };
+    # sops.secrets."plausible/key" = { };
+    # services.plausible = {
+    #   enable = true;
+    #   server = {
+    #     baseUrl = "https://analytics.alpyg.dev";
+    #     port = 10000;
+    #     secretKeybaseFile = config.sops.secrets."plausible/key".path;
+    #     # disableRegistration = false; # disabled after first account creation cuz adminUser didnt work
+    #   };
+    # };
   };
 }
