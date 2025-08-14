@@ -50,7 +50,7 @@
               home
               ./modules/home-manager
               inputs.catppuccin.homeModules.catppuccin
-              inputs.nixvim.homeManagerModules.nixvim
+              inputs.nixvim.homeModules.nixvim
               { nixpkgs.overlays = [ inputs.zig.overlays.default ]; }
               { nixpkgs.overlays = [ inputs.eww.overlays.default ]; }
             ];

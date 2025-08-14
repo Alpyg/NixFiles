@@ -123,7 +123,8 @@
   services.xserver.windowManager.bspwm.enable = true;
   services.picom.enable = true;
   services.devmon.enable = true;
-  security.pam.services.login.kwallet.enable = true;
+  services.passSecretService.enable = true;
+  security.pam.services.login.enableKwallet = true;
   security.polkit.enable = true;
 
   programs.fish.enable = true;
@@ -249,12 +250,13 @@
   services.samba = {
     enable = true;
     openFirewall = true;
+    
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
         "server string" = "smbnix";
         "netbios name" = "smbnix";
-        security = "user";
+        "security" = "user";
         #"use sendfile" = "yes";
         #"max protocol" = "smb2";
         # note: localhost is the ipv6 localhost ::1
@@ -264,8 +266,8 @@
         "map to guest" = "bad user";
       };
       "laribi" = {
-        path = "/mnt/y/.share/laribi";
-        browsable = "yes";
+        "path" = "/mnt/y/.share/laribi";
+        "browsable" = "yes";
         "read only" = "no";
         "guest ok" = "yes";
         "create mask" = "0644";
@@ -279,5 +281,14 @@
     openFirewall = true;
   };
 
+  services.transmission = {
+    enable = true;
+    package = pkgs.transmission_4;
+    settings = {
+      download-dir = "/mnt/y/.torrents";
+      incomplete-dir-enabled = false;
+    };
+  };
+    
   system.stateVersion = "24.05";
 }

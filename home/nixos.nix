@@ -89,6 +89,8 @@
     kdePackages.gwenview
     kdePackages.dolphin
     kdePackages.kate
+    kdePackages.kio
+    kdePackages.kio-fuse
     kdePackages.filelight
     kdePackages.ktorrent
     kdePackages.kservice
@@ -102,6 +104,8 @@
     vesktop
     (discord.override { withVencord = true; })
     v4l-utils
+    rustmission
+    transmission-rss
 
     stremio
     kicad

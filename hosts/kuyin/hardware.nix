@@ -10,11 +10,15 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/22fe53a1-e26b-4e46-a6a8-17d0c883a458";
     fsType = "ext4";
+    noCheck = true;
+    options = [ "nofail" ];
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/5567-B3EB";
     fsType = "vfat";
+    noCheck = true;
+    options = [ "nofail" ];
   };
 
   swapDevices = [{

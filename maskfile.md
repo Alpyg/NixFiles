@@ -32,5 +32,5 @@ case $host in
     ;;
 esac
 
-nixos-rebuild switch --target-host root@$ip --flake .#$host
+nixos-rebuild switch --target-host root@$ip --use-substitutes --flake .#$host
 ~~~
