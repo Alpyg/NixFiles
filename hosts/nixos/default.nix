@@ -26,7 +26,7 @@
 
   networking = {
     hostName = "nixos";
-    useDHCP = true;
+    # useDHCP = true;
     firewall = {
       enable = true;
       trustedInterfaces = [ "eno1" "zth6rflskm" ];
@@ -97,7 +97,11 @@
   };
   hardware.nvidia-container-toolkit.enable = true;
 
-  virtualisation.virtualbox = { host.enable = true; };
+  virtualisation.virtualbox.host = {
+    enable = true;
+    enableKvm = true;
+    addNetworkInterface = false;
+  };
   users.extraGroups.vboxusers.members = [ "alpyg" ];
 
   security.rtkit.enable = true;
