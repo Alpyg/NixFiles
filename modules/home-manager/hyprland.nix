@@ -2,23 +2,16 @@
   options.hyprland.enable = lib.mkEnableOption "Enable hyprland";
 
   config = lib.mkIf config.hyprland.enable {
-    home.packages = with pkgs; [
-      rofi-wayland
-      kdePackages.xwaylandvideobridge
-      grim
-      slurp
-      hyprshot
-      clipse
-    ];
+    home.packages = with pkgs; [ wofi grim slurp hyprshot clipse ];
     wayland.windowManager.hyprland = {
       enable = true;
 
       plugins = [ pkgs.hyprlandPlugins.hyprsplit ];
       settings = {
         monitor = [
-          "HDMI-A-1, 1920x1080@60, 4480x360, 1"
           "DP-1, 2560x1440@180, 1920x0, 1"
-          "DP-2, 1920x1080@75, 0x360, 1"
+          "DP-2, 1920x1080@75, 0x180, 1"
+          ", preferred, auto, 1"
         ];
         env = [
           "XCURSOR_SIZE,24"
@@ -39,26 +32,33 @@
           "nofocus, class:^(xwaylandvideobridge)$"
           "float, class:(clipse)"
           "size 622 622, class:(clipse)"
+          "immediate, title:^(VRChat.exe)$"
         ];
 
         general = {
-          gaps_in = 8;
-          gaps_out = 16;
+          gaps_in = 4;
+          gaps_out = 8;
           border_size = 2;
           layout = "dwindle";
         };
 
-        decoration = { rounding = 8; };
+        decoration = {
+          rounding = 8;
+          rounding_power = 2;
 
-        input = { follow_mouse = 2; };
+          active_opacity = 1.0;
+          inactive_opacity = 1.0;
+        };
+
+        input = { follow_mouse = 0; };
 
         "$mod" = "SUPER";
         "$terminal" = "kitty";
 
         bind = [
           "$mod, return, exec, $terminal"
-          "$mod, d, exec, rofi -show drun -show-icons"
-          "$mod SHIFT, x, killactive"
+          "$mod, d, exec, wofi --show run"
+          "$mod, x, killactive"
 
           # tiling
           "$mod, t, togglefloating"
@@ -114,11 +114,11 @@
 
         exec-once = [
           "clipse -listen"
-          "XDG_SESSION_TYPE=x11 discord"
+          # "XDG_SESSION_TYPE=x11 discord"
           "steam"
-          "kdeconnect-cli"
-          "eww open bar"
-          "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+          "discord"
+          # "eww open bar"
+          # "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         ];
       };
     };

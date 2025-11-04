@@ -1,23 +1,24 @@
 { inputs, pkgs, ... }: {
-  bspwm = {
-    enable = true;
-    startupPrograms = [
-      "kill polybar"
-      "MONITOR=DP-1 polybar bar"
-      "picom -b --config ~/.config/picom/picom.conf"
-      "kdeconnect-cli"
-      "flameshot"
-      "discord"
-      "steam"
-    ];
-  };
+  hyprland.enable = true;
+  # bspwm = {
+  #   enable = true;
+  #   startupPrograms = [
+  #     "kill polybar"
+  #     "MONITOR=DP-1 polybar bar"
+  #     "picom -b --config ~/.config/picom/picom.conf"
+  #     "kdeconnect-cli"
+  #     "flameshot"
+  #     "discord"
+  #     "steam"
+  #   ];
+  # };
   catppuccin2.enable = true;
   dev.enable = true;
   dunst.enable = true;
   mangohud.enable = true;
   nixvim.enable = true;
-  polybar.enable = true;
-  sxhkd.enable = true;
+  # polybar.enable = true;
+  # sxhkd.enable = true;
 
   imports = [ inputs.zen-browser.homeModules.beta ];
 
@@ -69,7 +70,7 @@
     syncplay
     calibre
     # unityhub
-    vrc-get
+    alcom
     goverlay
     prismlauncher
     osu-lazer
@@ -113,7 +114,7 @@
     freecad
     sops
     anki
-    # gimp
+    gimp
     nexusmods-app
     r2modman
     blockbench
@@ -129,5 +130,5 @@
 
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 }
