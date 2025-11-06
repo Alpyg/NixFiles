@@ -1,34 +1,40 @@
-(defvar eww "$HOME/.nix-profile/bin/eww -c $HOME/.nixdots/modules/home-manager/eww/config")
+(defvar eww "$HOME/.nix-profile/bin/eww -c $HOME/.nixfiles/modules/home-manager/eww/config")
 
 
 (defwidget bar []
   (box :class "bar"
-       :orientation "v"
+       :orientation "h"
     (system)))
 
 
 (defwidget system []
-  (box :class "system" :orientation "v" :space-evenly false :valign "end" :spacing 5
+  (box :class "system"
+       :orientation "h"
+       :space-evenly false
+       :halign "end"
+       :spacing 8
     (volume)
     (time)))
 
 
 (defwidget time []
-  (box :class "time" :orientation "v" :space-evenly true
-    hour
-    minute))
-(defpoll hour :interval "1s" "date '+%H'")
-(defpoll minute :interval "1s" "date '+%M'")
+  (button :class "badge time"
+          :onclick "${eww} update show_seconds=${!show_seconds}"
+    (label :text {show_seconds ? hms : hm})))
+(defpoll hm :interval "1s" "date '+%H:%M'")
+(defpoll hms :interval "1s" "date '+%H:%M:%S'")
+(defvar show_seconds false)
 
 
 (defwidget volume []
   (eventbox
     :onhover "${eww} update show_volume=true"
-    :onhoverlost "${eww} update show_volume=false"
+    :onhoverlost "${eww} update show_volume=false "
     :onscroll "scripts/volume.sh {}"
-    (box :class "volume"
-         :orientation "v"
+    (box :class "badge volume"
+         :orientation "h"
          :space-evenly false
+         :spacing 5
       (label :class "volume_label"
              :justify "center"
              :text "${round(current_volume, 0)}")
@@ -46,11 +52,11 @@
   :geometry (geometry
               :x "0"
               :y "0"
-              :width "48px"
-              :height "100%"
-              :anchor "left center")
+              :width "100%"
+              :height "32px"
+              :anchor "center top")
   :stacking "fg"
-  :reserve (struts :distance "40px" :side "left")
+  :reserve (struts :distance "32px" :side "top")
   :windowtype "dock"
   :exclusive true
   :wm-ignore false

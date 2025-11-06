@@ -1,12 +1,17 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options.hyprland.enable = lib.mkEnableOption "Enable hyprland";
 
   config = lib.mkIf config.hyprland.enable {
-    home.packages = with pkgs; [ wofi grim slurp hyprshot clipse ];
+    home.packages = with pkgs; [wofi grim slurp hyprshot clipse];
     wayland.windowManager.hyprland = {
       enable = true;
 
-      plugins = [ pkgs.hyprlandPlugins.hyprsplit ];
+      plugins = [pkgs.hyprlandPlugins.hyprsplit];
       settings = {
         monitor = [
           "DP-1, 2560x1440@180, 1920x0, 1"
@@ -50,7 +55,7 @@
           inactive_opacity = 1.0;
         };
 
-        input = { follow_mouse = 0; };
+        input = {follow_mouse = 0;};
 
         "$mod" = "SUPER";
         "$terminal" = "kitty";
@@ -114,11 +119,9 @@
 
         exec-once = [
           "clipse -listen"
-          # "XDG_SESSION_TYPE=x11 discord"
           "steam"
           "discord"
-          # "eww open bar"
-          # "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+          "eww open bar"
         ];
       };
     };
