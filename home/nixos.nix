@@ -1,26 +1,13 @@
 { inputs, pkgs, ... }: {
   hyprland.enable = true;
-  # bspwm = {
-  #   enable = true;
-  #   startupPrograms = [
-  #     "kill polybar"
-  #     "MONITOR=DP-1 polybar bar"
-  #     "picom -b --config ~/.config/picom/picom.conf"
-  #     "kdeconnect-cli"
-  #     "flameshot"
-  #     "discord"
-  #     "steam"
-  #   ];
-  # };
   catppuccin2.enable = true;
   dev.enable = true;
   dunst.enable = true;
   mangohud.enable = true;
-  nixvim.enable = true;
-  # polybar.enable = true;
-  # sxhkd.enable = true;
 
-  imports = [ inputs.zen-browser.homeModules.beta ];
+  imports = [
+    inputs.zen-browser.homeModules.beta
+  ];
 
   nixpkgs = {
     overlays = [
@@ -69,7 +56,7 @@
     mpv
     syncplay
     calibre
-    # unityhub
+    unityhub
     alcom
     goverlay
     prismlauncher
@@ -104,12 +91,12 @@
     limo
     vesktop
     (discord.override { withVencord = true; })
-    v4l-utils
-    rustmission
-    transmission-rss
+    wlx-overlay-s
+    lsfg-vk
+    lsfg-vk-ui
 
-    stremio
-    kicad
+    # stremio
+    # kicad
     blender
     freecad
     sops
@@ -118,6 +105,7 @@
     nexusmods-app
     r2modman
     blockbench
+    inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.zen-browser = {

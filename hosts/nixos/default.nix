@@ -5,7 +5,7 @@
     ./hardware.nix
   ];
 
-  ollama.enable = true;
+  # ollama.enable = true;
 
   nix.settings = {
     auto-optimise-store = true;
@@ -55,7 +55,11 @@
 
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [ intel-media-driver vaapiVdpau libvdpau-va-gl ];
+    extraPackages = with pkgs; [
+      intel-media-driver
+      libva-vdpau-driver
+      libvdpau-va-gl
+    ];
   };
   hardware.bluetooth.enable = true;
   hardware.opentabletdriver.enable = true;
@@ -97,11 +101,11 @@
   };
   hardware.nvidia-container-toolkit.enable = true;
 
-  virtualisation.virtualbox.host = {
-    enable = true;
-    enableKvm = true;
-    addNetworkInterface = false;
-  };
+  # virtualisation.virtualbox.host = {
+  #   enable = true;
+  #   enableKvm = true;
+  #   addNetworkInterface = false;
+  # };
   users.extraGroups.vboxusers.members = [ "alpyg" ];
 
   security.rtkit.enable = true;
@@ -124,12 +128,18 @@
   services.displayManager.sddm.package = pkgs.kdePackages.sddm;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "alpyg";
-  services.xserver.windowManager.bspwm.enable = true;
-  services.picom.enable = true;
-  services.devmon.enable = true;
-  services.passSecretService.enable = true;
-  security.pam.services.login.enableKwallet = true;
-  security.polkit.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = pkgs.hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+  };
+
+  # services.xserver.windowManager.bspwm.enable = true;
+  # services.picom.enable = true;
+  # services.devmon.enable = true;
+  # services.passSecretService.enable = true;
+  # security.pam.services.login.enableKwallet = true;
+  # security.polkit.enable = true;
 
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
@@ -141,10 +151,10 @@
     dedicatedServer.openFirewall = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
-  programs.alvr = {
-    enable = true;
-    openFirewall = true;
-  };
+  # programs.alvr = {
+  #   enable = true;
+  #   openFirewall = true;
+  # };
   programs.noisetorch.enable = true;
   programs.obs-studio = {
     enable = true;
@@ -158,32 +168,31 @@
       obs-vkcapture
     ];
   };
-  services.wivrn = {
-    enable = true;
-    openFirewall = true;
-    autoStart = true;
 
-    package = pkgs.wivrn.override { config.cudaSupport = true; };
+ #  services.wivrn = {
+ #   enable = true;
+ #   openFirewall = true;
+ #   autoStart = true;
 
-    config = {
-      enable = true;
-      json = {
-        scale = 0.5;
-        bitrate = 100000000;
-        encoders = [
-          {
-            encoder = "nvenc";
-            codec = "h264";
-            width = 1.0;
-            height = 1.0;
-            offset_x = 0.0;
-            offset_y = 0.0;
-          }
-        ];
-        application = [ pkgs.wlx-overlay-s ];
-      };
-    };
-  };
+ #   package = pkgs.wivrn.override { config.cudaSupport = true; };
+
+ #   config = {
+ #     enable = true;
+ #     json = {
+ #       scale = 0.5;
+ #       bitrate = 100000000;
+ #       encoders = [{
+ #         encoder = "nvenc";
+ #         codec = "h264";
+ #         width = 1.0;
+ #         height = 1.0;
+ #         offset_x = 0.0;
+ #         offset_y = 0.0;
+ #       }];
+ #       application = [ pkgs.wlx-overlay-s ];
+ #     };
+ #   };
+ # };
 
   catppuccin = {
     enable = true;
@@ -243,7 +252,7 @@
       serviceConfig = {
         Type = "simple";
         ExecStart =
-          "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+          "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;
@@ -254,7 +263,7 @@
   services.samba = {
     enable = true;
     openFirewall = true;
-    
+
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
@@ -293,6 +302,6 @@
       incomplete-dir-enabled = false;
     };
   };
-    
+
   system.stateVersion = "25.05";
 }

@@ -28,7 +28,7 @@
   };
 
   home.packages = with pkgs; [
-    du-dust
+    dust
     dua
     eza
     fd

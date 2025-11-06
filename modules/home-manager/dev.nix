@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options.dev.enable = lib.mkEnableOption "Enable dev";
 
   config = lib.mkIf config.dev.enable {
@@ -6,9 +11,11 @@
       enable = true;
       lfs.enable = true;
 
-      userName = "Alpyg";
-      userEmail = "alpyg@pm.me";
-      extraConfig.init.defaultBranch = "main";
+      settings = {
+        user.name = "Alpyg";
+        user.email = "alpyg@pm.me";
+        init.defaultBranch = "main";
+      };
     };
     programs.gh.enable = true;
     programs.lazygit.enable = true;
@@ -54,7 +61,7 @@
 
       # language servers
       csharp-ls
-      docker-language-server
+      # docker-language-server
       fish-lsp
       gopls
       jdt-language-server

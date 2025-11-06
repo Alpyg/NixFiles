@@ -5,12 +5,12 @@
     ./catppuccin.nix
     ./dev.nix
     ./dunst.nix
+    ./eww
     ./fish.nix
     ./home.nix
     ./hyprland.nix
     ./kitty.nix
     ./mangohud.nix
-    ./nixvim
     ./polybar.nix
     ./sxhkd.nix
     ./vscode.nix
