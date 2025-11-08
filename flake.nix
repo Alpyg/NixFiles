@@ -1,11 +1,12 @@
 {
-  description = "Your new nix config";
+  description = "Alpyg nix config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
     sops-nix.url = "github:Mic92/sops-nix";
-    catppuccin.url = "github:catppuccin/nix";
+    home-manager.url = "github:nix-community/home-manager";
+    stylix.url = "github:nix-community/stylix";
+    nixcord.url = "github:kaylorben/nixcord";
     nixvim.url = "github:Alpyg/nixvim";
     zig.url = "github:Alpyg/zig-overlay";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
@@ -28,9 +29,9 @@
         modules =
           [
             ./modules/nixos
-            inputs.sops-nix.nixosModules.sops
             inputs.home-manager.nixosModules.home-manager
-            inputs.catppuccin.nixosModules.catppuccin
+            inputs.sops-nix.nixosModules.sops
+            inputs.stylix.nixosModules.stylix
           ]
           ++ modules;
       };
@@ -43,7 +44,8 @@
           imports = [
             home
             ./modules/home-manager
-            inputs.catppuccin.homeModules.catppuccin
+            inputs.stylix.homeModules.stylix
+            inputs.nixcord.homeModules.nixcord
             {nixpkgs.overlays = [inputs.zig.overlays.default];}
           ];
         };

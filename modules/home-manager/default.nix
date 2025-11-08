@@ -2,17 +2,19 @@
   imports = [
     ./bspwm.nix
     ./btop.nix
-    ./catppuccin.nix
     ./dev.nix
     ./dunst.nix
     ./eww
     ./fish.nix
     ./home.nix
     ./hyprland.nix
-    ./kitty.nix
     ./mangohud.nix
+    ./nixcord.nix
     ./polybar.nix
+    ./stylix.nix
     ./sxhkd.nix
     ./vscode.nix
   ];
+
+  programs.kitty.enable = true;
 }

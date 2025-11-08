@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.sops-nix.nixosModules.sops
 
@@ -9,14 +14,14 @@
 
   nix.settings = {
     auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "alpyg" ];
+    experimental-features = ["nix-command" "flakes"];
+    trusted-users = ["alpyg"];
   };
   nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 
   sops.defaultSopsFile = ../../secrets.yml;
   sops.defaultSopsFormat = "yaml";
@@ -29,25 +34,29 @@
     # useDHCP = true;
     firewall = {
       enable = true;
-      trustedInterfaces = [ "eno1" "zth6rflskm" ];
-      allowedTCPPorts = [ 22 9000 9001 9942 9943 9944 11470 25565 ];
-      allowedUDPPorts = [ 22 9000 9001 9942 9943 9944 11470 ];
-      allowedTCPPortRanges = [{
-        from = 1714;
-        to = 1764;
-      }];
-      allowedUDPPortRanges = [{
-        from = 1714;
-        to = 1764;
-      }];
+      trustedInterfaces = ["eno1" "zth6rflskm"];
+      allowedTCPPorts = [22 9000 9001 9942 9943 9944 11470 25565];
+      allowedUDPPorts = [22 9000 9001 9942 9943 9944 11470];
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+      ];
     };
   };
 
   services.openssh.enable = true;
   services.zerotierone = {
     enable = true;
-    joinNetworks = [ "ebe7fbd445ae1d09" ];
-    localConf = { };
+    joinNetworks = ["ebe7fbd445ae1d09"];
+    localConf = {};
   };
 
   time.timeZone = "America/Toronto";
@@ -72,7 +81,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
   services.xserver = {
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = ["nvidia"];
 
     config = ''
       Section "Device"
@@ -106,7 +115,7 @@
   #   enableKvm = true;
   #   addNetworkInterface = false;
   # };
-  users.extraGroups.vboxusers.members = [ "alpyg" ];
+  users.extraGroups.vboxusers.members = ["alpyg"];
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -119,7 +128,7 @@
   users.users.alpyg = {
     isNormalUser = true;
     description = "Alpyg";
-    extraGroups = [ "networkmanager" "wheel" "storage" "docker" ];
+    extraGroups = ["networkmanager" "wheel" "storage" "docker"];
   };
   users.defaultUserShell = pkgs.fish;
 
@@ -149,7 +158,7 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    extraCompatPackages = with pkgs; [proton-ge-bin];
   };
   # programs.alvr = {
   #   enable = true;
@@ -169,36 +178,35 @@
     ];
   };
 
- #  services.wivrn = {
- #   enable = true;
- #   openFirewall = true;
- #   autoStart = true;
+  #  services.wivrn = {
+  #   enable = true;
+  #   openFirewall = true;
+  #   autoStart = true;
 
- #   package = pkgs.wivrn.override { config.cudaSupport = true; };
+  #   package = pkgs.wivrn.override { config.cudaSupport = true; };
 
- #   config = {
- #     enable = true;
- #     json = {
- #       scale = 0.5;
- #       bitrate = 100000000;
- #       encoders = [{
- #         encoder = "nvenc";
- #         codec = "h264";
- #         width = 1.0;
- #         height = 1.0;
- #         offset_x = 0.0;
- #         offset_y = 0.0;
- #       }];
- #       application = [ pkgs.wlx-overlay-s ];
- #     };
- #   };
- # };
+  #   config = {
+  #     enable = true;
+  #     json = {
+  #       scale = 0.5;
+  #       bitrate = 100000000;
+  #       encoders = [{
+  #         encoder = "nvenc";
+  #         codec = "h264";
+  #         width = 1.0;
+  #         height = 1.0;
+  #         offset_x = 0.0;
+  #         offset_y = 0.0;
+  #       }];
+  #       application = [ pkgs.wlx-overlay-s ];
+  #     };
+  #   };
+  # };
 
-  catppuccin = {
-    enable = true;
-    accent = "blue";
-    flavor = "mocha";
-  };
+  # stylix = {
+  #   enable = true;
+  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+  # };
 
   environment.systemPackages = with pkgs; [
     fishPlugins.done
@@ -215,7 +223,7 @@
     v4l-utils
     linuxPackages.v4l2loopback
   ];
-  environment.shells = with pkgs; [ fish ];
+  environment.shells = with pkgs; [fish];
   environment.sessionVariables = {
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
@@ -234,25 +242,24 @@
     xorg.libxcb
   ];
 
-  fonts.packages = with pkgs; [ nerd-fonts.noto ];
+  fonts.packages = with pkgs; [nerd-fonts.noto];
 
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [ kdePackages.xdg-desktop-portal-kde ];
-    config.common.default = [ "kde" ];
+    extraPortals = with pkgs; [kdePackages.xdg-desktop-portal-kde];
+    config.common.default = ["kde"];
   };
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
+      wantedBy = ["graphical-session.target"];
+      wants = ["graphical-session.target"];
+      after = ["graphical-session.target"];
       serviceConfig = {
         Type = "simple";
-        ExecStart =
-          "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
+        ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;

@@ -1,6 +1,10 @@
-{ inputs, pkgs, ... }: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   hyprland.enable = true;
-  catppuccin2.enable = true;
+  # catppuccin2.enable = true;
   dev.enable = true;
   dunst.enable = true;
   mangohud.enable = true;
@@ -83,14 +87,12 @@
     kdePackages.ktorrent
     kdePackages.kservice
     kdePackages.polkit-kde-agent-1
-    (lutris.override {
-      extraLibraries = pkgs: [ wineWowPackages.waylandFull libGL ];
-    })
+    # (lutris.override {
+    #   extraLibraries = pkgs: [wineWowPackages.waylandFull libGL];
+    # })
     protontricks
     winetricks
     limo
-    vesktop
-    (discord.override { withVencord = true; })
     wlx-overlay-s
     lsfg-vk
     lsfg-vk-ui

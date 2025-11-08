@@ -1,4 +1,4 @@
-(defvar eww "$HOME/.nix-profile/bin/eww -c $HOME/.nixfiles/modules/home-manager/eww/config")
+(defvar eww "exec $HOME/.nix-profile/bin/eww -c $HOME/.nixfiles/modules/home-manager/eww/config")
 
 
 (defwidget bar []
@@ -20,6 +20,7 @@
 (defwidget time []
   (button :class "badge time"
           :onclick "${eww} update show_seconds=${!show_seconds}"
+          :timeout "1s"
     (label :text {show_seconds ? hms : hm})))
 (defpoll hm :interval "1s" "date '+%H:%M'")
 (defpoll hms :interval "1s" "date '+%H:%M:%S'")
@@ -27,10 +28,7 @@
 
 
 (defwidget volume []
-  (eventbox
-    :onhover "${eww} update show_volume=true"
-    :onhoverlost "${eww} update show_volume=false "
-    :onscroll "scripts/volume.sh {}"
+  (eventbox :onscroll "scripts/volume.sh {}"
     (box :class "badge volume"
          :orientation "h"
          :space-evenly false
@@ -44,7 +42,6 @@
                         :initial 0
                         :run-while show_volume
                         "scripts/volume.sh")
-(defvar show_volume false)
 
 
 (defwindow bar
