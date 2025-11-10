@@ -11,7 +11,17 @@
     wayland.windowManager.hyprland = {
       enable = true;
 
-      plugins = [pkgs.hyprlandPlugins.hyprsplit];
+      plugins = [
+        (pkgs.hyprlandPlugins.hyprsplit.overrideAttrs {
+          version = "0.52.0";
+          src = pkgs.fetchFromGitHub {
+            owner = "shezdy";
+            repo = "hyprsplit";
+            rev = "9ffbec966a37a08a009565864d7eec7732bd1019";
+            hash = "sha256-XlOZr7BKii0ch24ZtOqjeVl1+uGewW5XQTSteKxXg9c=";
+          };
+        })
+      ];
       settings = {
         monitor = [
           "DP-1, 2560x1440@180, 1920x0, 1"
@@ -38,6 +48,16 @@
           "float, class:(clipse)"
           "size 622 622, class:(clipse)"
           "immediate, title:^(VRChat.exe)$"
+
+          # overlay
+          "tag +overlay, title:(overlay)"
+          "float, tag:overlay"
+          "noblur, tag:overlay"
+          "nofocus, tag:overlay"
+          "noshadow, tag:overlay"
+          "noborder, tag:overlay"
+          "size 100% 100%, tag:overlay"
+          "center, tag:overlay"
         ];
 
         general = {
@@ -55,7 +75,7 @@
           inactive_opacity = 1.0;
         };
 
-        input = {follow_mouse = 0;};
+        input.follow_mouse = 0;
 
         "$mod" = "SUPER";
         "$terminal" = "kitty";
@@ -75,6 +95,11 @@
           "$mod, l, movefocus, r"
           "$mod, k, movefocus, u"
           "$mod, j, movefocus, d"
+
+          "$mod + SHIFT, h, swapwindow, l"
+          "$mod + SHIFT, l, swapwindow, r"
+          "$mod + SHIFT, k, swapwindow, u"
+          "$mod + SHIFT, j, swapwindow, d"
 
           # funct
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ -5%"
