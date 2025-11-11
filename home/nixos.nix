@@ -118,6 +118,8 @@
     };
   };
 
+  xdg.configFile."menus/applications.menu".text = builtins.readFile "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+
   systemd.user.startServices = "sd-switch";
 
   home.stateVersion = "25.05";
