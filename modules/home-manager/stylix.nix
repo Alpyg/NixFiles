@@ -14,6 +14,9 @@
       desktop = 10;
     };
 
-    targets.zen-browser.profileNames = ["Alpyg"];
+    targets = {
+      nixcord.enable = false;
+      zen-browser.profileNames = ["Alpyg"];
+    };
   };
 }

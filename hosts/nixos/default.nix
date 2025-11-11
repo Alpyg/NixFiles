@@ -143,6 +143,8 @@
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
+  services.udisks2.enable = true;
+
   # services.xserver.windowManager.bspwm.enable = true;
   # services.picom.enable = true;
   # services.devmon.enable = true;
