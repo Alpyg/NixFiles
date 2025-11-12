@@ -21,8 +21,9 @@
           ignoreSelf = true;
           ignoreBots = true;
         };
-        typingIndicator.enable = true;
+        pinDMs.enable = true;
         silentTyping.enable = true;
+        typingIndicator.enable = true;
       };
     };
   };
