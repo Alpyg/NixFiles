@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.sops-nix.nixosModules.sops
 
@@ -12,8 +16,8 @@
 
   nix.settings = {
     auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "nexus" ];
+    experimental-features = ["nix-command" "flakes"];
+    trusted-users = ["nexus"];
   };
   nixpkgs.config.allowUnfree = true;
 
@@ -34,8 +38,8 @@
   services.openssh.enable = true;
   services.zerotierone = {
     enable = true;
-    joinNetworks = [ "ebe7fbd445ae1d09" ];
-    localConf = { };
+    joinNetworks = ["ebe7fbd445ae1d09"];
+    localConf = {};
   };
 
   time.timeZone = "America/Toronto";
@@ -59,7 +63,7 @@
   users.users.nexus = {
     isNormalUser = true;
     description = "Nexus";
-    extraGroups = [ "networkmanager" "wheel" "storage" "docker" ];
+    extraGroups = ["networkmanager" "wheel" "storage" "docker"];
   };
   users.defaultUserShell = pkgs.fish;
 
@@ -104,8 +108,8 @@
     stow
     killall
   ];
-  environment.shells = with pkgs; [ fish ];
-  fonts.packages = with pkgs; [ nerd-fonts.noto ];
+  environment.shells = with pkgs; [fish];
+  fonts.packages = with pkgs; [nerd-fonts.noto];
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.11";
 }

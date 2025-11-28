@@ -8,6 +8,7 @@
     ./fish.nix
     ./home.nix
     ./hyprland.nix
+    ./input.nix
     ./mangohud.nix
     ./nixcord.nix
     ./polybar.nix

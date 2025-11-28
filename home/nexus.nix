@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   catppuccin2.enable = true;
 
   nixpkgs = {
@@ -54,5 +54,5 @@
 
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.11";
 }

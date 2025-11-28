@@ -12,6 +12,8 @@
 
   # ollama.enable = true;
 
+  environment.variables.GLFW_IM_MODULE = "ibus";
+
   nix.settings = {
     auto-optimise-store = true;
     experimental-features = ["nix-command" "flakes"];
@@ -64,6 +66,7 @@
 
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       intel-media-driver
       libva-vdpau-driver
@@ -158,6 +161,11 @@
   programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
+    package = pkgs.steam.override {
+      extraProfile = ''
+        unset TZ
+      '';
+    };
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     extraCompatPackages = with pkgs; [proton-ge-bin];
@@ -249,8 +257,12 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [kdePackages.xdg-desktop-portal-kde];
-    config.common.default = ["kde"];
+    extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+    config = {
+      common = {
+        default = ["hyprland" "gtk"];
+      };
+    };
   };
 
   systemd = {
@@ -312,5 +324,5 @@
     };
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

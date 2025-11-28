@@ -1,45 +1,50 @@
-{ config, lib, modulesPath, ... }: {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+{
+  config,
+  lib,
+  modulesPath,
+  ...
+}: {
+  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "sd_mod"];
+  boot.initrd.kernelModules = ["amdgpu"];
+  boot.kernelModules = ["kvm-intel"];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/f8658ba2-c23d-43dc-a4f6-2d0c25885cc8";
     fsType = "btrfs";
-    options = [ "subvol=@" "compress=zstd" ];
+    options = ["subvol=@" "compress=zstd"];
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/f8658ba2-c23d-43dc-a4f6-2d0c25885cc8";
     fsType = "btrfs";
-    options = [ "subvol=@home" "compress=zstd" ];
+    options = ["subvol=@home" "compress=zstd"];
   };
 
   fileSystems."/var" = {
     device = "/dev/disk/by-uuid/f8658ba2-c23d-43dc-a4f6-2d0c25885cc8";
     fsType = "btrfs";
-    options = [ "subvol=@var" "compress=zstd" ];
+    options = ["subvol=@var" "compress=zstd"];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/f8658ba2-c23d-43dc-a4f6-2d0c25885cc8";
     fsType = "btrfs";
-    options = [ "subvol=@nix" "compress=zstd" "noatime" ];
+    options = ["subvol=@nix" "compress=zstd" "noatime"];
   };
 
   fileSystems."/swap" = {
     device = "/dev/disk/by-uuid/f8658ba2-c23d-43dc-a4f6-2d0c25885cc8";
     fsType = "btrfs";
-    options = [ "subvol=@swap" "noatime" ];
+    options = ["subvol=@swap" "noatime"];
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/8420-9B07";
     fsType = "vfat";
-    options = [ "fmask=0077" "dmask=0077" ];
+    options = ["fmask=0077" "dmask=0077"];
   };
 
   fileSystems."/mnt/x" = {
@@ -52,7 +57,7 @@
     fsType = "ext4";
   };
 
-  swapDevices = [{ device = "/swap/swapfile"; }];
+  swapDevices = [{device = "/swap/swapfile";}];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode =

@@ -41,6 +41,7 @@
   };
 
   services.kdeconnect.enable = true;
+  services.hyprpolkitagent.enable = true;
 
   home.packages = with pkgs; [
     zoxide
@@ -87,9 +88,9 @@
     kdePackages.ktorrent
     kdePackages.kservice
     kdePackages.polkit-kde-agent-1
-    # (lutris.override {
-    #   extraLibraries = pkgs: [wineWowPackages.waylandFull libGL];
-    # })
+    (lutris.override {
+      extraLibraries = pkgs: [wineWowPackages.waylandFull libGL];
+    })
     protontricks
     winetricks
     limo
@@ -122,5 +123,5 @@
 
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }

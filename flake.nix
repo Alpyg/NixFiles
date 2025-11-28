@@ -7,7 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:nix-community/stylix";
     nixcord.url = "github:kaylorben/nixcord";
-    nixvim.url = "github:Alpyg/nixvim";
+    nixvim.url = "/mnt/x/Dev/nixvim";
     zig.url = "github:Alpyg/zig-overlay";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };

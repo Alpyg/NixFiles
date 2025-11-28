@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   nixpkgs = {
     overlays = [
       # (final: prev: {
@@ -45,10 +45,10 @@
     libsForQt5.xp-pen-deco-01-v2-driver
 
     vesktop
-    (pkgs.discord.override { withVencord = true; })
+    (pkgs.discord.override {withVencord = true;})
   ];
 
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }

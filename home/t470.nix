@@ -1,4 +1,8 @@
-{ inputs, pkgs, ... }: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   dev.enable = true;
   polybar.enable = true;
   bspwm = {
@@ -15,7 +19,7 @@
   dunst.enable = true;
   catppuccin2.enable = true;
 
-  imports = [ inputs.zen-browser.homeModules.beta ];
+  imports = [inputs.zen-browser.homeModules.beta];
 
   nixpkgs = {
     overlays = [
@@ -77,7 +81,7 @@
     kdePackages.ktorrent
     kdePackages.kservice
     kdePackages.polkit-kde-agent-1
-    (pkgs.discord.override { withVencord = false; })
+    (pkgs.discord.override {withVencord = false;})
     prismlauncher
   ];
   programs.java.enable = true;
@@ -92,5 +96,5 @@
 
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "25.11";
 }

@@ -11,16 +11,8 @@
     wayland.windowManager.hyprland = {
       enable = true;
 
-      plugins = [
-        (pkgs.hyprlandPlugins.hyprsplit.overrideAttrs {
-          version = "0.52.0";
-          src = pkgs.fetchFromGitHub {
-            owner = "shezdy";
-            repo = "hyprsplit";
-            rev = "9ffbec966a37a08a009565864d7eec7732bd1019";
-            hash = "sha256-XlOZr7BKii0ch24ZtOqjeVl1+uGewW5XQTSteKxXg9c=";
-          };
-        })
+      plugins = with pkgs; [
+        hyprlandPlugins.hyprsplit
       ];
       settings = {
         monitor = [
@@ -134,6 +126,9 @@
           "$mod SHIFT, 8, split:movetoworkspacesilent, 8"
           "$mod SHIFT, 9, split:movetoworkspacesilent, 9"
           "$mod SHIFT, 0, split:movetoworkspacesilent, 10"
+
+          # fcitx
+          "$mod, space, execr, fcitx5-remote -t"
         ];
 
         bindm = [
@@ -147,6 +142,9 @@
           "steam"
           "discord"
           "eww open bar"
+          "fcitx5-remote -r"
+          "fcitx5 -d --replace &"
+          "fcitx5-remote -r"
         ];
       };
     };
