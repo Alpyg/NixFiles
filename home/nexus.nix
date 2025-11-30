@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  catppuccin2.enable = true;
-
   nixpkgs = {
     overlays = [
       # (final: prev: {
@@ -45,6 +43,7 @@
     p7zip
     unzip
     unrar
+    dconf
 
     lazydocker
     nodejs

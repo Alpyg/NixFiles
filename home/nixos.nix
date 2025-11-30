@@ -4,7 +4,6 @@
   ...
 }: {
   hyprland.enable = true;
-  # catppuccin2.enable = true;
   dev.enable = true;
   dunst.enable = true;
   mangohud.enable = true;
@@ -92,6 +91,7 @@
       extraLibraries = pkgs: [wineWowPackages.waylandFull libGL];
     })
     protontricks
+    steamtinkerlaunch
     winetricks
     limo
     wlx-overlay-s
