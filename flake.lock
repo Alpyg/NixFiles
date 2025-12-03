@@ -516,8 +516,8 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1764302169,
-        "narHash": "sha256-0otYOxwcfv8LDwrQe6UWUBMDNa3loQvav9MBkhj+Wk0=",
+        "lastModified": 1764622506,
+        "narHash": "sha256-gZNMY9TLgvnHBWVWX8P6tS+Q9yagVU9d2B32fZ7Wqz8=",
         "path": "/mnt/x/Dev/nixvim",
         "type": "path"
       },

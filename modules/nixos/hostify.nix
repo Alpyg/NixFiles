@@ -24,7 +24,7 @@
           "vaultwarden.alpyg.dev" = {service = "http://localhost:8222";};
           "analytics.alpyg.dev" = {service = "http://localhost:10000";};
           "crafty.alpyg.dev" = {service = "https://localhost:8443";};
-          "legge.alpyg.dev" = {service = "http://localhost:12000";};
+          "avorust.alpyg.dev" = {service = "http://localhost:27000";};
         };
         originRequest.noTLSVerify = true;
         default = "http_status:404";
