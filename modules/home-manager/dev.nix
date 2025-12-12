@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.dev.enable = lib.mkEnableOption "Enable dev";
 
   config = lib.mkIf config.dev.enable {
@@ -50,6 +51,7 @@
       nixfmt-classic
       nodejs
       python313
+      hyperfine
       qemu
       rustup
       rusty-man
@@ -58,6 +60,7 @@
       vrc-get
       zig
       zls
+      renderdoc
 
       # language servers
       csharp-ls

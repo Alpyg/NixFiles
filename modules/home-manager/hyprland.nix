@@ -17,7 +17,7 @@
       settings = {
         monitor = [
           "DP-1, 2560x1440@180, 1920x0, 1"
-          "DP-2, 1920x1080@75, 0x180, 1"
+          "HDMI-A-1, 1920x1080@75, 0x180, 1"
           ", preferred, auto, 1"
         ];
         env = [
