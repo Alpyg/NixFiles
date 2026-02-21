@@ -3,7 +3,20 @@
   pkgs,
   ...
 }: {
-  hyprland.enable = true;
+  bspwm = {
+    enable = true;
+    startupPrograms = [
+      "kill polybar"
+      "MONITOR=HDMI-0 polybar bar"
+      "picom -b --config ~/.config/picom/picom.conf"
+      "kdeconnect-cli"
+      "flameshot"
+      "discord"
+      "steam"
+    ];
+  };
+  sxhkd.enable = true;
+  polybar.enable = true;
   dev.enable = true;
   dunst.enable = true;
   mangohud.enable = true;
