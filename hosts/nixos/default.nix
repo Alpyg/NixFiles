@@ -280,8 +280,8 @@
     libgcc
     libz
     libGL
-    xorg.libX11
-    xorg.libxcb
+    libX11
+    libxcb
   ];
 
   fonts.packages = with pkgs; [nerd-fonts.noto];
@@ -359,5 +359,5 @@
     };
   };
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }

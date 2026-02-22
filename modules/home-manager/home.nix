@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.bat = {
     enable = true;
     extraPackages = with pkgs.bat-extras; [
@@ -38,5 +38,5 @@
     xh
   ];
 
-  home.shellAliases = { ls = "eza"; };
+  home.shellAliases = {ls = "eza";};
 }

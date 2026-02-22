@@ -1,10 +1,10 @@
 {
   programs.nixcord = {
     enable = true;
-    discord.equicord.enable = true;
-    discord.vencord.enable = false;
+    discord.vencord.enable = true;
+    dorion.enable = true;
     config = {
-      enabledThemes = [];
+      enabledThemes = [ ];
       frameless = true;
       plugins = {
         betterFolders.enable = true;
@@ -24,7 +24,7 @@
           ignoreSelf = true;
           ignoreBots = true;
         };
-        pinDMs.enable = true;
+        PinDMs.enable = true;
         silentTyping.enable = true;
         typingIndicator.enable = true;
       };

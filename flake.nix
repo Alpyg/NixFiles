@@ -3,14 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
-    sops-nix.url = "github:Mic92/sops-nix";
     home-manager.url = "github:nix-community/home-manager";
+    flake-parrts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+    sops-nix.url = "github:Mic92/sops-nix";
     stylix.url = "github:nix-community/stylix";
     nixcord.url = "github:kaylorben/nixcord";
     nixvim.url = "/mnt/x/Dev/nixvim";
     zig.url = "github:Alpyg/zig-overlay";
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
   };
 
   outputs =

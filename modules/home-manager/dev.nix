@@ -3,8 +3,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   options.dev.enable = lib.mkEnableOption "Enable dev";
 
   config = lib.mkIf config.dev.enable {
@@ -48,7 +47,7 @@
       libnotify
       mask
       mprocs
-      nixfmt-classic
+      nixfmt
       nodejs
       python313
       hyperfine
